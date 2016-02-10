@@ -2,7 +2,7 @@
  * Created by wgw on 2016/2/10.
  */
 
-function oS_game(id,x,y,w,h,reflectable){
+function oS_selfControl(id,x,y,w,h,reflectable){
     outerStruct.call(this);
     this.id = id;
     this.name = id;
@@ -26,10 +26,9 @@ function oS_game(id,x,y,w,h,reflectable){
     this._curLoc = 0;
 }
 
-oS_game.prototype = new outerStruct();
-oS_game.prototype.refresh = function (self) {
+oS_selfControl.prototype = new outerStruct();
+oS_selfControl.prototype.refresh = function (self) {
     var curLoc = self._curLoc;
-    var singleRoomHeight = self.roomIntroConfig.h;
 
     self.cleanCache();
 
@@ -50,7 +49,7 @@ oS_game.prototype.refresh = function (self) {
     }
 
 }
-oS_game.prototype.drawSelf = function(self,canvas){
+oS_selfControl.prototype.drawSelf = function(self,canvas){
     var cxt = canvas.getContext("2d");
     var sW = self.showWindowConfig;
     cxt.drawImage(self.showWindowCanvas,sW.x,sW.y,sW.w,sW.h);

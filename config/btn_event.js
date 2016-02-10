@@ -40,3 +40,24 @@ function BTN_E_startGame(){
         socket.emit("startGame");
     }
 }
+
+/**
+ * roll
+ * @constructor
+ */
+function BTN_E_ROLL(){
+    console.log("random Roll");
+    var inputText = document.createElement("input");
+    inputText.setAttribute("type","text");
+    inputText.style.position = "absolute";
+
+    var btnRoll = global.getSpriteById("btn_roll");
+    console.log(btnRoll.x);
+    console.log(btnRoll.y);
+    inputText.style.top = btnRoll.y + "px";
+    inputText.style.left = btnRoll.x + "px";
+    inputText.style.zIndex = 130;
+    global.baseDiv.appendChild(inputText);
+    inputText.focus();
+
+}

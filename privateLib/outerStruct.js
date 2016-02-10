@@ -28,11 +28,6 @@ function outerStruct(id,x,y,w,h,reflectable){
     this.showWindowCanvas = document.createElement("canvas");
     this.showWindowCanvas.width = this.showWindowConfig.w;
     this.showWindowCanvas.height = this.showWindowConfig.h;
-    this.roomIntroConfig = {
-        w:this.showWindowConfig.w,
-        h:70
-    }
-    this._curLoc = 0
 }
 outerStruct.prototype = new baSprite();
 outerStruct.prototype.addNode = function(node,group_name){
@@ -77,6 +72,14 @@ outerStruct.prototype.draw = function(canvas){
 };
 outerStruct.prototype.refresh = function(self){
     self.cleanCache();
+    for(var i in this.nodeList){
+        var group_i = this.nodeList[i];
+        var group_i_list = group_i.list;
+        for(var m = 0;m<group_i_list.length;m++){
+            var sprite_m = group_i_list[m];
+            sprite_m.draw(self.showWindowCanvas);
+        }
+    }
 };
 outerStruct.prototype.drawSelf = function(self,canvas){
     var cxt = canvas.getContext("2d");

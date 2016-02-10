@@ -16,7 +16,23 @@ gameStateMachine.prototype.gameStruct = function(){
         cxt.fillRect(this.x,this.y,this.width,this.height);
     }
 
-    var os_game = new oS_game("gameS",300,50,600,350,false);
-    os_game.addToLayer(gameLayer);
+    var os_sc = new oS_selfControl("os_sc",100,300,700,250,false);
+    os_sc.addToLayer(gameLayer);
+
+    var btn_1 = new baButton("btn_roll");
+    var locInfo = {
+        x:os_sc.x+10,
+        y:os_sc.y+5,
+        width:40,
+        height:40
+    }
+    btn_1.setLoc(locInfo);
+    btn_1.bindEvent(BTN_E_ROLL);
+    btn_1.upStateInfo.text = "roll";
+    btn_1.addToLayer(gameLayer);
+
+
+
+
 
 }
