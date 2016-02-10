@@ -113,10 +113,7 @@ function buildTheQueueRoom(userType){
         btn3.setLoc(btn3Loc);
         btn3.upStateInfo.text = 'startGame';
         btn3.addToLayer(mainShowLayer);
-<<<<<<< HEAD
         btn3.bindEvent(BTN_E_startGame);
-=======
->>>>>>> origin/master
         os2.addNode(btn3);
     }
 
@@ -158,13 +155,10 @@ function ws_getOutTheRoom(){
     os2.removeAllNodes();
 }
 
-<<<<<<< HEAD
 function ws_startGame(){
     global.GSM.switchToNext("gameStruct");
 }
 
-=======
->>>>>>> origin/master
 function getRoomObjByServerId(os,id){
     var group_roomIntro = os.nodeList["roomIntro"];
     if(!group_roomIntro){
@@ -179,8 +173,6 @@ function getRoomObjByServerId(os,id){
         }
     }
     return 0;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
+
+

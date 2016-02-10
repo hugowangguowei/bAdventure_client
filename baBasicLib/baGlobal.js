@@ -80,10 +80,7 @@ baGlobal.prototype = {
         var cxt = obj.canvas.getContext('2d');
         cxt.clearRect(0,0,obj.canvas.width,obj.canvas.height);
         obj.state = "hide";
-<<<<<<< HEAD
         obj.closeMachine();
-=======
->>>>>>> origin/master
     },
     hideAllLayer:function(){
         for(var i = 0;i< this.layerArray.length;i++){

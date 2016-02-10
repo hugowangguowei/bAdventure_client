@@ -4,18 +4,15 @@
 
 function BTN_E_getIntoARoom(){
     var roomID = _getChosenRoomID();
-<<<<<<< HEAD
     var socket = getCurrentSocket();
     if(socket){
         socket.emit("askGetIntoRoom",roomID);
     }
-=======
     if(!BASIC_SOCKET){
         throw new Error("no webSocket found!");
         return 0;
     }
     BASIC_SOCKET.emit("askGetIntoRoom",roomID);
->>>>>>> origin/master
 
     function _getChosenRoomID(){
         var os1 = global.getSpriteById("outerS");
@@ -38,12 +35,8 @@ function BTN_E_getIntoARoom(){
 }
 
 function BTN_E_startGame(){
-<<<<<<< HEAD
     var socket = getCurrentSocket();
     if(socket){
         socket.emit("startGame");
     }
-=======
-
->>>>>>> origin/master
 }
