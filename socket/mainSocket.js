@@ -40,8 +40,11 @@ function connectToServer(detail){
         console.log("getOutTheRoom");
         ws_getOutTheRoom();
     });
+<<<<<<< HEAD
     mainSocket.on("startGame", function () {
         console.log("startGame");
         ws_startGame();
     });
+=======
+>>>>>>> origin/master
 }

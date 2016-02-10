@@ -2,6 +2,7 @@
  * Created by wangguowei on 2001/1/11.
  */
 
+<<<<<<< HEAD
 var BASIC_SOCKET = 0;
 
 function getCurrentSocket(){
@@ -15,3 +16,6 @@ function getCurrentSocket(){
 function setCurrentSocket(socket){
     BASIC_SOCKET = socket;
 }
+=======
+var BASIC_SOCKET = 0;
+>>>>>>> origin/master
