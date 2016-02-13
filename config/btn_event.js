@@ -47,17 +47,24 @@ function BTN_E_startGame(){
  */
 function BTN_E_ROLL(){
     console.log("random Roll");
+
+}
+
+function BTN_E_CLIENT_INPUT(){
     var inputText = document.createElement("input");
     inputText.setAttribute("type","text");
     inputText.style.position = "absolute";
 
-    var btnRoll = global.getSpriteById("btn_roll");
-    console.log(btnRoll.x);
-    console.log(btnRoll.y);
-    inputText.style.top = btnRoll.y + "px";
-    inputText.style.left = btnRoll.x + "px";
+    var btnClientInput = global.getSpriteById("btn_clientInput");
+    inputText.style.top = btnClientInput.y + "px";
+    inputText.style.left = btnClientInput.x + "px";
+    inputText.style.height = btnClientInput.height - 5 + "px";
+    inputText.style.width = btnClientInput.width -5 + "px";
     inputText.style.zIndex = 130;
     global.baseDiv.appendChild(inputText);
     inputText.focus();
+}
+
+function BTN_E_CLIENT_SUBMIT(){
 
 }
