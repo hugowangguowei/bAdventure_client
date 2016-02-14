@@ -29,7 +29,6 @@ gameStateMachine.prototype.gameStruct = function(){
         os_ms.showWindowConfig.y,
         os_ms.showWindowConfig.w,
         os_ms.showWindowConfig.h);
-
     textST.addToLayer(gameLayer);
 
     //вт©ь©Р============================================================================================================

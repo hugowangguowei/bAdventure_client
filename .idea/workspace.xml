@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed63a3ec-57b6-499d-adbf-c7f94511b775" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/privateLib/bB_msgShow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/privateLib/textBlock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baGlobal.js" afterPath="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baLayer.js" afterPath="$PROJECT_DIR$/baBasicLib/baLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baSprite.js" afterPath="$PROJECT_DIR$/baBasicLib/baSprite.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/struct_config.js" afterPath="$PROJECT_DIR$/config/struct_config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/privateLib/textBlock.js" afterPath="$PROJECT_DIR$/privateLib/textBlock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bAdventure_client.iws" />
@@ -31,6 +26,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.588236">
+              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baGlobal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baBasicLib/baGlobal.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,24 +56,27 @@
         <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="e#366#508#0" expanded="false" />
-                <element signature="e#1540#1626#0" expanded="false" />
-                <element signature="e#1835#1924#0" expanded="false" />
-                <element signature="e#2191#2284#0" expanded="false" />
+                <element signature="e#1539#1625#0" expanded="false" />
+                <element signature="e#1834#1923#0" expanded="false" />
+                <element signature="e#2190#2283#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textBlock.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="textBlock.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/privateLib/textBlock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="2" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.51686615">
+              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1084#1136#0" expanded="false" />
+                <element signature="e#1175#1179#0" expanded="false" />
+                <element signature="e#1220#1224#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,11 +133,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oS_memShow.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="btn_event.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/btn_event.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+              <folding>
+                <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
+                <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oS_memShow.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -146,26 +167,6 @@
                 <element signature="e#3071#3154#0" expanded="false" />
                 <element signature="e#3210#3607#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bB_msgShow.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/privateLib/bB_msgShow.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="struct_config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/struct_config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -203,14 +204,14 @@
         <option value="$PROJECT_DIR$/config/btn_event.js" />
         <option value="$PROJECT_DIR$/privateLib/os_memShow.js" />
         <option value="$PROJECT_DIR$/privateLib/bB_msgShow.js" />
-        <option value="$PROJECT_DIR$/main.html" />
-        <option value="$PROJECT_DIR$/privateLib/oS_memShow.js" />
         <option value="$PROJECT_DIR$/config/struct_config.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baLayer.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baSprite.js" />
-        <option value="$PROJECT_DIR$/privateLib/textBlock.js" />
+        <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
+        <option value="$PROJECT_DIR$/privateLib/oS_memShow.js" />
+        <option value="$PROJECT_DIR$/privateLib/textBlock.js" />
       </list>
     </option>
   </component>
@@ -470,7 +471,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455369840969</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="textArea&#10;">
+      <created>1455465832403</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1455465832403</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -522,7 +529,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -600,9 +607,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#366#508#0" expanded="false" />
-            <element signature="e#1540#1626#0" expanded="false" />
-            <element signature="e#1835#1924#0" expanded="false" />
-            <element signature="e#2191#2284#0" expanded="false" />
+            <element signature="e#1539#1625#0" expanded="false" />
+            <element signature="e#1834#1923#0" expanded="false" />
+            <element signature="e#2190#2283#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,9 +687,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#366#508#0" expanded="false" />
-            <element signature="e#1540#1626#0" expanded="false" />
-            <element signature="e#1835#1924#0" expanded="false" />
-            <element signature="e#2191#2284#0" expanded="false" />
+            <element signature="e#1539#1625#0" expanded="false" />
+            <element signature="e#1834#1923#0" expanded="false" />
+            <element signature="e#2190#2283#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,9 +807,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#366#508#0" expanded="false" />
-            <element signature="e#1540#1626#0" expanded="false" />
-            <element signature="e#1835#1924#0" expanded="false" />
-            <element signature="e#2191#2284#0" expanded="false" />
+            <element signature="e#1539#1625#0" expanded="false" />
+            <element signature="e#1834#1923#0" expanded="false" />
+            <element signature="e#2190#2283#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -998,18 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/btn_event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_CLIENT_INPUT#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/privateLib/oS_roomList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1021,14 +1016,6 @@
             <element signature="e#1919#2303#0" expanded="false" />
             <element signature="e#2359#2443#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1081,6 +1068,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/privateLib/outerStruct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+          <folding>
+            <element signature="e#2448#2836#0" expanded="false" />
+            <element signature="e#2883#3016#0" expanded="false" />
+            <element signature="e#3071#3154#0" expanded="false" />
+            <element signature="e#3210#3607#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privateLib/bB_memIntro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.588236">
+          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/btn_event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
+            <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/baBasicLib/baSprite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1099,55 +1126,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/outerStruct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
-          <folding>
-            <element signature="e#2448#2836#0" expanded="false" />
-            <element signature="e#2883#3016#0" expanded="false" />
-            <element signature="e#3071#3154#0" expanded="false" />
-            <element signature="e#3210#3607#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/textBlock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="2" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="e#366#508#0" expanded="false" />
-            <element signature="e#1540#1626#0" expanded="false" />
-            <element signature="e#1835#1924#0" expanded="false" />
-            <element signature="e#2191#2284#0" expanded="false" />
+            <element signature="e#1539#1625#0" expanded="false" />
+            <element signature="e#1834#1923#0" expanded="false" />
+            <element signature="e#2190#2283#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/bB_memIntro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privateLib/textBlock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51686615">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1084#1136#0" expanded="false" />
+            <element signature="e#1175#1179#0" expanded="false" />
+            <element signature="e#1220#1224#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
