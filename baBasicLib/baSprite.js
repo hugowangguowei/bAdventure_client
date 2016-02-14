@@ -34,6 +34,12 @@ baSprite.prototype = {
         this.logicParent = arg;
         arg.logicChildList.push(this);
     },
+    delete:function(){
+        //
+    },
+    hide:function(){
+        //
+    },
     removeLogicChild:function(arg){
         for(var i in this.logicChildList){
             if(this.logicChildList[i] == arg){

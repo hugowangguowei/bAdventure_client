@@ -79,8 +79,7 @@ baGlobal.prototype = {
     hideLayer:function(obj){
         var cxt = obj.canvas.getContext('2d');
         cxt.clearRect(0,0,obj.canvas.width,obj.canvas.height);
-        obj.state = "hide";
-        obj.closeMachine();
+        obj.hide();
     },
     hideAllLayer:function(){
         for(var i = 0;i< this.layerArray.length;i++){

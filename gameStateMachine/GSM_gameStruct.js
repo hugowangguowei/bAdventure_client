@@ -16,7 +16,29 @@ gameStateMachine.prototype.gameStruct = function(){
         cxt.fillRect(this.x,this.y,this.width,this.height);
     }
 
-    var os_sc = new oS_selfControl("os_sc",100,400,700,150,false);
+    //消息展示框========================================================================================================
+    var os_ms = new outerStruct("os_msgShow",
+        GAME_STRUCT_CLIENT_MSG_SHOW_X,
+        GAME_STRUCT_CLIENT_MSG_SHOW_Y,
+        GAME_STRUCT_CLIENT_MSG_SHOW_W,
+        GAME_STRUCT_CLIENT_MSG_SHOW_H,
+        false);
+    os_ms.addToLayer(gameLayer);
+    var textST = new textBlock("textShowTag",
+        os_ms.showWindowConfig.x,
+        os_ms.showWindowConfig.y,
+        os_ms.showWindowConfig.w,
+        os_ms.showWindowConfig.h);
+
+    textST.addToLayer(gameLayer);
+
+    //自控框============================================================================================================
+    var os_sc = new oS_selfControl("os_sc",
+        GAME_STRUCT_CLIENT_SELF_CONTROL_X,
+        GAME_STRUCT_CLIENT_SELF_CONTROL_Y,
+        GAME_STRUCT_CLIENT_SELF_CONTROL_W,
+        GAME_STRUCT_CLIENT_SELF_CONTROL_H,
+        false);
     os_sc.addToLayer(gameLayer);
 
     var btn_1 = new baButton("btn_roll");
@@ -55,6 +77,14 @@ gameStateMachine.prototype.gameStruct = function(){
     btn_clientSubmit.upStateInfo.text = "commit";
     btn_clientSubmit.addToLayer(gameLayer);
 
+    //成员列表==========================================================================================================
+    var os_memShow = new oS_memShow("os_memS",
+        GAME_STRUCT_CLIENT_MEM_LIST_X,
+        GAME_STRUCT_CLIENT_MEM_LIST_Y,
+        GAME_STRUCT_CLIENT_MEM_LIST_W,
+        GAME_STRUCT_CLIENT_MEM_LIST_H,
+        false);
+    os_memShow.addToLayer(gameLayer);
 
 
 

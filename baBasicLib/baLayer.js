@@ -106,6 +106,14 @@ baLayer.prototype = {
         if(this.dynamic_interval){
             window.clearInterval(this.dynamic_interval);
         }
+    },
+    hide: function () {
+        this.state = "hide";
+        this.closeMachine();
+        for(var i in this.childList){
+            var child_i = this.childList[i];
+            child_i.hide();
+        }
     }
 }
 
