@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed63a3ec-57b6-499d-adbf-c7f94511b775" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/privateLib/textBlock.js" afterPath="$PROJECT_DIR$/privateLib/textBlock.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.588236">
-              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.3502825">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -67,16 +65,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="textBlock.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="textBlock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/privateLib/textBlock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51686615">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#1084#1136#0" expanded="false" />
-                <element signature="e#1175#1179#0" expanded="false" />
-                <element signature="e#1220#1224#0" expanded="false" />
+                <element signature="e#1095#1147#0" expanded="false" />
+                <element signature="e#1186#1190#0" expanded="false" />
+                <element signature="e#1231#1235#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -251,6 +249,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -356,7 +355,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -477,7 +475,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455465832403</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="textAreaFinish&#10;">
+      <created>1455468217992</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1455468217992</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -525,7 +529,8 @@
     <MESSAGE value="canvas中添加text输入框&#10;" />
     <MESSAGE value="自控框设置&#10;" />
     <MESSAGE value="textArea&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="textArea&#10;" />
+    <MESSAGE value="textAreaFinish&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="textAreaFinish&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -541,7 +546,6 @@
           <folding>
             <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
             <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_CLIENT_INPUT#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -621,7 +625,6 @@
           <folding>
             <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
             <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_CLIENT_INPUT#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -767,7 +770,6 @@
           <folding>
             <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
             <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_CLIENT_INPUT#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,7 +889,6 @@
           <folding>
             <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
             <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_CLIENT_INPUT#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1089,25 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.588236">
-          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/btn_event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
-            <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baBasicLib/baSprite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1147,16 +1129,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/btn_event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#BTN_E_startGame#0" expanded="false" />
+            <element signature="n#!!block;n#BTN_E_ROLL#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/privateLib/textBlock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51686615">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1084#1136#0" expanded="false" />
-            <element signature="e#1175#1179#0" expanded="false" />
-            <element signature="e#1220#1224#0" expanded="false" />
+            <element signature="e#1095#1147#0" expanded="false" />
+            <element signature="e#1186#1190#0" expanded="false" />
+            <element signature="e#1231#1235#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3502825">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

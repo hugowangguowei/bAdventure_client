@@ -29,11 +29,12 @@ textBlock.prototype.init = function(){
     }
     var tA = document.createElement("textArea");
     tA.setAttribute("id","tA1");
+    //tA.resize = "none";
     tA.style.position = "absolute";
     tA.style.left = this.x + "px";
     tA.style.top = this.y + "px";
-    tA.style.width = this.width + "px";
-    tA.style.height = this.height + "px";
+    tA.style.width = 300 + "px";
+    tA.style.height = 200 + "px";
     tA.style.zIndex = 130;
     var mainDiv = document.getElementById("mainDiv");
     if(!mainDiv){
