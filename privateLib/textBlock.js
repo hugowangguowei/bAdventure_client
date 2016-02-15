@@ -29,12 +29,15 @@ textBlock.prototype.init = function(){
     }
     var tA = document.createElement("textArea");
     tA.setAttribute("id","tA1");
-    //tA.resize = "none";
+    tA.resize = false;
     tA.style.position = "absolute";
     tA.style.left = this.x + "px";
     tA.style.top = this.y + "px";
-    tA.style.width = 300 + "px";
-    tA.style.height = 200 + "px";
+    tA.style.width = "694px";
+    tA.style.height = "294px";
+    //tA.style.width = this.width + "px";
+    //tA.style.height = this.height + "px";
+    tA.style.resize = "none";
     tA.style.zIndex = 130;
     var mainDiv = document.getElementById("mainDiv");
     if(!mainDiv){
@@ -42,6 +45,7 @@ textBlock.prototype.init = function(){
         return;
     }
     mainDiv.appendChild(tA);
+    this.textArea = tA;
 };
 textBlock.prototype.draw = function(){
     if(!this.isInit){
@@ -53,6 +57,13 @@ textBlock.prototype.hide = function(){
 };
 textBlock.prototype.delete = function(){
 
+};
+textBlock.prototype.addText = function(info){
+    if(!this.textArea){
+        return;
+    }
+    var strInfo = info.sender + ": " + info.msg + "\n";
+    this.textArea.value += strInfo;
 }
 
 

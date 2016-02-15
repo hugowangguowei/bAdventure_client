@@ -56,8 +56,16 @@
                 {stateName:"mainShowBasicStruct",stateFunction:"mainShowBasicStruct"}
             ];
             GSM1.initRoutine();
-
         }
+
+        function addText(){
+            var textB = global.getSpriteById("textShowTag");
+
+            if(textB){
+                textB.addText({sender:"aa",msg:"ahaY"});
+            }
+        }
+
     </script>
 </head>
 <body onload = "initial();">
@@ -73,6 +81,7 @@
     roomName:<input type="text" id ="createRoomName" value="roomName"/>
     memNum:<input type="text" id = "roomMemNum" value ="5"/>
     <input type="button" id = "createRoomBtn" onclick="createNewRoom()" value = "确认创建"/>
+    <input type="button" id = "inputText" onclick="addText()" value="添加文字"/>
     <hr>
     <div id = "mainDiv"></div>
     <hr>

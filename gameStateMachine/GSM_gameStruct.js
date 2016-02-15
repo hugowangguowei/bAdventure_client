@@ -85,6 +85,4 @@ gameStateMachine.prototype.gameStruct = function(){
         false);
     os_memShow.addToLayer(gameLayer);
 
-
-
 }
