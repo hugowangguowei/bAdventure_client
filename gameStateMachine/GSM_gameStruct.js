@@ -27,8 +27,8 @@ gameStateMachine.prototype.gameStruct = function(){
     var textST = new textBlock("textShowTag",
         os_ms.showWindowConfig.x,
         os_ms.showWindowConfig.y,
-        os_ms.showWindowConfig.w,
-        os_ms.showWindowConfig.h);
+        os_ms.showWindowConfig.w - 6,
+        os_ms.showWindowConfig.h - 6);
     textST.addToLayer(gameLayer);
 
     //вт©ь©Р============================================================================================================

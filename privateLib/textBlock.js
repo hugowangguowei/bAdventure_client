@@ -17,7 +17,7 @@ function textBlock(id,x,y,w,h){
     this.textArea = null;
     this.isPrivate = false;
     this.isFocusOn = false;
-    this.message = [];
+    this.message = "";
 }
 
 textBlock.prototype = new baSprite();
@@ -29,14 +29,13 @@ textBlock.prototype.init = function(){
     }
     var tA = document.createElement("textArea");
     tA.setAttribute("id","tA1");
+    tA.setAttribute("readOnly","true");
     tA.resize = false;
     tA.style.position = "absolute";
     tA.style.left = this.x + "px";
     tA.style.top = this.y + "px";
-    tA.style.width = "694px";
-    tA.style.height = "294px";
-    //tA.style.width = this.width + "px";
-    //tA.style.height = this.height + "px";
+    tA.style.width = this.width + "px";
+    tA.style.height = this.height + "px";
     tA.style.resize = "none";
     tA.style.zIndex = 130;
     var mainDiv = document.getElementById("mainDiv");
@@ -53,7 +52,10 @@ textBlock.prototype.draw = function(){
     }
 };
 textBlock.prototype.hide = function(){
-
+    if(this.textArea){
+        this.textArea.parentNode.removeChild(this.textArea);
+        this.textArea = null;
+    }
 };
 textBlock.prototype.delete = function(){
 
@@ -62,8 +64,8 @@ textBlock.prototype.addText = function(info){
     if(!this.textArea){
         return;
     }
-    var strInfo = info.sender + ": " + info.msg + "\n";
-    this.textArea.value += strInfo;
+    this.message += info.sender + ": " + info.msg + "\n";
+    this.textArea.value = this.message;
 }
 
 
