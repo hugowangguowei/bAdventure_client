@@ -84,8 +84,21 @@ function GSM_gameStruct(_this){
         GAME_STRUCT_CLIENT_MEM_LIST_H,
         false);
     os_memShow.addToLayer(gameLayer);
+    _buildMemList(_this._startGameMsg);
 
-    var a = _this._startGameMsg;
-    console.log(a);
+    function _buildMemList(msg){
+        //当前版本中，传入信息仅包括mem信息
+        var msg_i;
+        for(var i = 0;i<msg.length;i++){
+            msg_i = msg[i];
+            var id = getNewIdForMemPlayer();
+            var memCtrl_i = new bB_memCtrl(id);
+            memCtrl_i.name = msg_i.name;
+            memCtrl_i.serverId = msg_i.serverId;
+            memCtrl_i.level = msg_i.level;
+            os_memShow.addNode(memCtrl_i);
+        }
+    }
+
 
 }

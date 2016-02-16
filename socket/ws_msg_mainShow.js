@@ -156,8 +156,9 @@ function ws_getOutTheRoom(){
 }
 
 function ws_startGame(msg){
-    global.GSM.switchToNext("gameStruct");
     global.GSM._startGameMsg = msg;
+    global.GSM.switchToNext("gameStruct");
+
 }
 
 function getRoomObjByServerId(os,id){
