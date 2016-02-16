@@ -2,8 +2,7 @@
  * Created by wangguowei on 2001/1/11.
  */
 
-gameStateMachine.prototype.gameLoading = function(){
-    var _this = this;
+function GSM_gameLoading(_this){
     global.addLayer("loadingLayer",120);
     var ldLayer = global.getLayer("loadingLayer");
 

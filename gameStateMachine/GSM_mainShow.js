@@ -2,7 +2,7 @@
  * Created by wangguowei on 2001/1/11.
  */
 
-gameStateMachine.prototype.mainShow = function(){
+function GSM_mainShow(_this){
     global.hideAllLayer();
     if(global.getLayer("loadingLayer")){
         global.removeLayer("loadingLayer");

@@ -2,8 +2,8 @@
  * Created by wangguowei on 2001/1/11.
  */
 
-gameStateMachine.prototype.mainShowBasicStruct = function(){
-    this.privateState.mainSHowBBSOn = true;
+function GSM_mainShowBasicStruct(_this){
+    _this.privateState.mainSHowBBSOn = true;
     var mainShowLayer = global.getLayer("mainShowLayer");
     var singleProBtn = mainShowLayer.getChildById("singleProBtn");
     mainShowLayer.removeChild(singleProBtn);
@@ -48,7 +48,7 @@ gameStateMachine.prototype.mainShowBasicStruct = function(){
     btn3.addToLayer(mainShowLayer);
     os_1.addNode(btn3);
 
-    this.doMouseWheel = function (event) {
+    _this.doMouseWheel = function (event) {
         var delta_y = event.deltaY;
         var os_1 = global.getSpriteById("outerS");
         os_1.onMouseWheel(delta_y);

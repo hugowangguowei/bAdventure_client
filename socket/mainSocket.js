@@ -40,8 +40,8 @@ function connectToServer(detail){
         console.log("getOutTheRoom");
         ws_getOutTheRoom();
     });
-    mainSocket.on("startGame", function () {
+    mainSocket.on("startGame", function (msg) {
         console.log("startGame");
-        ws_startGame();
+        ws_startGame(msg);
     });
 }

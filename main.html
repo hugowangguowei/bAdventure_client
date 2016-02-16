@@ -49,11 +49,10 @@
             var GSM1 = global.getGameStateMachine();
 
             GSM1.gameStateArray = [
-                {stateName:"loading",stateFunction:"gameLoading"},
-                {stateName:"mainShow",stateFunction:"mainShow"},
-                {stateName:"mainShowBasicStruct",stateFunction:"mainShowBasicStruct"},
-                {stateName:"gameStruct",stateFunction:"gameStruct"},
-                {stateName:"mainShowBasicStruct",stateFunction:"mainShowBasicStruct"}
+                {stateName:"loading",stateFunction:GSM_gameLoading},
+                {stateName:"mainShow",stateFunction:GSM_mainShow},
+                {stateName:"mainShowBasicStruct",stateFunction:GSM_mainShowBasicStruct},
+                {stateName:"gameStruct",stateFunction:GSM_gameStruct}
             ];
             GSM1.initRoutine();
         }

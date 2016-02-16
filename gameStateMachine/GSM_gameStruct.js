@@ -2,7 +2,7 @@
  * Created by wgw on 2016/2/10.
  */
 
-gameStateMachine.prototype.gameStruct = function(){
+function GSM_gameStruct(_this){
 
     global.hideAllLayer();
     var gameLayer = global.addLayer("gameStructLayer",121);
@@ -84,5 +84,8 @@ gameStateMachine.prototype.gameStruct = function(){
         GAME_STRUCT_CLIENT_MEM_LIST_H,
         false);
     os_memShow.addToLayer(gameLayer);
+
+    var a = _this._startGameMsg;
+    console.log(a);
 
 }

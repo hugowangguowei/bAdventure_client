@@ -8,11 +8,6 @@ function BTN_E_getIntoARoom(){
     if(socket){
         socket.emit("askGetIntoRoom",roomID);
     }
-    if(!BASIC_SOCKET){
-        throw new Error("no webSocket found!");
-        return 0;
-    }
-    BASIC_SOCKET.emit("askGetIntoRoom",roomID);
 
     function _getChosenRoomID(){
         var os1 = global.getSpriteById("outerS");

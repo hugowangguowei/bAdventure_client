@@ -10,6 +10,7 @@ function gameStateMachine(){
     this.userID = "hugo";
     this.currentObj = null;
     this.privateState = {};
+    this._startGameMsg = null;
 }
 gameStateMachine.prototype = {
     addListener:function(){
@@ -124,12 +125,11 @@ gameStateMachine.prototype = {
     initRoutine:function(){
         this.addListener();
         this.currentState = this.gameStateArray[0];
-        //!!
-        eval("this." + this.currentState.stateFunction + "()");
+        this.currentState.stateFunction(this);
     },
     switchToNext:function(stateName){
         var stateChanged = false;
-        for(var i in this.gameStateArray){
+        for(var i = 0;i<this.gameStateArray.length;i++){
             if(this.gameStateArray[i].stateName == stateName){
                 this.currentState = this.gameStateArray[i];
                 stateChanged = true;
@@ -140,8 +140,8 @@ gameStateMachine.prototype = {
             throw new Error("gsm set wrong");
         }
         else{
-            eval("this." + this.currentState.stateFunction + "()");
-            console.log("LISTEN: " + this.currentState.stateFunction);
+            this.currentState.stateFunction(this);
+            console.log("LISTEN: " + this.currentState.stateName);
         }
     },
 }
