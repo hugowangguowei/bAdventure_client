@@ -97,6 +97,7 @@ function GSM_gameStruct(_this){
             memCtrl_i.serverId = msg_i.serverId;
             memCtrl_i.level = msg_i.level;
             os_memShow.addNode(memCtrl_i);
+            memCtrl_i.addToLayer(gameLayer);
         }
     }
 
