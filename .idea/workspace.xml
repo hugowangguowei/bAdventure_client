@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed63a3ec-57b6-499d-adbf-c7f94511b775" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main_module.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baBasicLib/testObj.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" />
+      <change type="DELETED" beforePath="E:\程序\github\bAdventure_client\gameStateMachine\GSM_gameLoading.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_mainShow.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_mainShow.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_mainShowBasicStruct.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_mainShowBasicStruct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baGlobal.js" afterPath="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baLayer.js" afterPath="$PROJECT_DIR$/baBasicLib/baLayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/gameState.js" afterPath="$PROJECT_DIR$/baBasicLib/gameState.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_module.html" afterPath="$PROJECT_DIR$/main_module.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="45a38791-b466-4a2d-b4c6-affb6a80c88f" name="Failed commit: Default" comment="区分了leader和normal的gameStruct">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/socket/WSManager.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/privateLib/bB_memCtrl.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outLib/require.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/btn_event.js" afterPath="$PROJECT_DIR$/config/btn_event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
     </list>
@@ -24,7 +25,6 @@
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <file path="$PROJECT_DIR$/main.html" ignored="false" />
-    <file path="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,76 +41,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GSM_gameStruct.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26281208">
-              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-              <folding>
-                <element signature="e#94#7646#0" expanded="false" />
-                <element signature="e#703#877#0" expanded="false" />
-                <element signature="e#2108#2234#0" expanded="false" />
-                <element signature="e#3816#7068#0" expanded="false" />
-                <element signature="e#3994#4168#0" expanded="false" />
-                <element signature="e#5399#5525#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSM_mainShow.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_mainShow.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding>
-                <element signature="e#65#1081#0" expanded="false" />
-                <element signature="e#99#1054#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSM_mainShowBasicStruct.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_mainShowBasicStruct.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-              <folding>
-                <element signature="e#109#1788#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainSocket.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/socket/mainSocket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WSManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/socket/WSManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main_module.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_module.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.117647">
-              <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+            <state vertical-scroll-proportion="-8.911765">
+              <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
               <folding>
-                <element signature="e#2525#2806#0" expanded="false" />
-                <element signature="e#3702#3901#0" expanded="false" />
+                <element signature="e#2520#2801#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="baLayer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baBasicLib/baLayer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+              <folding>
+                <element signature="e#63#3689#0" expanded="false" />
+                <element signature="e#101#410#0" expanded="false" />
+                <element signature="e#435#3666#0" expanded="false" />
+                <element signature="e#468#860#0" expanded="false" />
+                <element signature="e#896#1638#0" expanded="false" />
+                <element signature="e#1687#1699#0" expanded="false" />
+                <element signature="e#1747#1759#0" expanded="false" />
+                <element signature="e#1794#1947#0" expanded="false" />
+                <element signature="e#1985#2111#0" expanded="false" />
+                <element signature="e#2178#2190#0" expanded="false" />
+                <element signature="e#2215#2606#0" expanded="false" />
+                <element signature="e#2649#3221#0" expanded="false" />
+                <element signature="e#3254#3418#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -120,34 +81,10 @@
         <entry file="file://$PROJECT_DIR$/baBasicLib/gameState.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <caret line="130" column="13" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
               <folding>
-                <element signature="e#4412#4562#0" expanded="false" />
-                <element signature="e#4604#5172#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testObj.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/baBasicLib/testObj.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#39#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSM_gameLoading.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-              <folding>
-                <element signature="e#106#2014#0" expanded="false" />
+                <element signature="e#103#361#0" expanded="false" />
+                <element signature="e#4764#5332#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -157,16 +94,46 @@
         <entry file="file://$PROJECT_DIR$/baBasicLib/baGlobal.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
-                <element signature="e#404#970#0" expanded="false" />
-                <element signature="e#1025#1883#0" expanded="false" />
-                <element signature="e#1919#2141#0" expanded="false" />
-                <element signature="e#2180#2479#0" expanded="false" />
-                <element signature="e#2513#2681#0" expanded="false" />
-                <element signature="e#2714#2867#0" expanded="false" />
-                <element signature="e#2900#3035#0" expanded="false" />
-                <element signature="e#3070#3082#0" expanded="false" />
+                <element signature="e#365#3578#0" expanded="false" />
+                <element signature="e#412#978#0" expanded="false" />
+                <element signature="e#1927#2149#0" expanded="false" />
+                <element signature="e#2188#2487#0" expanded="false" />
+                <element signature="e#2521#2689#0" expanded="false" />
+                <element signature="e#2722#2875#0" expanded="false" />
+                <element signature="e#2908#3043#0" expanded="false" />
+                <element signature="e#3078#3090#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="require.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/outLib/require.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GSM_detail.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.87959445">
+              <caret line="348" column="43" selection-start-line="348" selection-start-column="43" selection-end-line="348" selection-end-column="43" />
+              <folding>
+                <element signature="e#363#2103#0" expanded="false" />
+                <element signature="e#2142#10390#0" expanded="false" />
+                <element signature="e#2815#3005#0" expanded="false" />
+                <element signature="e#4332#4478#0" expanded="false" />
+                <element signature="e#6208#9748#0" expanded="false" />
+                <element signature="e#6398#6588#0" expanded="false" />
+                <element signature="e#7915#8061#0" expanded="false" />
+                <element signature="e#10427#11470#0" expanded="false" />
+                <element signature="e#11518#13381#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -202,7 +169,6 @@
         <option value="$PROJECT_DIR$/privateLib/os_memShow.js" />
         <option value="$PROJECT_DIR$/privateLib/bB_msgShow.js" />
         <option value="$PROJECT_DIR$/config/struct_config.js" />
-        <option value="$PROJECT_DIR$/baBasicLib/baLayer.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baSprite.js" />
         <option value="$PROJECT_DIR$/privateLib/textBlock.js" />
         <option value="$PROJECT_DIR$/socket/mainSocket.js" />
@@ -215,12 +181,14 @@
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/baBasicLib/testObj.js" />
         <option value="$PROJECT_DIR$/baBasicLib/gameState.js" />
-        <option value="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
-        <option value="$PROJECT_DIR$/main_module.html" />
-        <option value="$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js" />
+        <option value="$PROJECT_DIR$/baBasicLib/baLayer.js" />
         <option value="$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js" />
         <option value="$PROJECT_DIR$/gameStateMachine/GSM_mainShow.js" />
         <option value="$PROJECT_DIR$/gameStateMachine/GSM_mainShowBasicStruct.js" />
+        <option value="$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js" />
+        <option value="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
+        <option value="$PROJECT_DIR$/main_module.html" />
+        <option value="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" />
       </list>
     </option>
   </component>
@@ -304,6 +272,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="outLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bAdventure_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bAdventure_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gameStateMachine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -336,8 +318,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\程序\github\bAdventure_client" />
       <recent name="E:\程序\github\bAdventure_client\outLib" />
+      <recent name="E:\程序\github\bAdventure_client" />
       <recent name="E:\程序\github\bAdventure_client\privateLib" />
       <recent name="E:\程序\github\bAdventure_client\socket" />
     </key>
@@ -501,7 +483,19 @@
       <option name="project" value="LOCAL" />
       <updated>1455982391407</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="修改baGlobal">
+      <created>1456058694791</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1456058694791</updated>
+    </task>
+    <task id="LOCAL-00020" summary="区分了leader和normal的gameStruct">
+      <created>1456059910641</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1456059910641</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -510,9 +504,10 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15501043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1371308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1371308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -524,7 +519,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -556,10 +550,11 @@
     <MESSAGE value="歪打正着重新设计了gameStateArray" />
     <MESSAGE value="添加了人物块" />
     <MESSAGE value="人物块更新完成" />
-    <MESSAGE value="区分了leader和normal的gameStruct" />
     <MESSAGE value="开始模块化。。。" />
     <MESSAGE value="修改baGlobal" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改baGlobal" />
+    <MESSAGE value="区分了leader和normal的gameStruct" />
+    <MESSAGE value="global单例" />
+    <option name="LAST_COMMIT_MESSAGE" value="global单例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -602,18 +597,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-          <folding>
-            <element signature="e#394#738#0" expanded="false" />
-            <element signature="e#770#1432#0" expanded="false" />
-            <element signature="e#1477#1485#0" expanded="false" />
-            <element signature="e#1529#1537#0" expanded="false" />
-            <element signature="e#1568#1701#0" expanded="false" />
-            <element signature="e#1735#1841#0" expanded="false" />
-            <element signature="e#1900#1908#0" expanded="false" />
-            <element signature="e#1929#2276#0" expanded="false" />
-            <element signature="e#2315#2823#0" expanded="false" />
-            <element signature="e#2852#2996#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,18 +679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-          <folding>
-            <element signature="e#394#738#0" expanded="false" />
-            <element signature="e#770#1432#0" expanded="false" />
-            <element signature="e#1477#1485#0" expanded="false" />
-            <element signature="e#1529#1537#0" expanded="false" />
-            <element signature="e#1568#1701#0" expanded="false" />
-            <element signature="e#1735#1841#0" expanded="false" />
-            <element signature="e#1900#1908#0" expanded="false" />
-            <element signature="e#1929#2276#0" expanded="false" />
-            <element signature="e#2315#2823#0" expanded="false" />
-            <element signature="e#2852#2996#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -806,25 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baBasicLib/baLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
-          <folding>
-            <element signature="e#394#738#0" expanded="false" />
-            <element signature="e#770#1432#0" expanded="false" />
-            <element signature="e#1477#1485#0" expanded="false" />
-            <element signature="e#1529#1537#0" expanded="false" />
-            <element signature="e#1568#1701#0" expanded="false" />
-            <element signature="e#1735#1841#0" expanded="false" />
-            <element signature="e#1900#1908#0" expanded="false" />
-            <element signature="e#1929#2276#0" expanded="false" />
-            <element signature="e#2315#2823#0" expanded="false" />
-            <element signature="e#2852#2996#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/privateLib/outerStruct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -895,52 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/bB_memIntro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding>
-            <element signature="e#562#1881#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/basicBlock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding>
-            <element signature="e#581#657#0" expanded="false" />
-            <element signature="e#696#832#0" expanded="false" />
-            <element signature="e#908#1985#0" expanded="false" />
-            <element signature="e#2034#2038#0" expanded="false" />
-            <element signature="e#2088#2241#0" expanded="false" />
-            <element signature="e#2295#2502#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding>
-            <element signature="e#1057#1082#0" expanded="false" />
-            <element signature="e#1538#1922#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/bB_memCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc;n#bB_memCtrl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/socket/ws_msg_mainShow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -979,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outLib/require.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2917153">
@@ -1011,17 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baBasicLib/gameState.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#4412#4562#0" expanded="false" />
-            <element signature="e#4604#5172#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/socket/mainSocket.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1030,30 +919,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_module.html">
+    <entry file="file://$PROJECT_DIR$/privateLib/bB_memCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.117647">
-          <caret line="66" column="43" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
-            <element signature="e#2525#2806#0" expanded="false" />
-            <element signature="e#3702#3901#0" expanded="false" />
+            <element signature="n#!!doc;n#bB_memCtrl#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baBasicLib/baGlobal.js">
+    <entry file="file://$PROJECT_DIR$/privateLib/basicBlock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding>
-            <element signature="e#404#970#0" expanded="false" />
-            <element signature="e#1025#1883#0" expanded="false" />
-            <element signature="e#1919#2141#0" expanded="false" />
-            <element signature="e#2180#2479#0" expanded="false" />
-            <element signature="e#2513#2681#0" expanded="false" />
-            <element signature="e#2714#2867#0" expanded="false" />
-            <element signature="e#2900#3035#0" expanded="false" />
-            <element signature="e#3070#3082#0" expanded="false" />
+            <element signature="e#581#657#0" expanded="false" />
+            <element signature="e#696#832#0" expanded="false" />
+            <element signature="e#908#1985#0" expanded="false" />
+            <element signature="e#2034#2038#0" expanded="false" />
+            <element signature="e#2088#2241#0" expanded="false" />
+            <element signature="e#2295#2502#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privateLib/bB_memIntro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="1" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+          <folding>
+            <element signature="e#562#1881#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1061,19 +957,9 @@
     <entry file="file://$PROJECT_DIR$/baBasicLib/testObj.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameLoading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-          <folding>
-            <element signature="e#106#2014#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,35 +967,120 @@
     <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_mainShow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <element signature="e#65#1081#0" expanded="false" />
-            <element signature="e#99#1054#0" expanded="false" />
-          </folding>
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_mainShowBasicStruct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baBasicLib/baLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
-            <element signature="e#109#1788#0" expanded="false" />
+            <element signature="e#63#3689#0" expanded="false" />
+            <element signature="e#101#410#0" expanded="false" />
+            <element signature="e#435#3666#0" expanded="false" />
+            <element signature="e#468#860#0" expanded="false" />
+            <element signature="e#896#1638#0" expanded="false" />
+            <element signature="e#1687#1699#0" expanded="false" />
+            <element signature="e#1747#1759#0" expanded="false" />
+            <element signature="e#1794#1947#0" expanded="false" />
+            <element signature="e#1985#2111#0" expanded="false" />
+            <element signature="e#2178#2190#0" expanded="false" />
+            <element signature="e#2215#2606#0" expanded="false" />
+            <element signature="e#2649#3221#0" expanded="false" />
+            <element signature="e#3254#3418#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outLib/require.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baBasicLib/baGlobal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#365#3578#0" expanded="false" />
+            <element signature="e#412#978#0" expanded="false" />
+            <element signature="e#1927#2149#0" expanded="false" />
+            <element signature="e#2188#2487#0" expanded="false" />
+            <element signature="e#2521#2689#0" expanded="false" />
+            <element signature="e#2722#2875#0" expanded="false" />
+            <element signature="e#2908#3043#0" expanded="false" />
+            <element signature="e#3078#3090#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0609359">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding>
+            <element signature="e#1057#1082#0" expanded="false" />
+            <element signature="e#1538#1922#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_gameStruct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26281208">
-          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.14029181">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_module.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.911765">
+          <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
           <folding>
-            <element signature="e#94#7646#0" expanded="false" />
-            <element signature="e#703#877#0" expanded="false" />
-            <element signature="e#2108#2234#0" expanded="false" />
-            <element signature="e#3816#7068#0" expanded="false" />
-            <element signature="e#3994#4168#0" expanded="false" />
-            <element signature="e#5399#5525#0" expanded="false" />
+            <element signature="e#2520#2801#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baBasicLib/gameState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="13" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
+          <folding>
+            <element signature="e#103#361#0" expanded="false" />
+            <element signature="e#4764#5332#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87959445">
+          <caret line="348" column="43" selection-start-line="348" selection-start-column="43" selection-end-line="348" selection-end-column="43" />
+          <folding>
+            <element signature="e#363#2103#0" expanded="false" />
+            <element signature="e#2142#10390#0" expanded="false" />
+            <element signature="e#2815#3005#0" expanded="false" />
+            <element signature="e#4332#4478#0" expanded="false" />
+            <element signature="e#6208#9748#0" expanded="false" />
+            <element signature="e#6398#6588#0" expanded="false" />
+            <element signature="e#7915#8061#0" expanded="false" />
+            <element signature="e#10427#11470#0" expanded="false" />
+            <element signature="e#11518#13381#0" expanded="false" />
           </folding>
         </state>
       </provider>

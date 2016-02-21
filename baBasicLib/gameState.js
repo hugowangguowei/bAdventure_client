@@ -3,7 +3,7 @@
  */
 
 define(function(){
-    function gameStateMachine(){
+    var gameStateMachine = function(){
         this.obj = "";
         this.gameStateArray = [];
         this.currentState = null;
@@ -12,7 +12,7 @@ define(function(){
         this.currentObj = null;
         this.privateState = {};
         this._startGameMsg = null;
-    }
+    };
     gameStateMachine.prototype = {
         addListener:function(){
             this.obj.baseDiv.addEventListener("mousedown",gameStateMachine.prototype.doMouseDown,false);
@@ -124,6 +124,11 @@ define(function(){
 
         initRoutine:function(){
             this.addListener();
+
+            if(!this.gameStateArray.length){
+                throw new Error("gameStateArray is not add yet!");
+                return 0;
+            }
             this.currentState = this.gameStateArray[0];
             this.currentState.stateFunction(this);
         },
@@ -144,7 +149,8 @@ define(function(){
                 console.log("LISTEN: " + this.currentState.stateName);
             }
         },
-    }
-    return
-})
+    };
+
+    return gameStateMachine;
+});
 

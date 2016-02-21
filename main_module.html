@@ -23,7 +23,7 @@
     <!--<script type="text/javascript" src="privateLib/bB_memCtrl.js"></script>-->
     <!--<script type="text/javascript" src="privateLib/textBlock.js"></script>-->
 
-    <!--<script type="text/javascript" src="gameStateMachine/GSM_gameLoading.js"></script>-->
+    <!--<script type="text/javascript" src="gameStateMachine/GSM_detail.js"></script>-->
     <!--<script type="text/javascript" src="gameStateMachine/GSM_mainShow.js"></script>-->
     <!--<script type="text/javascript" src="gameStateMachine/GSM_mainShowBasicStruct.js"></script>-->
     <!--<script type="text/javascript" src="gameStateMachine/GSM_gameStruct.js"></script>-->
@@ -51,7 +51,8 @@
         });
 
         var global;
-        require(['baBasicLib/baGlobal','baBasicLib/testObj'],function(baGlobal,testObj){
+        require(['baBasicLib/baGlobal','baBasicLib/testObj','baBasicLib/baLayer',
+            'gameStateMachine/GSM_detail'],function(baGlobal,testObj){
             var aa = new testObj();
             aa.printValue();
             global = baGlobal.getInstance();
@@ -60,16 +61,21 @@
         });
 
         function stateM(){
-            var GSM1 = require('baBasicLib/gameState');
-            global.addGameStateMachine(GSM1);
-
-            GSM1.gameStateArray = [
-                {stateName:"loading",stateFunction:GSM_gameLoading},
-                {stateName:"mainShow",stateFunction:GSM_mainShow},
-                {stateName:"mainShowBasicStruct",stateFunction:GSM_mainShowBasicStruct},
-                {stateName:"gameStruct",stateFunction:GSM_gameStruct}
-            ];
-            GSM1.initRoutine();
+            require([
+                        'baBasicLib/gameState','gameStateMachine/GSM_detail'],
+                    function(gsm,GSM_detail){
+                        var GSM1 = new gsm();
+                        global.addGameStateMachine(GSM1);
+                        var a = new GSM_detail;
+                        a.outPut();
+//                        GSM1.gameStateArray = [
+//                            {stateName:"loading",stateFunction:GSM_detail.gameLoading},
+//                            {stateName:"mainShow",stateFunction:GSM_detail.mainShow},
+//                            {stateName:"mainShowBasicStruct",stateFunction:GSM_detail.mainShowBasicStruct},
+//                            {stateName:"gameStruct",stateFunction:GSM_detail.gameStruct}
+//                        ];
+                        GSM1.initRoutine();
+                    });
         }
 
         function addText(){

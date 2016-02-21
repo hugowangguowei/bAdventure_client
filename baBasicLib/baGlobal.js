@@ -1,9 +1,10 @@
 /**
  * Created by wangguowei on 2001/1/1.
  */
-define(function(){
+define(function(baLayer){
    "use strict";
     var instance = null;
+
     function baGlobal(){
         this.baseDiv = null;
         this.object = "";
