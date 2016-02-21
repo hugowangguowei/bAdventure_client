@@ -66,14 +66,18 @@
                     function(gsm,GSM_detail){
                         var GSM1 = new gsm();
                         global.addGameStateMachine(GSM1);
-                        var a = new GSM_detail;
-                        a.outPut();
-//                        GSM1.gameStateArray = [
-//                            {stateName:"loading",stateFunction:GSM_detail.gameLoading},
-//                            {stateName:"mainShow",stateFunction:GSM_detail.mainShow},
-//                            {stateName:"mainShowBasicStruct",stateFunction:GSM_detail.mainShowBasicStruct},
-//                            {stateName:"gameStruct",stateFunction:GSM_detail.gameStruct}
-//                        ];
+
+                        var GSM_gameLoading = GSM_detail.gameLoading();
+                        var GSM_mainShow = GSM_detail.mainShow();
+                        var GSM_mainShowBasicStruct = GSM_detail.mainShowBasicStruct();
+                        var GSM_gameStruct = GSM_detail.gameStruct();
+                        GSM1.gameStateArray = [
+                            {stateName:"loading",stateFunction:GSM_gameLoading},
+                            {stateName:"mainShow",stateFunction:GSM_mainShow},
+                            {stateName:"mainShowBasicStruct",stateFunction:GSM_mainShowBasicStruct},
+                            {stateName:"gameStruct",stateFunction:GSM_gameStruct}
+                        ];
+
                         GSM1.initRoutine();
                     });
         }
