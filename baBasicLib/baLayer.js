@@ -6,6 +6,11 @@ define(function(){
         this.id = layerId;
         this.name = layerId;
         this.zindex = zindex;
+        this.x = 0;
+        this.y = 0;
+        this.width = 1;
+        this.height = 1;
+        this.canvas = null;
         this.parent = null;
         this.frameSpeed = 1000;
         this.dynamic_interval = 0;
@@ -13,8 +18,15 @@ define(function(){
         this.showState = "static";
         this.childList = {};
         this.countBack = 0;
+        this.initialize();
     }
     baLayer.prototype = {
+        initialize:function(){
+            this.canvas = document.createElement("canvas");
+            this.canvas.id = this.id;
+            this.canvas.style.position = "absolute";
+            this.canvas.style.zIndex = this.zindex;
+        },
         addChild:function(args){
             var id = args.id;
             if(!id){

@@ -1,7 +1,7 @@
 /**
  * Created by wangguowei on 2001/1/1.
  */
-define(function(baLayer){
+define(function(){
    "use strict";
     var instance = null;
 
@@ -30,32 +30,29 @@ define(function(baLayer){
             this.baseDiv.style.zIndex = 0;
             divElem.baGlobal = this;
         },
-        addLayer: function (layerName,zindex,x,y,w,h){
+        addLayer: function (layer,x,y,w,h){
             var canvasX = document.createElement("canvas");
-            canvasX.id = layerName;
-            canvasX.width = w||this.baseDiv.width;
-            canvasX.height = h||this.baseDiv.height;
-            canvasX.style.position = "absolute";
-            canvasX.style.top = "0px";
-            canvasX.style.left = "0px";
-            canvasX.style.zIndex = zindex;
+            //canvasX.id = layer.id;
+            //canvasX.width = w||this.baseDiv.width;
+            //canvasX.height = h||this.baseDiv.height;
+            //canvasX.style.position = "absolute";
+            //canvasX.style.top = "0px";
+            //canvasX.style.left = "0px";
+            //canvasX.style.zIndex = zindex;
 
+            layer.x = x||0;
+            layer.y = y||0;
+            layer.width = w||this.baseDiv.width;
+            layer.height = h||this.baseDiv.height;
+            layer.parent = this;
             if(this.baseDiv){
-                this.baseDiv.appendChild(canvasX);
+                this.baseDiv.appendChild(layer.canvas);
+                layer.canvas.width = layer.width;
+                layer.canvas.height = layer.height;
             }else{
                 throw new Error("baseDiv needed");
             }
-
-            var layerX = new baLayer(layerName,zindex);
-            layerX.canvas = canvasX;
-            layerX.x = x;
-            layerX.y = y;
-            layerX.width =w;
-            layerX.height = h;
-            layerX.parent = this;
-            this.layerArray.push(layerX);
-
-            return layerX;
+            this.layerArray.push(layer);
         },
         getLayer:function(layerId){
             for(var i=0;i <this.layerArray.length;i++){
