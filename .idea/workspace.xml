@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed63a3ec-57b6-499d-adbf-c7f94511b775" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baBasicLib/baSprites/baButton.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/privateLib/oS_memShow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baGlobal.js" afterPath="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baLayer.js" afterPath="$PROJECT_DIR$/baBasicLib/baLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baSprite.js" afterPath="$PROJECT_DIR$/baBasicLib/baSprite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_module.html" afterPath="$PROJECT_DIR$/main_module.html" />
+    <list default="true" id="ed63a3ec-57b6-499d-adbf-c7f94511b775" name="Default" comment="baSprite修改完成">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="45a38791-b466-4a2d-b4c6-affb6a80c88f" name="Failed commit: Default" comment="区分了leader和normal的gameStruct">
@@ -19,10 +12,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
     </list>
     <list id="058f1493-cab0-4a15-bdec-3957103f705f" name="Failed commit: Default (2)" comment="区分了leader和normal的gameStruct" />
+    <list id="83b60979-9e87-48ed-9df7-88b0faa877cb" name="Failed commit: Default (3)" comment="baSprite修改完成">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" afterPath="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baBasicLib/baSprites/baButton.js" afterPath="$PROJECT_DIR$/baBasicLib/baSprites/baButton.js" />
+    </list>
     <ignored path="bAdventure_client.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <file path="$PROJECT_DIR$/main.html" ignored="false" />
+    <file path="$PROJECT_DIR$/socket/WSManager.js" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,27 +41,27 @@
         <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_detail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="267" column="43" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
               <folding>
-                <element signature="e#799#930#0" expanded="false" />
-                <element signature="e#1491#2311#0" expanded="false" />
-                <element signature="e#2360#10608#0" expanded="false" />
-                <element signature="e#3033#3223#0" expanded="false" />
-                <element signature="e#4550#4696#0" expanded="false" />
-                <element signature="e#6426#9966#0" expanded="false" />
-                <element signature="e#6616#6806#0" expanded="false" />
-                <element signature="e#8133#8279#0" expanded="false" />
-                <element signature="e#11775#13638#0" expanded="false" />
+                <element signature="e#894#1025#0" expanded="false" />
+                <element signature="e#1586#2406#0" expanded="false" />
+                <element signature="e#2455#10703#0" expanded="false" />
+                <element signature="e#3128#3318#0" expanded="false" />
+                <element signature="e#4645#4791#0" expanded="false" />
+                <element signature="e#6521#10061#0" expanded="false" />
+                <element signature="e#6711#6901#0" expanded="false" />
+                <element signature="e#8228#8374#0" expanded="false" />
+                <element signature="e#11870#13733#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baSprite.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baSprite.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baBasicLib/baSprite.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.054406963">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
               <folding>
                 <element signature="e#110#688#0" expanded="false" />
                 <element signature="e#714#2468#0" expanded="false" />
@@ -76,17 +74,17 @@
         <entry file="file://$PROJECT_DIR$/baBasicLib/baSprites/baButton.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
-                <element signature="e#104#1084#0" expanded="false" />
-                <element signature="e#1171#1586#0" expanded="false" />
-                <element signature="e#1636#1812#0" expanded="false" />
-                <element signature="e#1861#3541#0" expanded="false" />
-                <element signature="e#3597#3756#0" expanded="false" />
-                <element signature="e#3811#3921#0" expanded="false" />
-                <element signature="e#3962#4057#0" expanded="false" />
-                <element signature="e#4098#4190#0" expanded="false" />
+                <element signature="e#163#1143#0" expanded="false" />
+                <element signature="e#1230#1645#0" expanded="false" />
+                <element signature="e#1695#1871#0" expanded="false" />
+                <element signature="e#1920#3600#0" expanded="false" />
+                <element signature="e#3656#3815#0" expanded="false" />
+                <element signature="e#3870#3980#0" expanded="false" />
+                <element signature="e#4021#4116#0" expanded="false" />
+                <element signature="e#4157#4249#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding>
                 <element signature="e#1073#1098#0" expanded="false" />
                 <element signature="e#1554#1938#0" expanded="false" />
@@ -148,11 +146,51 @@
       <file leaf-file-name="main_module.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_module.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+            <state vertical-scroll-proportion="-15.411765">
+              <caret line="104" column="59" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="65" />
               <folding>
                 <element signature="e#2520#2801#0" expanded="false" />
+                <element signature="e#3265#4311#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainSocket.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/mainSocket.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ws_msg_mainShow.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/ws_msg_mainShow.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!block;n#ws_createNewRoom#0" expanded="false" />
+                <element signature="n#!!block;n#ws_roomListRefresh#0" expanded="false" />
+                <element signature="n#!!block;n#ws_intoARoom#0" expanded="false" />
+                <element signature="n#!!block;n#buildTheQueueRoom#0" expanded="false" />
+                <element signature="n#!!block;n#ws_getAllRooms#0" expanded="false" />
+                <element signature="n#!!block;n#ws_getOutTheRoom#0" expanded="false" />
+                <element signature="n#!!block;n#ws_startGame#0" expanded="false" />
+                <element signature="n#!!block;n#getRoomObjByServerId#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WSManager.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/socket/WSManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52562416">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,7 +231,6 @@
         <option value="$PROJECT_DIR$/config/ID_config.js" />
         <option value="$PROJECT_DIR$/privateLib/bB_memCtrl.js" />
         <option value="$PROJECT_DIR$/config/btn_event.js" />
-        <option value="$PROJECT_DIR$/socket/WSManager.js" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/baBasicLib/testObj.js" />
         <option value="$PROJECT_DIR$/baBasicLib/gameState.js" />
@@ -205,9 +242,10 @@
         <option value="$PROJECT_DIR$/baBasicLib/baGlobal.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baLayer.js" />
         <option value="$PROJECT_DIR$/main_module.html" />
+        <option value="$PROJECT_DIR$/baBasicLib/baSprite.js" />
         <option value="$PROJECT_DIR$/gameStateMachine/GSM_detail.js" />
         <option value="$PROJECT_DIR$/baBasicLib/baSprites/baButton.js" />
-        <option value="$PROJECT_DIR$/baBasicLib/baSprite.js" />
+        <option value="$PROJECT_DIR$/socket/WSManager.js" />
       </list>
     </option>
   </component>
@@ -262,6 +300,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bAdventure_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bAdventure_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bAdventure_client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,8 +393,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,7 +596,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456070573306</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="baLayer修改完成">
+      <created>1456162834335</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1456162834335</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -553,6 +611,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15501043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1371308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,7 +621,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1371308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -604,7 +662,9 @@
     <MESSAGE value="区分了leader和normal的gameStruct" />
     <MESSAGE value="global单例" />
     <MESSAGE value="gameState完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="gameState完成" />
+    <MESSAGE value="baLayer修改完成" />
+    <MESSAGE value="baSprite修改完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="baSprite修改完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -615,7 +675,7 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -639,9 +699,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
           <folding>
-            <element signature="e#63#4078#0" expanded="false" />
-            <element signature="e#101#554#0" expanded="false" />
-            <element signature="e#579#4055#0" expanded="false" />
+            <element signature="e#610#824#0" expanded="false" />
             <element signature="e#857#1249#0" expanded="false" />
             <element signature="e#1285#2027#0" expanded="false" />
             <element signature="e#2076#2088#0" expanded="false" />
@@ -718,9 +776,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
           <folding>
-            <element signature="e#63#4078#0" expanded="false" />
-            <element signature="e#101#554#0" expanded="false" />
-            <element signature="e#579#4055#0" expanded="false" />
+            <element signature="e#610#824#0" expanded="false" />
             <element signature="e#857#1249#0" expanded="false" />
             <element signature="e#1285#2027#0" expanded="false" />
             <element signature="e#2076#2088#0" expanded="false" />
@@ -848,13 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socket/ws_msg_mainShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="159" column="42" selection-start-line="159" selection-start-column="42" selection-end-line="159" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/ID_config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -874,20 +923,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socket/WSManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socket/mainSocket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -994,12 +1029,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_module.html">
+    <entry file="file://$PROJECT_DIR$/baBasicLib/baSprite.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
           <folding>
-            <element signature="e#2520#2801#0" expanded="false" />
+            <element signature="e#110#688#0" expanded="false" />
+            <element signature="e#714#2468#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1027,28 +1063,17 @@
     <entry file="file://$PROJECT_DIR$/gameStateMachine/GSM_detail.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="267" column="43" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
           <folding>
-            <element signature="e#799#930#0" expanded="false" />
-            <element signature="e#1491#2311#0" expanded="false" />
-            <element signature="e#2360#10608#0" expanded="false" />
-            <element signature="e#3033#3223#0" expanded="false" />
-            <element signature="e#4550#4696#0" expanded="false" />
-            <element signature="e#6426#9966#0" expanded="false" />
-            <element signature="e#6616#6806#0" expanded="false" />
-            <element signature="e#8133#8279#0" expanded="false" />
-            <element signature="e#11775#13638#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="e#1073#1098#0" expanded="false" />
-            <element signature="e#1554#1938#0" expanded="false" />
+            <element signature="e#894#1025#0" expanded="false" />
+            <element signature="e#1586#2406#0" expanded="false" />
+            <element signature="e#2455#10703#0" expanded="false" />
+            <element signature="e#3128#3318#0" expanded="false" />
+            <element signature="e#4645#4791#0" expanded="false" />
+            <element signature="e#6521#10061#0" expanded="false" />
+            <element signature="e#6711#6901#0" expanded="false" />
+            <element signature="e#8228#8374#0" expanded="false" />
+            <element signature="e#11870#13733#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1056,29 +1081,73 @@
     <entry file="file://$PROJECT_DIR$/baBasicLib/baSprites/baButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
-            <element signature="e#104#1084#0" expanded="false" />
-            <element signature="e#1171#1586#0" expanded="false" />
-            <element signature="e#1636#1812#0" expanded="false" />
-            <element signature="e#1861#3541#0" expanded="false" />
-            <element signature="e#3597#3756#0" expanded="false" />
-            <element signature="e#3811#3921#0" expanded="false" />
-            <element signature="e#3962#4057#0" expanded="false" />
-            <element signature="e#4098#4190#0" expanded="false" />
+            <element signature="e#163#1143#0" expanded="false" />
+            <element signature="e#1230#1645#0" expanded="false" />
+            <element signature="e#1695#1871#0" expanded="false" />
+            <element signature="e#1920#3600#0" expanded="false" />
+            <element signature="e#3656#3815#0" expanded="false" />
+            <element signature="e#3870#3980#0" expanded="false" />
+            <element signature="e#4021#4116#0" expanded="false" />
+            <element signature="e#4157#4249#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baBasicLib/baSprite.js">
+    <entry file="file://$PROJECT_DIR$/privateLib/oS_memShow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.054406963">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
           <folding>
-            <element signature="e#110#688#0" expanded="false" />
-            <element signature="e#714#2468#0" expanded="false" />
+            <element signature="e#1073#1098#0" expanded="false" />
+            <element signature="e#1554#1938#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_module.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.411765">
+          <caret line="104" column="59" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="65" />
+          <folding>
+            <element signature="e#2520#2801#0" expanded="false" />
+            <element signature="e#3265#4311#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/mainSocket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/ws_msg_mainShow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#ws_createNewRoom#0" expanded="false" />
+            <element signature="n#!!block;n#ws_roomListRefresh#0" expanded="false" />
+            <element signature="n#!!block;n#ws_intoARoom#0" expanded="false" />
+            <element signature="n#!!block;n#buildTheQueueRoom#0" expanded="false" />
+            <element signature="n#!!block;n#ws_getAllRooms#0" expanded="false" />
+            <element signature="n#!!block;n#ws_getOutTheRoom#0" expanded="false" />
+            <element signature="n#!!block;n#ws_startGame#0" expanded="false" />
+            <element signature="n#!!block;n#getRoomObjByServerId#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/WSManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52562416">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
