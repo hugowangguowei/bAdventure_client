@@ -13,10 +13,8 @@ function connectToServer(detail){
     mainSocket.emit("basicConnect",connectDetail);
 
     mainSocket.on("basicConnectReturn",function(msg){
-        console.log(msg);
-        if(msg == "ok"){
-            global.GSM.switchToNext("mainShowBasicStruct");
-        }
+        ws_connectSuccess(msg);
+
     });
     mainSocket.on("createNewRoom", function (msg) {
         console.log("never happen");

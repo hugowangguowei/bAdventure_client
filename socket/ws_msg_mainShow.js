@@ -2,6 +2,12 @@
  * Created by wangguowei on 2001/1/11.
  */
 
+function ws_connectSuccess(msg){
+    if(msg == "ok"){
+        global.GSM.switchToNext("mainShowBasicStruct");
+    }
+}
+
 function ws_createNewRoom(msg){
     var mainShowLayer = global.getLayer("mainShowLayer");
     var id = getNewIdForRoomIntro();
