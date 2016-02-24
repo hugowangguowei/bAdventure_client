@@ -64,91 +64,6 @@ function ws_intoARoom(msg){
     }
 }
 
-function buildTheQueueRoom(userType){
-    var mainShowLayer = global.getLayer("mainShowLayer");
-    var os2;
-    os2 = global.getSpriteById("outerS2");
-    if(os2){
-        os2.removeAllNodes();
-    }else{
-        os2 = new oS_roomMem("outerS2",300,500,600,100,false);
-        os2.addToLayer(mainShowLayer);
-    }
-
-    switch (userType){
-        case "leader":
-            _buildLeaderBtns();
-            break;
-        case "normalMem":
-            _buildNormalBtns();
-            break;
-    }
-
-    function _buildLeaderBtns(){
-        var btn1 = new baButton("btn_mS_cancelRoom");
-        var btn1Loc = {
-            x:os2.x,
-            y:os2.y + os2.height,
-            width:os2.width/5,
-            height:40
-        }
-        btn1.setLoc(btn1Loc);
-        btn1.upStateInfo.text = 'cancelRoom';
-        btn1.addToLayer(mainShowLayer);
-        os2.addNode(btn1);
-
-        var btn2 = new baButton("btn_mS_kickOut");
-        var btn2Loc = {
-            x:os2.x + os2.width/2 - os2.width/10,
-            y:os2.y + os2.height,
-            width:os2.width/5,
-            height:40
-        }
-        btn2.setLoc(btn2Loc);
-        btn2.upStateInfo.text = 'kickOut';
-        btn2.addToLayer(mainShowLayer);
-        os2.addNode(btn2);
-
-        var btn3 = new baButton("btn_mS_startGame");
-        var btn3Loc = {
-            x:os2.x + os2.width - os2.width/5,
-            y:os2.y + os2.height,
-            width:os2.width/5,
-            height:40
-        }
-        btn3.setLoc(btn3Loc);
-        btn3.upStateInfo.text = 'startGame';
-        btn3.addToLayer(mainShowLayer);
-        btn3.bindEvent(BTN_E_startGame);
-        os2.addNode(btn3);
-    }
-
-    function _buildNormalBtns(){
-        var btn1 = new baButton("btn_mS_quitRoom");
-        var btn1Loc = {
-            x:os2.x,
-            y:os2.y + os2.height,
-            width:os2.width/5,
-            height:40
-        }
-        btn1.setLoc(btn1Loc);
-        btn1.upStateInfo.text = 'quitRoom';
-        btn1.addToLayer(mainShowLayer);
-        os2.addNode(btn1);
-
-        var btn3 = new baButton("btn_mS_readyGame");
-        var btn3Loc = {
-            x:os2.x + os2.width - os2.width/5,
-            y:os2.y + os2.height,
-            width:os2.width/5,
-            height:40
-        }
-        btn3.setLoc(btn3Loc);
-        btn3.upStateInfo.text = 'readyGame';
-        btn3.addToLayer(mainShowLayer);
-        os2.addNode(btn3);
-    }
-}
 
 function ws_getAllRooms(msg){
     for(var i = 0;i<msg.length;i++){
@@ -167,20 +82,6 @@ function ws_startGame(msg){
 
 }
 
-function getRoomObjByServerId(os,id){
-    var group_roomIntro = os.nodeList["roomIntro"];
-    if(!group_roomIntro){
-        return 0;
-    }
-    var g_roomList = group_roomIntro.list;
-    var room_i;
-    for(var i = 0;i<g_roomList.length;i++){
-        room_i = g_roomList[i];
-        if(room_i._roomInfo.serverID ==id){
-            return room_i;
-        }
-    }
-    return 0;
-}
+
 
 
