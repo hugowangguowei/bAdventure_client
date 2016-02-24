@@ -29,6 +29,7 @@ define(function(require){
                 var msgHandle_i = this.msgHandleList[i];
                 this.webSocket.on(msgHandle_i.msgName,msgHandle_i.msgFunc);
             }
+            instance = this;
         },
         getClientInfo:function(){
             var userName = document.getElementById("userNameInput").value + "aaSss";

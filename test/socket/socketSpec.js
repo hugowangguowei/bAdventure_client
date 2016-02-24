@@ -6,7 +6,7 @@
  * 连接服务器
  */
 function connectToServer(){
-    require(['socket/WS_manager'],
+    require(['socket/WS_Manager'],
         function(wsManager){
             var WSM = wsManager.getInstance();
             WSM.connectToServer();
@@ -17,7 +17,7 @@ function connectToServer(){
  * 创建房间
  */
 function createNewRoom(){
-    require(['socket/WS_manager'],
+    require(['socket/WS_Manager'],
         function(wsManager){
             console.log("haha");
             var roomName = document.getElementById('createRoomName').value;

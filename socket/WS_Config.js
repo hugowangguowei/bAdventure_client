@@ -1,8 +1,19 @@
 /**
  * Created by wgw on 2016/2/23.
  */
-define(function(){
+define(function(require){
     'use strict';
+
+    var ID_manager = require('config/ID_Manager').getInstance();
+    var baButton = require('baBasicLib/baSprites/baButton');
+    var bB_roomIntro = require('privateLib/blocks/bB_roomIntro');
+    var bB_memCtrl = require('privateLib/blocks/bB_memCtrl');
+    var bB_memIntro = require('privateLib/blocks/bB_memIntro');
+    var oS_memShow = require('privateLib/structs/oS_memShow');
+    var oS_roomList = require('privateLib/structs/oS_roomList');
+    var oS_roomMem = require('privateLib/structs/oS_roomMem');
+    var oS_selfControl = require('privateLib/structs/oS_selfControl');
+    var btn_event = require('config/btn_event');
 
     return {
         WS_URL:'http://localHost:3000',
@@ -16,11 +27,12 @@ define(function(){
                 }
             }},
             {msgName:"roomListRefresh",msgFunc:function(msg){
+                console.log("roomListRefresh");
                 var mainShowLayer = global.getLayer("mainShowLayer");
                 var os1 = global.getSpriteById("outerS");
                 var ri = _getRoomObjByServerId(os1,msg.roomInfo.serverID);
                 if(!ri){
-                    ws_createNewRoom(msg);
+                    _createNewRoom(msg);
                 }
                 else{
                     ri._roomInfo = msg.roomInfo;
@@ -28,7 +40,22 @@ define(function(){
                     ri._memberIntro = msg.memberIntro;
                     ri.cacheOutDate = true;
                 }
+                function _createNewRoom(msg){
+                    var mainShowLayer = global.getLayer("mainShowLayer");
+                    var id = ID_manager.getNewIdForRoomIntro();
+                    var ri_new = new bB_roomIntro(id);
+                    ri_new._roomInfo = msg.roomInfo;
+                    ri_new._leaderIntro = msg.leaderIntro;
+                    ri_new._memberIntro = msg.memberIntro;
 
+                    var os1 = global.getSpriteById("outerS");
+                    if(os1){
+                        os1.addNode(ri_new);
+                        ri_new.addToLayer(mainShowLayer);
+                    }else{
+                        throw new Error("outerStruct not defined");
+                    }
+                }
                 function _getRoomObjByServerId(os,id){
                     var group_roomIntro = os.nodeList["roomIntro"];
                     if(!group_roomIntro){
@@ -52,7 +79,7 @@ define(function(){
                 var os2 = global.getSpriteById("outerS2");
 
                 var leader = msg.leaderInfo;
-                var id = getNewIdForMemIntro();
+                var id = ID_manager.getNewIdForMemIntro();
                 var mI_leader = new bB_memIntro(id);
                 mI_leader._userInfo = leader;
                 os2.addNode(mI_leader);
@@ -123,7 +150,7 @@ define(function(){
                         btn3.setLoc(btn3Loc);
                         btn3.upStateInfo.text = 'startGame';
                         btn3.addToLayer(mainShowLayer);
-                        btn3.bindEvent(BTN_E_startGame);
+                        btn3.bindEvent(btn_event.BTN_E_startGame());
                         os2.addNode(btn3);
                     }
 
@@ -153,9 +180,6 @@ define(function(){
                         os2.addNode(btn3);
                     }
                 }
-            }},
-            {msgName:"",msgFunc:function(msg){
-
             }},
             {msgName:"clientRoomInfoInitialize",msgFunc:function(msg){
                 for(var i = 0;i<msg.length;i++){
