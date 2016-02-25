@@ -10,7 +10,12 @@ define(function(require){
 
     var instance = null;
 
-    var WSManager = function(){
+    var WSManager = function(global){
+        if(!global){
+            throw new Error("wsManager must depend on a global");
+            return 0;
+        }
+        this.global = global;
         this.isConnected = false;
         this.webSocket = null;
         this.msgHandleList = [];
@@ -20,6 +25,7 @@ define(function(require){
 
     WSManager.prototype = {
         initialize:function(){
+            this.global.WSM = this;
             //建立连接
             var url = WS_CONFIG.WS_URL;
             this.webSocket = io.connect(url);
@@ -48,9 +54,9 @@ define(function(require){
     }
 
     return {
-        getInstance:function(){
+        getInstance:function(global){
             if(!instance){
-                instance = new WSManager();
+                instance = new WSManager(global);
             }
             return instance;
         }

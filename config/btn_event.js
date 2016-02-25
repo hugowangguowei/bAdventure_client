@@ -2,12 +2,14 @@
  * Created by wangguowei on 2001/1/11.
  */
 define(function (require) {
-    var WS_Manager = require('socket/WS_Manager');
 
+    /**
+     * 请求进入房间
+     * @constructor
+     */
     function BTN_E_getIntoARoom(){
         var roomID = _getChosenRoomID();
-        var socket = WS_Manager.getInstance().webSocket;
-        //var socket = getCurrentSocket();
+        var socket = global.WSM.webSocket;
         if(socket){
             socket.emit("askGetIntoRoom",roomID);
         }
@@ -32,22 +34,29 @@ define(function (require) {
         }
     }
 
+    /**
+     * 请求开始游戏
+     * @constructor
+     */
     function BTN_E_startGame(){
-        var socket = getCurrentSocket();
+        var socket = global.WSM.webSocket;
         if(socket){
             socket.emit("startGame");
         }
     }
 
     /**
-     * roll
+     * roll点
      * @constructor
      */
     function BTN_E_ROLL(){
         console.log("random Roll");
-
     }
 
+    /**
+     * 创建玩家输入框
+     * @constructor
+     */
     function BTN_E_CLIENT_INPUT(){
         var inputText = document.createElement("input");
         inputText.setAttribute("type","text");
@@ -64,6 +73,10 @@ define(function (require) {
         inputText.focus();
     }
 
+    /**
+     * 玩家输入信息提交
+     * @constructor
+     */
     function BTN_E_CLIENT_SUBMIT(){
         var input = document.getElementById("client_input_1");
         var value = input.value;
@@ -77,7 +90,6 @@ define(function (require) {
         BTN_E_CLIENT_INPUT : function(){ return BTN_E_CLIENT_INPUT },
         BTN_E_CLIENT_SUBMIT : function(){ return BTN_E_CLIENT_SUBMIT }
     }
-
 })
 
 

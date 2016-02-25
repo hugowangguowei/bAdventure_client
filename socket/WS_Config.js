@@ -4,6 +4,7 @@
 define(function(require){
     'use strict';
 
+    var btn_event = require('config/btn_event');
     var ID_manager = require('config/ID_Manager').getInstance();
     var baButton = require('baBasicLib/baSprites/baButton');
     var bB_roomIntro = require('privateLib/blocks/bB_roomIntro');
@@ -13,7 +14,7 @@ define(function(require){
     var oS_roomList = require('privateLib/structs/oS_roomList');
     var oS_roomMem = require('privateLib/structs/oS_roomMem');
     var oS_selfControl = require('privateLib/structs/oS_selfControl');
-    var btn_event = require('config/btn_event');
+
 
     return {
         WS_URL:'http://localHost:3000',

@@ -1,7 +1,9 @@
 /**
  * Created by wangguowei on 2001/1/1.
  */
-define(['privateLib/outerStruct'],function(outerStruct){
+define(function(require){
+    var outerStruct = require('privateLib/outerStruct');
+
     function oS_roomList(id,x,y,w,h,reflectable){
         outerStruct.call(this);
         this.id = id;

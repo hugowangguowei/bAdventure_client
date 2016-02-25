@@ -11,7 +11,20 @@ define(function(){
         this.layerArray = [];
         this.width = null;
         this.height = null;
+        /**
+         * 游戏状态机
+         * @type {baBasicLib/gameState}
+         */
         this.GSM = null;
+        /**
+         * 连接管理器
+         * @type {module:socket/WS_Manager}
+         */
+        this.WSM = null;
+        /**
+         * 状态列表
+         * @type {Array}
+         */
         this.GSMArray = [];
     }
 

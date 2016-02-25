@@ -8,7 +8,7 @@
 function connectToServer(){
     require(['socket/WS_Manager'],
         function(wsManager){
-            var WSM = wsManager.getInstance();
+            var WSM = wsManager.getInstance(global);
             WSM.connectToServer();
     });
 }
