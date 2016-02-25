@@ -2,17 +2,14 @@
  * Created by wangguowei on 2001/1/11.
  */
 
-define(['baBasicLib/baLayer'],function(baLayer){
+define(function(require){
 
-        //var baLayer = require('baBasicLib/baLayer');
-        //function test(){
-        //    this.a = "ha";
-        //}
-        //test.prototype = {
-        //    outPut:function(){
-        //        console.log("GSM_TEST");
-        //    }
-        //}
+        var baLayer = require('baBasicLib/baLayer');
+        var baSprite = require('baBasicLib/baSprite');
+        var baButton = require('baBasicLib/baSprites/baButton');
+        var oS_roomList = require('privateLib/structs/oS_roomList');
+        var btn_event = require('config/btn_event');
+
         function GSM_gameLoading(_this){
             var ldLayer = new baLayer("loadingLayer",120);
             global.addLayer(ldLayer);
@@ -312,7 +309,7 @@ define(['baBasicLib/baLayer'],function(baLayer){
             btn2.upStateInfo.text = "pickRoom";
             btn2.addToLayer(mainShowLayer);
             os_1.addNode(btn2);
-            btn2.bindedEvent = BTN_E_getIntoARoom;
+            btn2.bindedEvent = btn_event.BTN_E_getIntoARoom();
 
             var btn3 = new baButton("btn_mS_randomRoom");
             var btn3_loc = {
