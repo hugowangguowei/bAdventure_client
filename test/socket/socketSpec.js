@@ -17,15 +17,12 @@ function connectToServer(){
  * 创建房间
  */
 function createNewRoom(){
-    require(['socket/WS_Manager'],
-        function(wsManager){
+    require(['socket/WS_Manager','config/btn_event'],
+        function(wsManager,btn_event){
             console.log("haha");
             var roomName = document.getElementById('createRoomName').value;
             var roomMemberNum = document.getElementById("roomMemNum").value;
-            var WSM = wsManager.getInstance();
-            var socket = WSM.webSocket;
-            if(socket){
-                socket.emit("createNewRoom",{name:roomName,memNum:roomMemberNum});
-            }
+            var msg = {name:roomName,memNum:roomMemberNum};
+            btn_event.BTN_E_createNewRoom()(msg);
         });
 }

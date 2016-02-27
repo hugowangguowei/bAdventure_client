@@ -6,6 +6,7 @@ define(function(require){
     "use strict";
 
     var WS_CONFIG = require('socket/WS_Config');
+    var WS_msgDefine = require('socket/WS_msgDefine');
     var io = require('dep/socket.io');
 
     var instance = null;
@@ -16,7 +17,6 @@ define(function(require){
             return 0;
         }
         this.global = global;
-        this.isConnected = false;
         this.webSocket = null;
         this.msgHandleList = [];
         this.clientInfo = {};
@@ -43,9 +43,6 @@ define(function(require){
             return this.clientInfo;
         },
         connectToServer:function(){
-            if(this.isConnected){
-                return 0;
-            }
             var clientInfo = this.getClientInfo();
             this.webSocket.emit("basicConnect",clientInfo);
         },

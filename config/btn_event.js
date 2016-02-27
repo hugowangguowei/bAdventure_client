@@ -3,14 +3,24 @@
  */
 define(function (require) {
 
+    var CMT = require('socket/WS_msgDefine').CMT;
+
+    /**
+     * 请求创建房间
+     * @param roomInfo
+     * @constructor
+     */
+    function BTN_E_createNewRoom(roomInfo){
+        _submitMsg(CMT.CREAT_NEW_ROOM,roomInfo);
+    }
+
     /**
      * 请求进入房间
      * @constructor
      */
     function BTN_E_getIntoARoom(){
         var roomID = _getChosenRoomID();
-        _submitMsg("askGetIntoRoom",roomID);
-
+        _submitMsg(CMT.ASK_GET_INTO_ROOM,roomID);
 
         function _getChosenRoomID(){
             var os1 = global.getSpriteById("outerS");
@@ -37,7 +47,7 @@ define(function (require) {
      * @constructor
      */
     function BTN_E_startGame(){
-        _submitMsg("startGame");
+        _submitMsg(CMT.START_GAME);
     }
 
     /**
@@ -46,6 +56,7 @@ define(function (require) {
      */
     function BTN_E_ROLL(){
         console.log("random Roll");
+        _submitMsg(CMT.ROLL);
     }
 
     /**
@@ -79,7 +90,7 @@ define(function (require) {
             return 0;
             console.log("输入了空白信息");
         }else{
-            _submitMsg("clientInput",value);
+            _submitMsg(CMT.CLIENT_INPUT,value);
         }
     }
 
@@ -100,10 +111,10 @@ define(function (require) {
             throw new Error(e.name);
         }
 
-
     }
 
     return{
+        BTN_E_createNewRoom : function(){ return BTN_E_createNewRoom },
         BTN_E_getIntoARoom : function(){ return BTN_E_getIntoARoom },
         BTN_E_startGame : function(){ return BTN_E_startGame },
         BTN_E_ROLL : function(){ return BTN_E_ROLL },

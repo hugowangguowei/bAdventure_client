@@ -4,6 +4,8 @@
 define(function(require){
     'use strict';
 
+    var SMT = require('socket/WS_msgDefine').SMT;
+
     var btn_event = require('config/btn_event');
     var ID_manager = require('config/ID_Manager').getInstance();
     var baButton = require('baBasicLib/baSprites/baButton');
@@ -135,15 +137,15 @@ define(function(require){
     return {
         WS_URL:'http://localHost:3000',
         msgHandleList:[
-            {msgName:"system_inform",msgFunc:function(msgInfo){
+            {msgName:SMT.SYSTEM_INFORM,msgFunc:function(msgInfo){
                 console.log(msgInfo);
             }},
-            {msgName:"basicConnectReturn",msgFunc:function(msg){
+            {msgName:SMT.BASIC_CONNECT_RETURN,msgFunc:function(msg){
                 if(msg == "ok"){
                     global.GSM.switchToNext("mainShowBasicStruct");
                 }
             }},
-            {msgName:"roomListRefresh",msgFunc:function(msg){
+            {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msg){
                 console.log("roomListRefresh");
                 var mainShowLayer = global.getLayer("mainShowLayer");
                 var os1 = global.getSpriteById("outerS");
@@ -159,7 +161,7 @@ define(function(require){
                 }
 
             }},
-            {msgName:"intoARoom",msgFunc:function(msg){
+            {msgName:SMT.INTO_A_ROOM,msgFunc:function(msg){
                 var mainShowLayer = global.getLayer("mainShowLayer");
 
                 _buildTheQueueRoom(msg.userType);
@@ -184,16 +186,16 @@ define(function(require){
 
 
             }},
-            {msgName:"clientRoomInfoInitialize",msgFunc:function(msg){
+            {msgName:SMT.CLIENT_ROOM_INFO_INITIALIZE,msgFunc:function(msg){
                 for(var i = 0;i<msg.length;i++){
                     _createNewRoom(msg[i]);
                 }
             }},
-            {msgName:"getOutTheRoom",msgFunc:function(msg){
+            {msgName:SMT.GET_OUT_THE_ROOM,msgFunc:function(msg){
                 var os2 = global.getSpriteById("outerS2");
                 os2.removeAllNodes();
             }},
-            {msgName:"startGame",msgFunc:function(msg){
+            {msgName:SMT.START_GAME,msgFunc:function(msg){
                 global.GSM._startGameMsg = msg;
                 global.GSM.switchToNext("gameStruct");
             }}
