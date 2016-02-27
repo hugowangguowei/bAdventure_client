@@ -9,10 +9,8 @@ define(function (require) {
      */
     function BTN_E_getIntoARoom(){
         var roomID = _getChosenRoomID();
-        var socket = global.WSM.webSocket;
-        if(socket){
-            socket.emit("askGetIntoRoom",roomID);
-        }
+        _submitMsg("askGetIntoRoom",roomID);
+
 
         function _getChosenRoomID(){
             var os1 = global.getSpriteById("outerS");
@@ -39,10 +37,7 @@ define(function (require) {
      * @constructor
      */
     function BTN_E_startGame(){
-        var socket = global.WSM.webSocket;
-        if(socket){
-            socket.emit("startGame");
-        }
+        _submitMsg("startGame");
     }
 
     /**
@@ -80,6 +75,31 @@ define(function (require) {
     function BTN_E_CLIENT_SUBMIT(){
         var input = document.getElementById("client_input_1");
         var value = input.value;
+        if(value == ""){
+            return 0;
+            console.log("输入了空白信息");
+        }else{
+            _submitMsg("clientInput",value);
+        }
+    }
+
+    /**
+     * 向服务器提交请求
+     * @param msgName
+     * @param msgDetail
+     * @private
+     */
+    function _submitMsg(msgName,msgDetail){
+        var msgName = msgName||"default";
+        var msgDetail = msgDetail||"";
+
+        var socket = global.WSM.webSocket;
+        try{
+            socket.emit(msgName,msgDetail);
+        }catch(e){
+            throw new Error(e.name);
+        }
+
 
     }
 
