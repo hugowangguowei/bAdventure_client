@@ -1,21 +1,25 @@
 /**
  * Created by wgw on 2016/2/13.
+ * æ¡†æž¶å±žæ€§
  */
+define(function(){
+    return{
+        //å‚ä¸Žè€…-æ¶ˆæ¯å±•ç¤ºæ¡†-å±žæ€§
+    CLIENT_MSG_SHOW_X : 100,
+    CLIENT_MSG_SHOW_Y : 50,
+    CLIENT_MSG_SHOW_W : 700,
+    CLIENT_MSG_SHOW_H : 300,
 
-    //²ÎÓëÕß-ÏûÏ¢Õ¹Ê¾¿ò-ÊôÐÔ
-    var GAME_STRUCT_CLIENT_MSG_SHOW_X = 100;
-    var GAME_STRUCT_CLIENT_MSG_SHOW_Y = 50;
-    var GAME_STRUCT_CLIENT_MSG_SHOW_W = 700;
-    var GAME_STRUCT_CLIENT_MSG_SHOW_H = 300;
+    //å‚ä¸Žè€…-è‡ªæŽ§æ¡†-å±žæ€§
+    CLIENT_SELF_CONTROL_X : 100,
+    CLIENT_SELF_CONTROL_Y : 400,
+    CLIENT_SELF_CONTROL_W : 700,
+    CLIENT_SELF_CONTROL_H : 150,
 
-    //²ÎÓëÕß-×Ô¿Ø¿ò-ÊôÐÔ
-    var GAME_STRUCT_CLIENT_SELF_CONTROL_X = 100;
-    var GAME_STRUCT_CLIENT_SELF_CONTROL_Y = 400;
-    var GAME_STRUCT_CLIENT_SELF_CONTROL_W = 700;
-    var GAME_STRUCT_CLIENT_SELF_CONTROL_H = 150;
-
-    //²ÎÓëÕß-³ÉÔ±¿ò-ÊôÐÔ
-    var GAME_STRUCT_CLIENT_MEM_LIST_X = 820;
-    var GAME_STRUCT_CLIENT_MEM_LIST_Y = 50;
-    var GAME_STRUCT_CLIENT_MEM_LIST_W = 200;
-    var GAME_STRUCT_CLIENT_MEM_LIST_H = 500;
+    //å‚ä¸Žè€…-æˆå‘˜æ¡†-å±žæ€§
+    CLIENT_MEM_LIST_X : 820,
+    CLIENT_MEM_LIST_Y : 50,
+    CLIENT_MEM_LIST_W : 200,
+    CLIENT_MEM_LIST_H : 500
+    }
+})

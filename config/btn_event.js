@@ -4,7 +4,7 @@
 define(function (require) {
 
     /**
-     * ÇëÇó½øÈë·¿¼ä
+     * è¯·æ±‚è¿›å…¥æˆ¿é—´
      * @constructor
      */
     function BTN_E_getIntoARoom(){
@@ -35,7 +35,7 @@ define(function (require) {
     }
 
     /**
-     * ÇëÇó¿ªÊ¼ÓÎÏ·
+     * è¯·æ±‚å¼€å§‹æ¸¸æˆ
      * @constructor
      */
     function BTN_E_startGame(){
@@ -46,7 +46,7 @@ define(function (require) {
     }
 
     /**
-     * rollµã
+     * rollç‚¹
      * @constructor
      */
     function BTN_E_ROLL(){
@@ -54,7 +54,7 @@ define(function (require) {
     }
 
     /**
-     * ´´½¨Íæ¼ÒÊäÈë¿ò
+     * åˆ›å»ºç©å®¶è¾“å…¥æ¡†
      * @constructor
      */
     function BTN_E_CLIENT_INPUT(){
@@ -74,7 +74,7 @@ define(function (require) {
     }
 
     /**
-     * Íæ¼ÒÊäÈëĞÅÏ¢Ìá½»
+     * ç©å®¶è¾“å…¥ä¿¡æ¯æäº¤
      * @constructor
      */
     function BTN_E_CLIENT_SUBMIT(){

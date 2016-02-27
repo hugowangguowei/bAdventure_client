@@ -7,9 +7,28 @@ define(function(require){
         var baLayer = require('baBasicLib/baLayer');
         var baSprite = require('baBasicLib/baSprite');
         var baButton = require('baBasicLib/baSprites/baButton');
-        var oS_roomList = require('privateLib/structs/oS_roomList');
         var btn_event = require('config/btn_event');
+        var ID_Manager = require('config/ID_Manager').getInstance();
 
+        var outerStruct = require('privateLib/outerStruct');
+        var oS_config = require('config/struct_config');
+        var oS_roomList = require('privateLib/structs/oS_roomList');
+        var oS_memShow = require('privateLib/structs/oS_memShow');
+        var oS_roomMem = require('privateLib/structs/oS_roomMem');
+        var oS_selfControl = require('privateLib/structs/oS_selfControl');
+
+        var basicBlock = require('privateLib/basicBlock');
+        var bB_memCtrl = require('privateLib/blocks/bB_memCtrl');
+        var bB_memIntro = require('privateLib/blocks/bB_memIntro');
+        var bB_roomIntro = require('privateLib/blocks/bB_roomIntro');
+
+        var textBlock = require('privateLib/textBlock');
+
+        /**
+         * 游戏资源加载画面
+         * @param _this
+         * @constructor
+         */
         function GSM_gameLoading(_this){
             var ldLayer = new baLayer("loadingLayer",120);
             global.addLayer(ldLayer);
@@ -59,10 +78,17 @@ define(function(require){
                 }
             }
         }
+
+        /**
+         * 游戏主界面
+         * @param _this
+         * @constructor
+         */
         function GSM_gameStruct(_this){
 
             global.hideAllLayer();
-            var gameLayer = global.addLayer("gameStructLayer",121);
+            var gameLayer = new baLayer("gameStructLayer",121);
+            global.addLayer(gameLayer);
             gameLayer.startMachine(24);
 
             var msg = _this._startGameMsg;
@@ -84,12 +110,12 @@ define(function(require){
                     cxt.fillRect(this.x,this.y,this.width,this.height);
                 }
 
-                //��Ϣչʾ��========================================================================================================
+                //消息展示框========================================================================================================
                 var os_ms = new outerStruct("os_msgShow",
-                    GAME_STRUCT_CLIENT_MSG_SHOW_X,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_Y,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_W,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_H,
+                    oS_config.CLIENT_MSG_SHOW_X,
+                    oS_config.CLIENT_MSG_SHOW_Y,
+                    oS_config.CLIENT_MSG_SHOW_W,
+                    oS_config.CLIENT_MSG_SHOW_H,
                     false);
                 os_ms.addToLayer(gameLayer);
                 var textST = new textBlock("textShowTag",
@@ -99,12 +125,12 @@ define(function(require){
                     os_ms.showWindowConfig.h - 6);
                 textST.addToLayer(gameLayer);
 
-                //�Կؿ�============================================================================================================
+                //自控框============================================================================================================
                 var os_sc = new oS_selfControl("os_sc",
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_X,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_Y,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_W,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_H,
+                    oS_config.CLIENT_SELF_CONTROL_X,
+                    oS_config.CLIENT_SELF_CONTROL_Y,
+                    oS_config.CLIENT_SELF_CONTROL_W,
+                    oS_config.CLIENT_SELF_CONTROL_H,
                     false);
                 os_sc.addToLayer(gameLayer);
 
@@ -116,7 +142,7 @@ define(function(require){
                     height:40
                 }
                 btn_1.setLoc(locInfo);
-                btn_1.bindEvent(BTN_E_ROLL);
+                btn_1.bindEvent(btn_event.BTN_E_ROLL());
                 btn_1.upStateInfo.text = "roll";
                 btn_1.addToLayer(gameLayer);
 
@@ -128,7 +154,7 @@ define(function(require){
                     height:40
                 }
                 btn_clientInput.setLoc(locInfo);
-                btn_clientInput.bindEvent(BTN_E_CLIENT_INPUT);
+                btn_clientInput.bindEvent(btn_event.BTN_E_CLIENT_INPUT());
                 btn_clientInput.upStateInfo.text = "pleaseInsert";
                 btn_clientInput.addToLayer(gameLayer);
 
@@ -140,16 +166,16 @@ define(function(require){
                     height:40
                 }
                 btn_clientSubmit.setLoc(locInfo);
-                btn_clientSubmit.bindEvent(BTN_E_CLIENT_SUBMIT);
+                btn_clientSubmit.bindEvent(btn_event.BTN_E_CLIENT_SUBMIT());
                 btn_clientSubmit.upStateInfo.text = "commit";
                 btn_clientSubmit.addToLayer(gameLayer);
 
-                //��Ա�б�==========================================================================================================
+                //成员列表==========================================================================================================
                 var os_memShow = new oS_memShow("os_memS",
-                    GAME_STRUCT_CLIENT_MEM_LIST_X,
-                    GAME_STRUCT_CLIENT_MEM_LIST_Y,
-                    GAME_STRUCT_CLIENT_MEM_LIST_W,
-                    GAME_STRUCT_CLIENT_MEM_LIST_H,
+                    oS_config.CLIENT_MEM_LIST_X,
+                    oS_config.CLIENT_MEM_LIST_Y,
+                    oS_config.CLIENT_MEM_LIST_W,
+                    oS_config.CLIENT_MEM_LIST_H,
                     false);
                 os_memShow.addToLayer(gameLayer);
                 _buildMemList(msg,os_memShow);
@@ -164,12 +190,12 @@ define(function(require){
                     cxt.fillRect(this.x,this.y,this.width,this.height);
                 }
 
-                //��Ϣչʾ��========================================================================================================
+                //消息展示框========================================================================================================
                 var os_ms = new outerStruct("os_msgShow",
-                    GAME_STRUCT_CLIENT_MSG_SHOW_X,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_Y,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_W,
-                    GAME_STRUCT_CLIENT_MSG_SHOW_H,
+                    oS_config.CLIENT_MSG_SHOW_X,
+                    oS_config.CLIENT_MSG_SHOW_Y,
+                    oS_config.CLIENT_MSG_SHOW_W,
+                    oS_config.CLIENT_MSG_SHOW_H,
                     false);
                 os_ms.addToLayer(gameLayer);
                 var textST = new textBlock("textShowTag",
@@ -179,12 +205,12 @@ define(function(require){
                     os_ms.showWindowConfig.h - 6);
                 textST.addToLayer(gameLayer);
 
-                //�Կؿ�============================================================================================================
+                //自控框============================================================================================================
                 var os_sc = new oS_selfControl("os_sc",
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_X,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_Y,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_W,
-                    GAME_STRUCT_CLIENT_SELF_CONTROL_H,
+                    oS_config.CLIENT_SELF_CONTROL_X,
+                    oS_config.CLIENT_SELF_CONTROL_Y,
+                    oS_config.CLIENT_SELF_CONTROL_W,
+                    oS_config.CLIENT_SELF_CONTROL_H,
                     false);
                 os_sc.addToLayer(gameLayer);
 
@@ -196,7 +222,7 @@ define(function(require){
                     height:40
                 }
                 btn_1.setLoc(locInfo);
-                btn_1.bindEvent(BTN_E_ROLL);
+                btn_1.bindEvent(btn_event.BTN_E_ROLL());
                 btn_1.upStateInfo.text = "roll";
                 btn_1.addToLayer(gameLayer);
 
@@ -208,7 +234,7 @@ define(function(require){
                     height:40
                 }
                 btn_clientInput.setLoc(locInfo);
-                btn_clientInput.bindEvent(BTN_E_CLIENT_INPUT);
+                btn_clientInput.bindEvent(btn_event.BTN_E_CLIENT_INPUT());
                 btn_clientInput.upStateInfo.text = "pleaseInsert";
                 btn_clientInput.addToLayer(gameLayer);
 
@@ -220,28 +246,28 @@ define(function(require){
                     height:40
                 }
                 btn_clientSubmit.setLoc(locInfo);
-                btn_clientSubmit.bindEvent(BTN_E_CLIENT_SUBMIT);
+                btn_clientSubmit.bindEvent(btn_event.BTN_E_CLIENT_SUBMIT());
                 btn_clientSubmit.upStateInfo.text = "commit";
                 btn_clientSubmit.addToLayer(gameLayer);
 
-                //��Ա�б�==========================================================================================================
+                //成员列表==========================================================================================================
                 var os_memShow = new oS_memShow("os_memS",
-                    GAME_STRUCT_CLIENT_MEM_LIST_X,
-                    GAME_STRUCT_CLIENT_MEM_LIST_Y,
-                    GAME_STRUCT_CLIENT_MEM_LIST_W,
-                    GAME_STRUCT_CLIENT_MEM_LIST_H,
+                    oS_config.CLIENT_MEM_LIST_X,
+                    oS_config.CLIENT_MEM_LIST_Y,
+                    oS_config.CLIENT_MEM_LIST_W,
+                    oS_config.CLIENT_MEM_LIST_H,
                     false);
                 os_memShow.addToLayer(gameLayer);
                 _buildMemList(msg,os_memShow);
             }
 
             function _buildMemList(msg,os){
-                //��ǰ�汾�У�������Ϣ������mem��Ϣ
+                //当前版本中，传入信息仅包括mem信息
                 var msg_i;
                 var memMsg = msg.mem;
                 for(var i = 0;i<memMsg.length;i++){
                     msg_i = memMsg[i];
-                    var id = getNewIdForMemPlayer();
+                    var id = ID_Manager.getNewIdForMemPlayer();
                     var memCtrl_i = new bB_memCtrl(id);
                     memCtrl_i.name = msg_i.name;
                     memCtrl_i.serverId = msg_i.serverId;
@@ -251,6 +277,13 @@ define(function(require){
                 }
             }
         }
+
+        /**
+         * 游戏初始化界面
+         * @param _this
+         * @returns {number}
+         * @constructor
+         */
         function GSM_mainShow(_this){
             global.hideAllLayer();
             if(global.getLayer("loadingLayer")){
@@ -277,6 +310,12 @@ define(function(require){
             singleProBtn.upStateInfo.text = "connect Server";
             singleProBtn.addToLayer(mainShowLayer);
         }
+
+        /**
+         * 房间列表画面
+         * @param _this
+         * @constructor
+         */
         function GSM_mainShowBasicStruct(_this){
             _this.privateState.mainSHowBBSOn = true;
             var mainShowLayer = global.getLayer("mainShowLayer");

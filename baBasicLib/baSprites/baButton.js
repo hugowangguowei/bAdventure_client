@@ -1,7 +1,9 @@
 /**
  * Created by wgw on 2016/2/23.
  */
-define(function(){
+define(function(require){
+    var baSprite = require('baBasicLib/baSprite');
+
     function baButton(id,x,y,w,h,reflectable){
         baSprite.call(this);
         this.id = id;

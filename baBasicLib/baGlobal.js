@@ -12,17 +12,17 @@ define(function(){
         this.width = null;
         this.height = null;
         /**
-         * ÓÎÏ·×´Ì¬»ú
+         * æ¸¸æˆçŠ¶æ€æœº
          * @type {baBasicLib/gameState}
          */
         this.GSM = null;
         /**
-         * Á¬½Ó¹ÜÀíÆ÷
+         * è¿æ¥ç®¡ç†å™¨
          * @type {module:socket/WS_Manager}
          */
         this.WSM = null;
         /**
-         * ×´Ì¬ÁĞ±í
+         * çŠ¶æ€åˆ—è¡¨
          * @type {Array}
          */
         this.GSMArray = [];
