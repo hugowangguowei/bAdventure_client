@@ -154,7 +154,7 @@ define(function(require){
                     height:40
                 }
                 btn_clientInput.setLoc(locInfo);
-                btn_clientInput.bindEvent(btn_event.BTN_E_CLIENT_INPUT());
+                btn_clientInput.bindEvent(btn_event.BTN_E_CREATE_CLIENT_INPUT());
                 btn_clientInput.upStateInfo.text = "pleaseInsert";
                 btn_clientInput.addToLayer(gameLayer);
 
@@ -234,7 +234,7 @@ define(function(require){
                     height:40
                 }
                 btn_clientInput.setLoc(locInfo);
-                btn_clientInput.bindEvent(btn_event.BTN_E_CLIENT_INPUT());
+                btn_clientInput.bindEvent(btn_event.BTN_E_CREATE_CLIENT_INPUT());
                 btn_clientInput.upStateInfo.text = "pleaseInsert";
                 btn_clientInput.addToLayer(gameLayer);
 

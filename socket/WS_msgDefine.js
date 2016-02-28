@@ -11,7 +11,7 @@ define(function(require){
         this.CREAT_NEW_ROOM = 'createNewRoom';
         this.ASK_GET_INTO_ROOM = 'askGetIntoRoom';
         this.START_GAME = 'startGame';
-        this.CLIENT_INPUT = 'clientInput';
+        this.CLIENT_SUBMIT = 'clientSubmit';
         this.ROLL = 'roll';
     }
 
@@ -27,6 +27,7 @@ define(function(require){
         this.CLIENT_ROOM_INFO_INITIALIZE = 'clientRoomInfoInitialize';
         this.GET_OUT_THE_ROOM = 'getOutTheRoom';
         this.START_GAME = 'startGame';
+        this.CLIENT_MSG_DISTRIBUTE = 'clientMsgDistribute';
     }
 
     return {

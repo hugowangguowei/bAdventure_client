@@ -66,7 +66,7 @@ define(function(require){
         if(!this.textArea){
             return;
         }
-        this.message += info.sender + ": " + info.msg + "\n";
+        this.message += info + "\n";
         this.textArea.value = this.message;
     }
 

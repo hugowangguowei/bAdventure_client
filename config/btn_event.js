@@ -63,7 +63,7 @@ define(function (require) {
      * 创建玩家输入框
      * @constructor
      */
-    function BTN_E_CLIENT_INPUT(){
+    function BTN_E_CREATE_CLIENT_INPUT(){
         var inputText = document.createElement("input");
         inputText.setAttribute("type","text");
         inputText.setAttribute("id","client_input_1");
@@ -90,7 +90,7 @@ define(function (require) {
             return 0;
             console.log("输入了空白信息");
         }else{
-            _submitMsg(CMT.CLIENT_INPUT,value);
+            _submitMsg(CMT.CLIENT_SUBMIT,value);
         }
     }
 
@@ -118,7 +118,7 @@ define(function (require) {
         BTN_E_getIntoARoom : function(){ return BTN_E_getIntoARoom },
         BTN_E_startGame : function(){ return BTN_E_startGame },
         BTN_E_ROLL : function(){ return BTN_E_ROLL },
-        BTN_E_CLIENT_INPUT : function(){ return BTN_E_CLIENT_INPUT },
+        BTN_E_CREATE_CLIENT_INPUT : function(){ return BTN_E_CREATE_CLIENT_INPUT },
         BTN_E_CLIENT_SUBMIT : function(){ return BTN_E_CLIENT_SUBMIT }
     }
 })

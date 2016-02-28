@@ -198,6 +198,12 @@ define(function(require){
             {msgName:SMT.START_GAME,msgFunc:function(msg){
                 global.GSM._startGameMsg = msg;
                 global.GSM.switchToNext("gameStruct");
+            }},
+            {msgName:SMT.CLIENT_MSG_DISTRIBUTE,mgsFunc:function(msg){
+                var textB = global.getSpriteById("textShowTag");
+                if(textB){
+                    textB.addText(msg);
+                }
             }}
         ]
     }
