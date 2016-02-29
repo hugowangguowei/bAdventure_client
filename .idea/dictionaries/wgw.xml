@@ -6,6 +6,7 @@
       <w>mousedown</w>
       <w>mousemove</w>
       <w>mouseup</w>
+      <w>onselectstart</w>
       <w>struct</w>
       <w>structs</w>
     </words>

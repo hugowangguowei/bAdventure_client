@@ -32,6 +32,7 @@ define(function(require){
         var tA = document.createElement("textArea");
         tA.setAttribute("id","tA1");
         tA.setAttribute("readOnly","true");
+        tA.setAttribute("onselectstart","return false");
         tA.resize = false;
         tA.style.position = "absolute";
         tA.style.left = this.x + "px";

@@ -64,19 +64,27 @@ define(function (require) {
      * @constructor
      */
     function BTN_E_CREATE_CLIENT_INPUT(){
-        var inputText = document.createElement("input");
-        inputText.setAttribute("type","text");
-        inputText.setAttribute("id","client_input_1");
-        inputText.style.position = "absolute";
+        var inputCircle = document.getElementById("client_input_1");
 
-        var btnClientInput = global.getSpriteById("btn_clientInput");
-        inputText.style.top = btnClientInput.y + "px";
-        inputText.style.left = btnClientInput.x + "px";
-        inputText.style.height = btnClientInput.height - 5 + "px";
-        inputText.style.width = btnClientInput.width -5 + "px";
-        inputText.style.zIndex = 130;
-        global.baseDiv.appendChild(inputText);
-        inputText.focus();
+        if(!inputCircle){
+            var inputText = document.createElement("input");
+            inputText.setAttribute("type","text");
+            inputText.setAttribute("id","client_input_1");
+            inputText.style.position = "absolute";
+
+            var btnClientInput = global.getSpriteById("btn_clientInput");
+            inputText.style.top = btnClientInput.y + "px";
+            inputText.style.left = btnClientInput.x + "px";
+            inputText.style.height = btnClientInput.height - 5 + "px";
+            inputText.style.width = btnClientInput.width -5 + "px";
+            inputText.style.zIndex = 200;
+            global.baseDiv.appendChild(inputText);
+            inputText.focus();
+        }else{
+            inputCircle.value = "";
+            inputCircle.focus();
+
+        }
     }
 
     /**
@@ -90,7 +98,9 @@ define(function (require) {
             return 0;
             console.log("输入了空白信息");
         }else{
+            console.log("准备输入信息" + CMT.CLIENT_SUBMIT);
             _submitMsg(CMT.CLIENT_SUBMIT,value);
+            //_submitMsg("test");
         }
     }
 

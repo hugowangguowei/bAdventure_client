@@ -199,11 +199,14 @@ define(function(require){
                 global.GSM._startGameMsg = msg;
                 global.GSM.switchToNext("gameStruct");
             }},
-            {msgName:SMT.CLIENT_MSG_DISTRIBUTE,mgsFunc:function(msg){
+            {msgName:SMT.CLIENT_MSG_DISTRIBUTE,msgFunc:function(msg){
                 var textB = global.getSpriteById("textShowTag");
                 if(textB){
                     textB.addText(msg);
                 }
+            }},
+            {msgName:"test",msgFunc:function(msg){
+                console.log(msg);
             }}
         ]
     }
