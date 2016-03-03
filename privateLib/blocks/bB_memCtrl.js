@@ -35,8 +35,9 @@ define(function(require){
         cxt.fillStyle = "black";
         cxt.textAlign = "center";
         cxt.fillText(this.name,canvas.width/2,canvas.height/2);
-
-
+    }
+    bB_memCtrl.prototype.inputEvent = function(eventType){
+        console.log("接收了" + eventType + "事件");
     }
 
     return bB_memCtrl;

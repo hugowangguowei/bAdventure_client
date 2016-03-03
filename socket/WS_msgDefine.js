@@ -25,9 +25,11 @@ define(function(require){
         this.ROOM_LIST_REFRESH = 'roomListRefresh';
         this.INTO_A_ROOM = 'intoARoom';
         this.CLIENT_ROOM_INFO_INITIALIZE = 'clientRoomInfoInitialize';
-        this.GET_OUT_THE_ROOM = 'getOutTheRoom';
+        this.GET_OUT_THE_QUEUE = 'getOutTheQueue',
+        this.GET_OUT_THE_GAME = 'getOutTheGame',
         this.START_GAME = 'startGame';
         this.CLIENT_MSG_DISTRIBUTE = 'clientMsgDistribute';
+        this.ROOM_DELETE = 'roomDelete';
     }
 
     return {

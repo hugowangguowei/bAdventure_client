@@ -191,9 +191,12 @@ define(function(require){
                     _createNewRoom(msg[i]);
                 }
             }},
-            {msgName:SMT.GET_OUT_THE_ROOM,msgFunc:function(msg){
+            {msgName:SMT.GET_OUT_THE_QUEUE,msgFunc:function(msg){
                 var os2 = global.getSpriteById("outerS2");
                 os2.removeAllNodes();
+            }},
+            {msgName:SMT.GET_OUT_THE_GAME,msgFunc:function(msg){
+                //TODO
             }},
             {msgName:SMT.START_GAME,msgFunc:function(msg){
                 global.GSM._startGameMsg = msg;
@@ -204,6 +207,8 @@ define(function(require){
                 if(textB){
                     textB.addText(msg);
                 }
+            }},
+            {msgName:SMT.ROOM_DELETE,msgFunc:function(msg){
             }},
             {msgName:"test",msgFunc:function(msg){
                 console.log(msg);

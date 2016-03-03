@@ -48,6 +48,7 @@ define(function(require){
         }
         mainDiv.appendChild(tA);
         this.textArea = tA;
+        //i hate this.but i have to
     };
     textBlock.prototype.draw = function(){
         if(!this.isInit){
@@ -70,7 +71,6 @@ define(function(require){
         this.message += info + "\n";
         this.textArea.value = this.message;
     }
-
     return textBlock;
 })
 

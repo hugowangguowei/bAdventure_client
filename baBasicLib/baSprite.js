@@ -79,7 +79,6 @@ define(function(){
 
         },
         inputEvent:function(eventType){
-
         }
     }
     return baSprite;
