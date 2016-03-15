@@ -21,36 +21,31 @@
 
         var global;
         var imageArray;
-        require(['baBasicLib/baGlobal','baBasicLib/testObj','baBasicLib/baLayer',
-            'gameStateMachine/GSM_detail'],function(baGlobal,testObj){
-            var aa = new testObj();
-            aa.printValue();
+        require(['baBasicLib/baGlobal',
+            'baBasicLib/testObj',
+            'baBasicLib/gameState',
+            'gameStateMachine/GSM_detail'],function(baGlobal,testObj,gsm,GSM_detail){
+
             global = baGlobal.getInstance();
             var mainDiv = document.getElementById("mainDiv");
             global.setDIV(mainDiv,"1400px","700px");
+
+            var GSM1 = new gsm();
+            global.addGameStateMachine(GSM1);
+
+            var GSM_gameLoading = GSM_detail.gameLoading();
+            var GSM_mainShow = GSM_detail.mainShow();
+            var GSM_mainShowBasicStruct = GSM_detail.mainShowBasicStruct();
+            var GSM_gameStruct = GSM_detail.gameStruct();
+            GSM1.gameStateArray = [
+                {stateName:"loading",stateFunction:GSM_gameLoading},
+                {stateName:"mainShow",stateFunction:GSM_mainShow},
+                {stateName:"mainShowBasicStruct",stateFunction:GSM_mainShowBasicStruct},
+                {stateName:"gameStruct",stateFunction:GSM_gameStruct}
+            ];
+
+            GSM1.initRoutine();
         });
-
-        function stateM(){
-            require([
-                        'baBasicLib/gameState','gameStateMachine/GSM_detail'],
-                    function(gsm,GSM_detail){
-                        var GSM1 = new gsm();
-                        global.addGameStateMachine(GSM1);
-
-                        var GSM_gameLoading = GSM_detail.gameLoading();
-                        var GSM_mainShow = GSM_detail.mainShow();
-                        var GSM_mainShowBasicStruct = GSM_detail.mainShowBasicStruct();
-                        var GSM_gameStruct = GSM_detail.gameStruct();
-                        GSM1.gameStateArray = [
-                            {stateName:"loading",stateFunction:GSM_gameLoading},
-                            {stateName:"mainShow",stateFunction:GSM_mainShow},
-                            {stateName:"mainShowBasicStruct",stateFunction:GSM_mainShowBasicStruct},
-                            {stateName:"gameStruct",stateFunction:GSM_gameStruct}
-                        ];
-
-                        GSM1.initRoutine();
-                    });
-        }
 
         function addText(){
             var textB = global.getSpriteById("textShowTag");
@@ -68,8 +63,6 @@
     <h1>test</h1>
 </header>
 <article>
-    <input type="button" id = "openBtn" onclick = "stateM()" value ="状态机启动">
-    <hr>
     用户名：<input type="text" id = "userNameInput" value = "userName"/>
     <input type="button" id ="signInBtn" onclick="connectToServer()" value = "连接服务器"/>
     <hr>
