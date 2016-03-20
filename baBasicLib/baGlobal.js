@@ -45,14 +45,6 @@ define(function(){
         },
         addLayer: function (layer,x,y,w,h){
             var canvasX = document.createElement("canvas");
-            //canvasX.id = layer.id;
-            //canvasX.width = w||this.baseDiv.width;
-            //canvasX.height = h||this.baseDiv.height;
-            //canvasX.style.position = "absolute";
-            //canvasX.style.top = "0px";
-            //canvasX.style.left = "0px";
-            //canvasX.style.zIndex = zindex;
-
             layer.x = x||0;
             layer.y = y||0;
             layer.width = w||this.baseDiv.width;

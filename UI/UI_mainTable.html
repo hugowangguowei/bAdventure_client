@@ -1,0 +1,165 @@
+<style>
+    #outS{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    #MT_title{
+        width: 100%;
+        height: 10%;
+        background-color: aqua;
+    }
+    #MT_main{
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        background-color: #e1e6ea;
+    }
+    #MT_leftFrame1{
+        width: 5%;
+        height: 100%;
+        background-color: coral;
+        position: absolute;
+    }
+    #MT_leftFrame2{
+        width: 20%;
+        height: 100%;
+        background-color: coral;
+        position: absolute;
+    }
+    #MT_middleFrame{
+        width: 60%;
+        height: 100%;
+        margin: 0 20%;
+        background-color: gray;
+        position: absolute;
+        box-shadow: inset 0 0 3px 3px black;
+        overflow: scroll;
+    }
+    .roomIntro{
+        width: 90%;
+        height: 10%;
+        margin: 1% 5%;
+        background-color: burlywood;
+    }
+    .roomIntroSelected{
+        background-color: cyan;
+    }
+    .rI_b1{
+        width: 10%;
+        height: 90%;
+        margin: 0.4% 1%;
+        background-color: #cf9d00;
+        float: left;
+    }
+    .rI_b2{
+        width: 20%;
+        height: 90%;
+        margin: 0.4% 1%;
+        background-color: #E99494;
+        float: left;
+    }
+    .rI_b3{
+        width: 40%;
+        height: 90%;
+        margin: 0.4% 1%;
+        background-color: #1971a8;
+        float: left;
+    }
+    #MT_rightFrame1{
+        width: 5%;
+        height: 100%;
+        right: 0;
+        background-color: coral;
+        position: absolute;
+    }
+    #MT_rightFrame2{
+        width: 20%;
+        height: 100%;
+        right: 0;
+        background-color: coral;
+        position: absolute;
+    }
+    .roomBtn{
+        width: 70%;
+        height: 10%;
+        text-align: center;
+        font-weight: bold;
+        color: #ffe;
+        text-shadow:1px 1px 1px #333;
+        /*border-radius: 5px;*/
+        margin:0 15%;
+        position: absolute;
+    }
+    #MT_btn1{
+        margin: 5% 15%;
+        color: blueviolet;
+    }
+    #MT_btn2{
+        margin: 25% 15%;
+    }
+    #MT_bottom{
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        bottom: 0;
+        background-color: darkcyan;
+    }
+</style>
+<div id = "outS">
+    <div id = "MT_title"></div>
+    <div id = "MT_main">
+        <div id = "MT_leftFrame1"></div>
+        <div id = "MT_leftFrame2"></div>
+        <div id = "MT_middleFrame"></div>
+        <div id = "MT_rightFrame1"></div>
+        <div id = "MT_rightFrame2">
+            <button id = "MT_btn1" class = "roomBtn" value="buildRoom"></button>
+            <button id = "MT_btn2" class = "roomBtn" value="getIntoRoom"></button>
+        </div>
+    </div>
+    <div id = "MT_bottom"></div>
+</div>
+<script>
+
+    $("#MT_leftFrame2").hide();
+    $("#MT_rightFrame1").hide();
+    $("#MT_leftFrame1").on("click",function(){
+        $("#MT_leftFrame1").hide();
+        $("#MT_leftFrame2").show();
+    });
+    $("#MT_leftFrame2").on("click",function(){
+        $("#MT_leftFrame2").hide();
+        $("#MT_leftFrame1").show();
+    });
+    $("#MT_rightFrame1").on("click",function(){
+        $("#MT_rightFrame1").hide();
+        $("#MT_rightFrame2").show();
+    });
+    $("#MT_rightFrame2").on("click",function(){
+        $("#MT_rightFrame2").hide();
+        $("#MT_rightFrame1").show();
+    });
+    $("#MT_btn1").on("click",function(e){
+        MT_buildNewRoom();
+        return false;
+    });
+    $("#MT_btn2").on("click",function(e){
+        return false;
+    });
+
+    function MT_buildNewRoom(){
+        var $newRoom = $("<div></div>").addClass("roomIntro");
+        $newRoom.html(
+                "<div class='rI_b1'></div>" +
+                "<div class='rI_b2'></div>" +
+                "<div class='rI_b3'></div>"
+        )
+        $newRoom.click(function(e){
+            var roomIntroList = $('.roomIntro');
+            roomIntroList.removeClass("roomIntroSelected");
+            $(this).addClass("roomIntroSelected");
+        })
+        $("#MT_middleFrame").append($newRoom);
+    }
+</script>

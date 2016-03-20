@@ -107,7 +107,7 @@ define(function(){
                     self.chosenObj = obj;
                 }
                 else{
-                    console.log("no obj chosen");
+                    //console.log("no obj chosen");
                 }
             }
             function _mousemove(loc){

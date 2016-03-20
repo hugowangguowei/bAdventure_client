@@ -289,7 +289,8 @@ define(function(require){
          */
         function GSM_mainShow(_this){
             global.hideAllLayer();
-            $('#mainDiv').load('gameStateMachine/tables/mainStruct.html');
+            //$('#mainDiv').load('gameStateMachine/tables/mainStruct.html');
+            $('#mainDiv').load('UI/UI_mainTable.html');
         }
 
         /**
