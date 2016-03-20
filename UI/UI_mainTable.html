@@ -98,12 +98,35 @@
     #MT_btn2{
         margin: 25% 15%;
     }
+    #MT_btn3{
+        margin: 45% 15%;
+    }
     #MT_bottom{
         width: 100%;
         height: 20%;
         position: absolute;
         bottom: 0;
         background-color: darkcyan;
+    }
+    #MT_bottomFrame{
+        width: 60%;
+        height: 90%;
+        margin: 0.5% 20%;
+        background-color: #6f6f6f;
+        overflow: scroll;
+    }
+    #MT_b_wrap{
+        min-width: 100px;
+        /*width: 60%;*/
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+    .MT_memIntro{
+        width: 10%;
+        height: 90%;
+        background-color: blanchedalmond;
+        margin: 1% 1%;
     }
 </style>
 <div id = "outS">
@@ -116,11 +139,16 @@
         <div id = "MT_rightFrame2">
             <input type="button" id = "MT_btn1" class="roomBtn" value="buildRoom">
             <input type="button" id = "MT_btn2" class="roomBtn" value="getIntoRoom">
-            <!--<button id = "MT_btn1" class = "roomBtn" value="buildRoom"></button>-->
-            <!--<button id = "MT_btn2" class = "roomBtn" value="getIntoRoom"></button>-->
+            <input type="button" id = "MT_btn3" class="roomBtn" value="addMem">
         </div>
     </div>
-    <div id = "MT_bottom"></div>
+    <div id = "MT_bottom">
+        <div id = "MT_bottomFrame">
+            <div id = "MT_b_wrap">
+
+            </div>
+        </div>
+    </div>
 </div>
 <script>
 
@@ -149,7 +177,10 @@
     $("#MT_btn2").on("click",function(e){
         return false;
     });
-
+    $('#MT_btn3').on('click',function(e){
+        MT_addNewPlayer();
+        return false;
+    });
     function MT_buildNewRoom(){
         var $newRoom = $("<div></div>").addClass("roomIntro");
         $newRoom.html(
@@ -163,5 +194,12 @@
             $(this).addClass("roomIntroSelected");
         })
         $("#MT_middleFrame").append($newRoom);
+    }
+    function MT_addNewPlayer(){
+        var $newRoom = $("<div></div>").addClass("MT_memIntro");
+        $newRoom.html(
+                "<div class='mI_img'></div>"
+        )
+        $("#MT_b_wrap").append($newRoom);
     }
 </script>
