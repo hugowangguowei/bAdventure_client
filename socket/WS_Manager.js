@@ -38,7 +38,8 @@ define(function(require){
             instance = this;
         },
         getClientInfo:function(){
-            var userName = document.getElementById("userNameInput").value + "aaSss";
+            //TODO 临时使用随机用户
+            var userName = "user_" + Math.random();
             this.clientInfo.userName = userName;
             return this.clientInfo;
         },
