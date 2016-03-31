@@ -294,6 +294,7 @@ define(function(require){
                 mainShowLayer.state = "show";
                 return 0;
             }
+
             var mainShowLayer = new baLayer("mainShowLayer",120);
             global.addLayer(mainShowLayer);
             mainShowLayer.startMachine(60);

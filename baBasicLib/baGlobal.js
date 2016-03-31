@@ -43,6 +43,7 @@ define(function(){
             this.baseDiv.style.zIndex = 0;
             divElem.baGlobal = this;
         },
+        //层管理========================================================================================================
         addLayer: function (layer,x,y,w,h){
             var canvasX = document.createElement("canvas");
             layer.x = x||0;
@@ -91,10 +92,10 @@ define(function(){
                 this.hideLayer(this.layerArray[i]);
             }
         },
+        //状态机管理====================================================================================================
         startEngine: function () {
 
         },
-        //question
         addGameStateMachine:function(gsm){
             gsm.obj = this;
             this.GSM = gsm;

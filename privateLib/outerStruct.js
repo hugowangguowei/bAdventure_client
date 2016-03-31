@@ -10,12 +10,12 @@ define(function(require){
 
         this.id = id;
         this.type = "outerStruct";
+        this.reflectable = reflectable;
+        this.nodeList = {};
         this.x = x;
         this.y = y;
         this.width = w;
         this.height = h;
-        this.reflectable = reflectable;
-        this.nodeList = {};
         this.borderInfo = {
             left:3,
             right:3,
