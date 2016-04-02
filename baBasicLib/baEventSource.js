@@ -1,17 +1,23 @@
 /**
  * Created by wgw on 2016/4/1.
  */
-function eventSource(){
-    this._eventList = [];
-}
-eventSource.prototype = {
-    addEvent:function(){
-
-    },
-    removeEvent:function(){
-
-    },
-    fireEvent:function(){
-
+define(function(){
+    "use strict";
+    function eventSource(){
+        this._eventList = [];
     }
-}
+    eventSource.prototype = {
+        addEvent:function(eventType,callback){
+            this._eventList.push(eventType);
+            this._eventList.push(callback);
+        },
+        removeEvent:function(){
+
+        },
+        fireEvent:function(){
+
+        }
+    }
+
+    return eventSource;
+})
