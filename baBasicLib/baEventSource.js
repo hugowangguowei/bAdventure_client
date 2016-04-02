@@ -12,10 +12,9 @@ define(function(){
             this._eventList.push(callback);
         },
         removeEvent:function(){
-
         },
         fireEvent:function(){
-
+            console.log(arguments);
         }
     }
 

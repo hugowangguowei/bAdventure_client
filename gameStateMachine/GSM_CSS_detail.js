@@ -13,6 +13,9 @@ define(function(require){
         var btn_event = require('config/btn_event');
         var ID_Manager = require('config/ID_Manager').getInstance();
 
+        var viewConfig = require('baBasicLib/view/ViewConfig');
+        var listenerType = viewConfig.listenerType;
+
         var outerStruct = require('privateLib/outerStruct');
         var oS_config = require('config/struct_config');
         var oS_roomList = require('privateLib/structs/oS_roomList');
@@ -28,62 +31,36 @@ define(function(require){
         var textBlock = require('privateLib/textBlock');
 
         /**
-         * ”Œœ∑◊ ‘¥º”‘ÿª≠√Ê
+         * Ê∏∏ÊàèËµÑÊ∫êÂä†ËΩΩÁîªÈù¢
          * @param _this
          * @constructor
          */
         function GSM_gameLoading(_this){
-            var ldLayer = new baLayer("loadingLayer",120);
-            global.addLayer(ldLayer);
-
-            var cxt = ldLayer.canvas.getContext("2d");
+            _this.obj.fireEvent(listenerType.SCENE_CHANGE,"gameLoading");
             imageArray = [
                 {imageName:"aa",src:"images/1.png"},
                 {imageName:"bb",src:"images/2.png"}
             ]
-
             var imageNum = imageArray.length;
-            var count = 0;
-            var loadResource = {
-                length:700,
-                height:20,
-                positionX:350,
-                positionY:500
-            };
-
-            cxt.beginPath();
-            cxt.strokeRect(loadResource.positionX,loadResource.positionY,loadResource.length,loadResource.height);
-            cxt.stroke();
             for(var i = 0;i<imageArray.length;i++){
                 var image_i = imageArray[i];
                 eval(image_i.imageName +"= new Image();");
                 eval(image_i.imageName +".src = '" + image_i.src + "';");
                 eval(image_i.imageName +".addEventListener('load',show,false);");
             }
-            console.log("finish");
+            var count = 0;
             function show(){
                 count++;
                 var percent = count/imageNum;
-                cxt.fillStyle = "blue";
-
-                cxt.beginPath();
-                cxt.clearRect(loadResource.positionX + loadResource.length + 1,
-                    loadResource.positionY,50,20);
-                cxt.fillRect(loadResource.positionX,loadResource.positionY,percent * loadResource.length,loadResource.height);
-                cxt.font = "25px Arial";
-                cxt.fillText(percent.toString(),loadResource.positionX + loadResource.length,
-                    loadResource.positionY + loadResource.height);
-                cxt.stroke();
-
+                _this.obj.fireEvent("loadingProcess",percent);
                 if(count >= imageArray.length){
-                    console.log("finish loading");
+                    console.log("finishLoading");
                     _this.switchToNext("mainShow");
                 }
             }
         }
-
         /**
-         * ”Œœ∑÷˜ΩÁ√Ê
+         * Ê∏∏Êàè‰∏ªÁïåÈù¢
          * @param _this
          * @constructor
          */
@@ -113,7 +90,7 @@ define(function(require){
                     cxt.fillRect(this.x,this.y,this.width,this.height);
                 }
 
-                //œ˚œ¢’π æøÚ========================================================================================================
+                //Ê∂àÊÅØÂ±ïÁ§∫Ê°Ü========================================================================================================
                 var os_ms = new outerStruct("os_msgShow",
                     oS_config.CLIENT_MSG_SHOW_X,
                     oS_config.CLIENT_MSG_SHOW_Y,
@@ -128,7 +105,7 @@ define(function(require){
                     os_ms.showWindowConfig.h - 6);
                 textST.addToLayer(gameLayer);
 
-                //◊‘øÿøÚ============================================================================================================
+                //Ëá™ÊéßÊ°Ü============================================================================================================
                 var os_sc = new oS_selfControl("os_sc",
                     oS_config.CLIENT_SELF_CONTROL_X,
                     oS_config.CLIENT_SELF_CONTROL_Y,
@@ -173,7 +150,7 @@ define(function(require){
                 btn_clientSubmit.upStateInfo.text = "commit";
                 btn_clientSubmit.addToLayer(gameLayer);
 
-                //≥…‘±¡–±Ì==========================================================================================================
+                //ÊàêÂëòÂàóË°®==========================================================================================================
                 var os_memShow = new oS_memShow("os_memS",
                     oS_config.CLIENT_MEM_LIST_X,
                     oS_config.CLIENT_MEM_LIST_Y,
@@ -193,7 +170,7 @@ define(function(require){
                     cxt.fillRect(this.x,this.y,this.width,this.height);
                 }
 
-                //œ˚œ¢’π æøÚ========================================================================================================
+                //Ê∂àÊÅØÂ±ïÁ§∫Ê°Ü========================================================================================================
                 var os_ms = new outerStruct("os_msgShow",
                     oS_config.CLIENT_MSG_SHOW_X,
                     oS_config.CLIENT_MSG_SHOW_Y,
@@ -208,7 +185,7 @@ define(function(require){
                     os_ms.showWindowConfig.h - 6);
                 textST.addToLayer(gameLayer);
 
-                //◊‘øÿøÚ============================================================================================================
+                //Ëá™ÊéßÊ°Ü============================================================================================================
                 var os_sc = new oS_selfControl("os_sc",
                     oS_config.CLIENT_SELF_CONTROL_X,
                     oS_config.CLIENT_SELF_CONTROL_Y,
@@ -253,7 +230,7 @@ define(function(require){
                 btn_clientSubmit.upStateInfo.text = "commit";
                 btn_clientSubmit.addToLayer(gameLayer);
 
-                //≥…‘±¡–±Ì==========================================================================================================
+                //ÊàêÂëòÂàóË°®==========================================================================================================
                 var os_memShow = new oS_memShow("os_memS",
                     oS_config.CLIENT_MEM_LIST_X,
                     oS_config.CLIENT_MEM_LIST_Y,
@@ -265,7 +242,7 @@ define(function(require){
             }
 
             function _buildMemList(msg,os){
-                //µ±«∞∞Ê±æ÷–£¨¥´»Î–≈œ¢Ωˆ∞¸¿®mem–≈œ¢
+                //ÂΩìÂâçÁâàÊú¨‰∏≠Ôºå‰º†ÂÖ•‰ø°ÊÅØ‰ªÖÂåÖÊã¨mem‰ø°ÊÅØ
                 var msg_i;
                 var memMsg = msg.mem;
                 for(var i = 0;i<memMsg.length;i++){
@@ -282,13 +259,18 @@ define(function(require){
         }
 
         /**
-         * ”Œœ∑≥ı ºªØΩÁ√Ê
+         * Ê∏∏ÊàèÂàùÂßãÂåñÁïåÈù¢
          * @param _this
          * @returns {number}
          * @constructor
          */
         function GSM_mainShow(_this){
             global.hideAllLayer();
+            if(global.getLayer("loadingLayer")){
+                global.removeLayer("loadingLayer");
+            }
+
+            _this.obj.fireEvent(listenerType.SCENE_CHANGE,"mainShow");
             //$('#mainDiv').load('gameStateMachine/tables/mainStruct.html');
             //$('#mainDiv').load('UI/UI_mainTable.html');
             //$('#mainDiv').load('UI/UI_game.html');
@@ -296,7 +278,7 @@ define(function(require){
         }
 
         /**
-         * ∑øº‰¡–±Ìª≠√Ê
+         * ÊàøÈó¥ÂàóË°®ÁîªÈù¢
          * @param _this
          * @constructor
          */

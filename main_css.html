@@ -31,9 +31,7 @@
             global = baGlobal.getInstance();
             var mainDiv = document.getElementById("mainDiv");
             var view1 = new CSS_view(mainDiv,global);
-
-            var GSM1 = new gsm();
-            global.addGameStateMachine(GSM1);
+            var GSM1 = new gsm(global);
 
             var GSM_gameLoading = GSM_detail.gameLoading();
             var GSM_mainShow = GSM_detail.mainShow();

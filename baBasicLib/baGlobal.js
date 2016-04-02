@@ -1,7 +1,7 @@
 /**
  * Created by wangguowei on 2001/1/1.
  */
-define(function(){
+define(function(require){
    "use strict";
     var instance = null;
     var baEventSource = require("baBasicLib/baEventSource");
