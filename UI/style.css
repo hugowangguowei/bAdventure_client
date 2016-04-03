@@ -1,0 +1,167 @@
+#outS{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+}
+/*初始化界面样式-mainShow*/
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    #INIT_name{
+        width: 20%;
+        height: 15%;
+        margin: 10% 40%;
+        text-align: center;
+        font-size: 200%;
+        position: absolute;
+        background-image: -webkit-linear-gradient(left, #3c7d96, #d6e4e6 25%, #417196 50%, #b7e6d3 75%, #5b8396);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 4s infinite linear;
+    }
+}
+@-webkit-keyframes masked-animation {
+    0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
+}
+#INIT_connect{
+    color: white;
+    width: 20%;
+    height: 10%;
+    margin: 20% 40%;
+    border:1px solid white;
+    background-color: black;
+}
+/*主界面样式-mainShowBasicStruct*/
+#MT_title{
+    width: 100%;
+    height: 10%;
+    background-color: aqua;
+}
+#MT_main{
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    background-color: #e1e6ea;
+}
+#MT_leftFrame1{
+    width: 5%;
+    height: 100%;
+    background-color: coral;
+    position: absolute;
+}
+#MT_leftFrame2{
+    width: 20%;
+    height: 100%;
+    background-color: coral;
+    position: absolute;
+}
+#MT_middleFrame{
+    width: 60%;
+    height: 100%;
+    margin: 0 20%;
+    background-color: gray;
+    position: absolute;
+    box-shadow: inset 0 0 3px 3px black;
+    overflow: scroll;
+}
+.roomIntro{
+    width: 90%;
+    height: 10%;
+    margin: 1% 5%;
+    background-color: burlywood;
+}
+.roomIntroSelected{
+    background-color: cyan;
+}
+.rI_b1{
+    width: 10%;
+    height: 90%;
+    margin: 0.4% 1%;
+    background-color: #cf9d00;
+    float: left;
+}
+.rI_b2{
+    width: 20%;
+    height: 90%;
+    margin: 0.4% 1%;
+    background-color: #E99494;
+    float: left;
+}
+.rI_b3{
+    width: 40%;
+    height: 90%;
+    margin: 0.4% 1%;
+    background-color: #1971a8;
+    float: left;
+}
+#MT_rightFrame1{
+    width: 5%;
+    height: 100%;
+    right: 0;
+    background-color: coral;
+    position: absolute;
+}
+#MT_rightFrame2{
+    width: 20%;
+    height: 100%;
+    right: 0;
+    background-color: coral;
+    position: absolute;
+}
+.roomBtn{
+    width: 70%;
+    height: 10%;
+    text-shadow:1px 1px 1px #f2e;
+    position: absolute;
+}
+#MT_btn1{
+    margin: 5% 15%;
+}
+#MT_btn2{
+    margin: 25% 15%;
+}
+#MT_btn3{
+    margin: 45% 15%;
+}
+#MT_rF_buildRoom{
+    width: 70%;
+    height: 50%;
+    margin: 70% 0 15% 15%;
+    position: absolute;
+    background-color: white;
+}
+#MT_bottom{
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    background-color: darkcyan;
+}
+#MT_bottomFrame{
+    width: 60%;
+    height: 90%;
+    margin: 0.5% 20%;
+    position: absolute;
+    background-color: #6f6f6f;
+    overflow: scroll;
+}
+#MT_b_wrap{
+    min-width: 100px;
+    height: 90%;
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    left:0;
+    top: 0;
+}
+.MT_memIntro{
+    width: 100px;
+    height: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    background-color: blanchedalmond;
+    margin: 2px 2px;
+}

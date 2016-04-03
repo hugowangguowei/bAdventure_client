@@ -51,11 +51,106 @@ define(function(require){
             case "mainShow":
                 changeScene_mainShow();
                 break;
+            case "mainShowBasicStruct":
+                changeScene_mainShowBasicStruct();
         }
         function changeScene_gameLoading(){
         }
         function changeScene_mainShow(){
-            $('#mainDiv').load('UI/UI_init.html');
+            $('#mainDiv').html(
+                "<div id = 'outS'>"+
+                    "<div id = 'INIT_name'>"+
+                    "<h2>Hi,YOU</h2>"+
+                    "</div>"+
+                    "<input id = 'INIT_connect' type='button' class='INIT_connect' value='connectToServer'>"+
+                "</div>"
+            )
+            $('#INIT_connect').on('click',function(){
+                console.log("hah");
+                connectToServer();
+            });
+        }
+        function changeScene_mainShowBasicStruct(){
+            $('#outS').remove();
+            $('#mainDiv').html(
+                "<div id = 'outS'>"+
+                    "<div id = 'MT_title'></div>"+
+                    "<div id = 'MT_main'>"+
+                        "<div id = 'MT_leftFrame1'></div>"+
+                        "<div id = 'MT_leftFrame2'></div>"+
+                        "<div id = 'MT_middleFrame'></div>"+
+                        "<div id = 'MT_rightFrame1'></div>"+
+                        "<div id = 'MT_rightFrame2'>"+
+                            "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
+                            "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
+                            "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
+                            "<div id = 'MT_rF_buildRoom'></div>"+
+                        "</div>"+
+                    "</div>"+
+                    "<div id = 'MT_bottom'>"+
+                        "<div id = 'MT_bottomFrame'>"+
+                            "<div id = 'MT_b_wrap'>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>"
+            );
+            (function(){
+                $("#MT_leftFrame2").hide();
+                $("#MT_rightFrame1").hide();
+                $("#MT_rF_buildRoom").hide();
+                $("#MT_leftFrame1").on("click",function(){
+                    $("#MT_leftFrame1").hide();
+                    $("#MT_leftFrame2").show();
+                });
+                $("#MT_leftFrame2").on("click",function(){
+                    $("#MT_leftFrame2").hide();
+                    $("#MT_leftFrame1").show();
+                });
+                $("#MT_rightFrame1").on("click",function(){
+                    $("#MT_rightFrame1").hide();
+                    $("#MT_rightFrame2").show();
+                });
+                $("#MT_rightFrame2").on("click",function(){
+                    $("#MT_rightFrame2").hide();
+                    $("#MT_rightFrame1").show();
+                });
+                $("#MT_btn1").on("click",function(e){
+                    var $MT_rF_buildRoom = $('#MT_rF_buildRoom');
+                    if($MT_rF_buildRoom.is(":hidden")){
+                        $MT_rF_buildRoom.show();
+                    }
+                    return false;
+                });
+                $("#MT_btn2").on("click",function(e){
+                    return false;
+                });
+                $('#MT_btn3').on('click',function(e){
+                    MT_addNewPlayer();
+                    return false;
+                });
+                function MT_buildNewRoom(){
+                    var $newRoom = $("<div></div>").addClass("roomIntro");
+                    $newRoom.html(
+                        "<div class='rI_b1'></div>" +
+                        "<div class='rI_b2'></div>" +
+                        "<div class='rI_b3'></div>"
+                    )
+                    $newRoom.click(function(e){
+                        var roomIntroList = $('.roomIntro');
+                        roomIntroList.removeClass("roomIntroSelected");
+                        $(this).addClass("roomIntroSelected");
+                    })
+                    $("#MT_middleFrame").append($newRoom);
+                }
+                function MT_addNewPlayer(){
+                    var $newRoom = $("<div></div>").addClass("MT_memIntro");
+                    $newRoom.html(
+                        "<div class='mI_img'></div>"
+                    )
+                    $("#MT_b_wrap").append($newRoom);
+                }
+            })();
         }
     }
 
