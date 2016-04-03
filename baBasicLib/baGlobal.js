@@ -9,10 +9,11 @@ define(function(require){
     function baGlobal(){
         baEventSource.call(this);
         /**
-         * 层数组
+         * 场景数组
          * @type {Array}
          */
-        this.layerArray = [];
+        this.sceneArray = [];
+        this.foregroundScene = null;
         /**
          * 游戏状态机
          * @type {baBasicLib/gameState}
@@ -26,88 +27,55 @@ define(function(require){
     }
 
     baGlobal.prototype = new baEventSource();
-    baGlobal.prototype.setDIV = function(divElem,width,height){
-        this.baseDiv = divElem;
-        this.width = width;
-        this.height = height;
-        this.baseDiv.width = parseInt(width.replace("px",""));
-        this.baseDiv.height = parseInt(height.replace("px",""));
-        this.baseDiv.style.width = width;
-        this.baseDiv.style.height = height;
-        this.baseDiv.style.position = "relative";
-        this.baseDiv.style.top = "0px";
-        this.baseDiv.style.left = "0px";
-        this.baseDiv.style.zIndex = 0;
-        divElem.baGlobal = this;
-    },
-    //层管理========================================================================================================
-    baGlobal.prototype.addLayer = function (layer,x,y,w,h){
-        var canvasX = document.createElement("canvas");
-        layer.x = x||0;
-        layer.y = y||0;
-        layer.width = w||this.baseDiv.width;
-        layer.height = h||this.baseDiv.height;
-        layer.parent = this;
-        if(this.baseDiv){
-            this.baseDiv.appendChild(layer.canvas);
-            layer.canvas.width = layer.width;
-            layer.canvas.height = layer.height;
-        }else{
-            throw new Error("baseDiv needed");
-        }
-        this.layerArray.push(layer);
-    },
-    baGlobal.prototype.getLayer = function(layerId){
-        for(var i=0;i <this.layerArray.length;i++){
-            if(this.layerArray[i].id == layerId){
-                return this.layerArray[i];
+    //场景管理==========================================================================================================
+    baGlobal.prototype.addScene = function(scene,focus){
+        this.sceneArray.push(scene);
+        if(focus){
+            this.foregroundScene = scene;
+        };
+    };
+    baGlobal.prototype.removeSceneByID = function(id){
+        for(var i = 0,len = this.sceneArray.length;i<len;i++){
+            if(this.sceneArray[i].id == id){
+                this.sceneArray.splice(i,1);
+                if(this.foregroundScene.id == id)
+                    this.foregroundScene = null;
+                return true;
             }
         }
-        return 0;
-    },
-    baGlobal.prototype.removeLayer = function(layerId){
-        for(var i =0;i<this.layerArray.length;i++){
-            if(this.layerArray[i].id == layerId){
-                this.layerArray[i].canvas.parentNode.removeChild(this.layerArray[i].canvas);
-                this.layerArray.splice(i,1);
+        return false;
+    };
+    baGlobal.prototype.removeScene = function(scene){
+        for(var i = 0,len = this.sceneArray.length;i<len;i++){
+            if(this.sceneArray[i] == scene){
+                this.sceneArray.splice(i,1);
+                if(this.foregroundScene == scene)
+                    this.foregroundScene = null;
+                return true;
             }
         }
-    },
-    baGlobal.prototype.clearAllLayer = function(){
-        for(var i = 0;i<this.layerArray.length;i++){
-            var id = this.layerArray[i].id;
-            this.removeLayer(id);
-        }
-    },
-    baGlobal.prototype.hideLayer = function(obj){
-        var cxt = obj.canvas.getContext('2d');
-        cxt.clearRect(0,0,obj.canvas.width,obj.canvas.height);
-        obj.hide();
-    },
-    baGlobal.prototype.hideAllLayer = function(){
-        for(var i = 0;i< this.layerArray.length;i++){
-            this.hideLayer(this.layerArray[i]);
-        }
-    },
-    //状态机管理====================================================================================================
-    baGlobal.prototype.startEngine = function () {
-
-    },
+        return false;
+    };
+    baGlobal.prototype.setForegroundScene = function(scene){
+        this.foregroundScene = scene;
+    }
+    //状态机管理========================================================================================================
     baGlobal.prototype.addGameStateMachine = function(gsm){
         gsm.obj = this;
         this.GSM = gsm;
-    },
+    };
     baGlobal.prototype.getGameStateMachine = function(){
         return this.GSM;
-    },
+    };
+    //对象管理==========================================================================================================
     baGlobal.prototype.getSpriteById = function(id){
-        for(var i = 0;i<this.layerArray.length;i++){
-            if(this.layerArray[i].childList[id]){
-                return this.layerArray[i].childList[id];
+        for(var i = 0;i<this.sceneArray.length;i++){
+            if(this.sceneArray[i].childList[id]){
+                return this.sceneArray[i].childList[id];
             }
         }
         return 0;
-    }
+    };
 
     return {
         getInstance:function(){
@@ -116,7 +84,7 @@ define(function(require){
             }
             return instance;
         }
-    }
+    };
 });
 
 

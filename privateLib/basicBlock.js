@@ -4,37 +4,15 @@
 define(function(require){
     var baSprite = require('baBasicLib/baSprite');
 
-    function basicBlock(id,x,y,w,h){
+    function basicBlock(id){
         baSprite.call(this);
         this.id = id;
         this.type = "basicBlock";
         this.group = "";
         this.structParent = null;
-        this.x = x||0;
-        this.y = y||0;
-        this.width = w||1;
-        this.height = h||1;
-        this.isInit = false;
-        this.cacheCanvas = document.createElement("canvas");
-        this.cacheOutDate = false;
-        this.isPrivate = true;
-        this.isFocusOn = false;
-        this.reflectable = true;
     }
 
     basicBlock.prototype = new baSprite();
-    basicBlock.prototype.setBasicInfo = function(x,y,w,h){
-        this.x = x;
-        this.y = y;
-        this.width = w;
-        this.height = h;
-    }
-    basicBlock.prototype.init = function(){
-        this.cacheCanvas.width = this.width;
-        this.cacheCanvas.height = this.height;
-        this.cacheRefresh();
-        this.isInit = true;
-    }
     basicBlock.prototype.draw = function(canvas,relativeLoc,parentWindowConfig){
         var self = this;
         if(!this.isInit){

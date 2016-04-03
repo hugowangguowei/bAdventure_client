@@ -27,6 +27,56 @@ define(function(require){
         this.baseDiv.style.left = "0px";
         this.baseDiv.style.zIndex = 0;
     };
+    //层管理==========================================================================================================
+    CANVASView.prototype.addLayer = function (layer,x,y,w,h){
+        var canvasX = document.createElement("canvas");
+        layer.x = x||0;
+        layer.y = y||0;
+        layer.width = w||this.baseDiv.width;
+        layer.height = h||this.baseDiv.height;
+        layer.parent = this;
+        if(this.baseDiv){
+            this.baseDiv.appendChild(layer.canvas);
+            layer.canvas.width = layer.width;
+            layer.canvas.height = layer.height;
+        }else{
+            throw new Error("baseDiv needed");
+        }
+        this.layerArray.push(layer);
+    },
+    CANVASView.prototype.getLayer = function(layerId){
+            for(var i=0;i <this.layerArray.length;i++){
+                if(this.layerArray[i].id == layerId){
+                    return this.layerArray[i];
+                }
+            }
+            return 0;
+        },
+    CANVASView.prototype.removeLayer = function(layerId){
+            for(var i =0;i<this.layerArray.length;i++){
+                if(this.layerArray[i].id == layerId){
+                    this.layerArray[i].canvas.parentNode.removeChild(this.layerArray[i].canvas);
+                    this.layerArray.splice(i,1);
+                }
+            }
+        },
+    CANVASView.prototype.clearAllLayer = function(){
+            for(var i = 0;i<this.layerArray.length;i++){
+                var id = this.layerArray[i].id;
+                this.removeLayer(id);
+            }
+        },
+    CANVASView.prototype.hideLayer = function(obj){
+            var cxt = obj.canvas.getContext('2d');
+            cxt.clearRect(0,0,obj.canvas.width,obj.canvas.height);
+            obj.hide();
+        },
+    CANVASView.prototype.hideAllLayer = function(){
+            for(var i = 0;i< this.layerArray.length;i++){
+                this.hideLayer(this.layerArray[i]);
+            }
+        },
+    //事件管理==========================================================================================================
     CANVASView.prototype.addListener = function(){
         this.obj.baseDiv.addEventListener("mousedown",CANVASView.prototype.doMouseDown,false);
         this.obj.baseDiv.addEventListener("mousemove",CANVASView.prototype.doMouseMove,false);

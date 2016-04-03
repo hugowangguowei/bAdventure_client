@@ -8,6 +8,7 @@ define(function(require){
     var listenerType = viewConfig.listenerType;
     var listenerClass = viewConfig.listenerClass;
     var getGUID = require("baBasicLib/util/GUID");
+    var SMT = require('socket/WS_msgDefine').SMT;
 
 
     function CSSView(div,model){
@@ -51,6 +52,10 @@ define(function(require){
     }
     CSSView.prototype.changeScene = function(sceneName){
         var _this = this;
+        var prop = {
+            id:this.id,
+            class:listenerClass.SCENE_MONOPOLY
+        };
         $('#outS').remove();
         _this.model.removeListener({id:_this.id,listenerClass:listenerClass.SCENE_MONOPOLY});
         switch (sceneName) {
@@ -103,11 +108,24 @@ define(function(require){
                     "</div>"+
                 "</div>"
             );
-
             /**
              * Ìí¼Ó°ó¶¨º¯Êý
              */
             (function(){
+                /*
+                 this.ROOM_LIST_REFRESH = 'roomListRefresh';
+                 this.INTO_A_ROOM = 'intoARoom';
+                 this.CLIENT_ROOM_INFO_INITIALIZE = 'clientRoomInfoInitialize';
+                 this.GET_OUT_THE_QUEUE = 'getOutTheQueue',
+                 this.GET_OUT_THE_GAME = 'getOutTheGame',
+                 this.START_GAME = 'startGame';
+                 this.CLIENT_MSG_DISTRIBUTE = 'clientMsgDistribute';
+                 this.ROOM_DELETE = 'roomDelete';
+                 */
+                _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(){
+                    console.log("addRoomIntroTag");
+                });
+
                 $("#MT_leftFrame2").hide();
                 $("#MT_rightFrame1").hide();
                 $("#MT_rF_buildRoom").hide();

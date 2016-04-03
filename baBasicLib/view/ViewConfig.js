@@ -7,7 +7,13 @@ define(function(){
     return {
         //注册事件名称
         listenerType:{
-            SCENE_CHANGE:"scene_change"
+            SCENE_CHANGE:"scene_change",
+            ADD_ROOM_INTRO_TAG:"addRoomIntroTag",
+            REFRESH_ROOM_INTRO_TAG:"refreshRoomIntroTag",
+            REMOVE_ROOM_INTRO_TAG:"removeRoomIntroTag",
+            ADD_MEM_INTRO_TAG:"addMemIntroTag",
+            REFRESH_MEM_INTRO_TAG:"refreshMemIntroTag",
+            REMOVE_MEM_INTRO_TAG:"removeMemIntroTag"
         },
         //注册事件类别
         listenerClass:{
