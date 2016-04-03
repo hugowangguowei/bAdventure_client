@@ -17,6 +17,11 @@ define(function(require){
 
     CSSView.prototype = new View();
     CSSView.prototype.initialize = function(div,model,width,height){
+        this.model = model;
+        this.setDIV(div,width,height);
+        this.addListeners();
+    }
+    CSSView.prototype.setDIV = function(div,width,height){
         this.baseDiv = div;
         var width = width||1400;
         var height = height||700;
@@ -30,18 +35,28 @@ define(function(require){
         this.baseDiv.style.top = "0px";
         this.baseDiv.style.left = "0px";
         this.baseDiv.style.zIndex = 0;
-    }
+    },
     CSSView.prototype.addListeners = function(){
+        var _this = this;
         this.model.addListener(listenerType.SCENE_CHANGE,function(arg){
-            switch (arg) {
-                case "gameLoading":
-                    console.log("gameLoading");
-                    break;
-                case "mainShow":
-                    console.log("mainShow");
-                    break;
-            }
-        })
+            _this.changeScene(arg[0]);
+        });
+
+    }
+    CSSView.prototype.changeScene = function(sceneName){
+        switch (sceneName) {
+            case "gameLoading":
+                changeScene_gameLoading();
+                break;
+            case "mainShow":
+                changeScene_mainShow();
+                break;
+        }
+        function changeScene_gameLoading(){
+        }
+        function changeScene_mainShow(){
+            $('#mainDiv').load('UI/UI_init.html');
+        }
     }
 
     return CSSView;

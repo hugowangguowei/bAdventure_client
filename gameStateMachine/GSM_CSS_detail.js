@@ -269,12 +269,7 @@ define(function(require){
             if(global.getLayer("loadingLayer")){
                 global.removeLayer("loadingLayer");
             }
-
             _this.obj.fireEvent(listenerType.SCENE_CHANGE,"mainShow");
-            //$('#mainDiv').load('gameStateMachine/tables/mainStruct.html');
-            //$('#mainDiv').load('UI/UI_mainTable.html');
-            //$('#mainDiv').load('UI/UI_game.html');
-            $('#mainDiv').load('UI/UI_init.html');
         }
 
         /**
