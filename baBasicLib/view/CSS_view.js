@@ -50,6 +50,9 @@ define(function(require){
         });
     }
     CSSView.prototype.changeScene = function(sceneName){
+        var _this = this;
+        $('#outS').remove();
+        _this.model.removeListener({id:_this.id,listenerClass:listenerClass.SCENE_MONOPOLY});
         switch (sceneName) {
             case "gameLoading":
                 changeScene_gameLoading();
@@ -77,7 +80,6 @@ define(function(require){
             });
         }
         function changeScene_mainShowBasicStruct(){
-            $('#outS').remove();
             $('#mainDiv').html(
                 "<div id = 'outS'>"+
                     "<div id = 'MT_title'></div>"+
@@ -101,6 +103,10 @@ define(function(require){
                     "</div>"+
                 "</div>"
             );
+
+            /**
+             * Ìí¼Ó°ó¶¨º¯Êý
+             */
             (function(){
                 $("#MT_leftFrame2").hide();
                 $("#MT_rightFrame1").hide();
