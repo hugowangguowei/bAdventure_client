@@ -6,10 +6,13 @@ define(function(require){
     var View = require("baBasicLib/view/View");
     var viewConfig = require("baBasicLib/view/ViewConfig");
     var listenerType = viewConfig.listenerType;
+    var listenerClass = viewConfig.listenerClass;
+    var getGUID = require("baBasicLib/util/GUID");
 
 
     function CSSView(div,model){
         View.call(this,div,model);
+        this.id = getGUID();
         this.div = null;
         this.model = null;
         this.initialize(div,model);
@@ -19,7 +22,7 @@ define(function(require){
     CSSView.prototype.initialize = function(div,model,width,height){
         this.model = model;
         this.setDIV(div,width,height);
-        this.addListeners();
+        this.addOriListeners();
     }
     CSSView.prototype.setDIV = function(div,width,height){
         this.baseDiv = div;
@@ -36,12 +39,15 @@ define(function(require){
         this.baseDiv.style.left = "0px";
         this.baseDiv.style.zIndex = 0;
     },
-    CSSView.prototype.addListeners = function(){
+    CSSView.prototype.addOriListeners = function(){
         var _this = this;
-        this.model.addListener(listenerType.SCENE_CHANGE,function(arg){
+        var prop = {
+            id:this.id,
+            class:listenerClass.ORI
+        };
+        this.model.addListener(listenerType.SCENE_CHANGE,prop,function(arg){
             _this.changeScene(arg[0]);
         });
-
     }
     CSSView.prototype.changeScene = function(sceneName){
         switch (sceneName) {

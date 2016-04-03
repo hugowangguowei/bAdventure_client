@@ -7,12 +7,15 @@ define(function(){
         this._eventList = [];
     }
     eventSource.prototype = {
-        addListener:function(eventType,callback){
+        addListener:function(eventType,listenerProp,callback){
             this._eventList.push(eventType);
+            this._eventList.push(listenerProp);
             this._eventList.push(callback);
         },
-        removeListener:function(){
+        removeListener:function(args){
+
         },
+
         fireEvent:function(){
             if(!arguments.length){
                 throw new Error("no arguments,you can't fire a event!");
@@ -20,9 +23,9 @@ define(function(){
             }
             var args = Array.prototype.slice.call(arguments);
             var eventType = args.shift();
-            for(var i = 0,len = this._eventList.length;i<len;i+=2){
+            for(var i = 0,len = this._eventList.length;i<len;i+=3){
                 if(eventType == this._eventList[i]){
-                    this._eventList[i+1](args);
+                    this._eventList[i+2](args);
                 }
             }
         }

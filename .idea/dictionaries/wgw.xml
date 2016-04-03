@@ -2,6 +2,7 @@
   <dictionary name="wgw">
     <words>
       <w>btns</w>
+      <w>guid</w>
       <w>haha</w>
       <w>mousedown</w>
       <w>mousemove</w>
@@ -9,6 +10,10 @@
       <w>onselectstart</w>
       <w>struct</w>
       <w>structs</w>
+      <w>xxxx</w>
+      <w>xxxxxxxx</w>
+      <w>xxxxxxxxxxxx</w>
+      <w>yxxx</w>
     </words>
   </dictionary>
 </component>
