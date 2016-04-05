@@ -7,28 +7,17 @@
 
 define(function(require){
 
-        var baLayer = require('baBasicLib/baLayer');
-        var baSprite = require('baBasicLib/baSprite');
-        var baButton = require('baBasicLib/baSprites/baButton');
+        var baScene = require('baBasicLib/model/baScene');
         var btn_event = require('config/btn_event');
         var ID_Manager = require('config/ID_Manager').getInstance();
+        var baNode = require("baBasicLib/model/baNode");
+        var MemIntroTag = require("privateLib/model/MemIntroTag");
+        var MemIntroTagContainer = require("privateLib/model/MemIntroTagContainer");
+        var RoomIntroTag = require("privateLib/model/RoomIntroTag");
+        var RoomIntroTagContainer = require("privateLib/model/RoomIntroTagContainer");
 
         var viewConfig = require('baBasicLib/view/ViewConfig');
         var listenerType = viewConfig.listenerType;
-
-        var outerStruct = require('privateLib/outerStruct');
-        var oS_config = require('config/struct_config');
-        var oS_roomList = require('privateLib/structs/oS_roomList');
-        var oS_memShow = require('privateLib/structs/oS_memShow');
-        var oS_roomMem = require('privateLib/structs/oS_roomMem');
-        var oS_selfControl = require('privateLib/structs/oS_selfControl');
-
-        var basicBlock = require('privateLib/basicBlock');
-        var bB_memCtrl = require('privateLib/blocks/bB_memCtrl');
-        var bB_memIntro = require('privateLib/blocks/bB_memIntro');
-        var bB_roomIntro = require('privateLib/blocks/bB_roomIntro');
-
-        var textBlock = require('privateLib/textBlock');
 
         /**
          * 游戏资源加载画面
@@ -264,10 +253,9 @@ define(function(require){
          * @constructor
          */
         function GSM_mainShow(_this){
-            global.hideAllLayer();
-            if(global.getLayer("loadingLayer")){
-                global.removeLayer("loadingLayer");
-            }
+            var scene_mainShow = new baScene("scene_mainShow",_this.obj);
+            var rContainer = new RoomIntroTagContainer("rContainer",scene_mainShow);
+            var mContainer = new MemIntroTagContainer("mContainer",scene_mainShow);
             _this.obj.fireEvent(listenerType.SCENE_CHANGE,"mainShow");
         }
         /**

@@ -41,6 +41,8 @@ define(function(require){
             if(this.logicParent){
                 this.logicParent.removeLogicChild(this);
             }
-        },
-    }
+        }
+    };
+
+    return baNode;
 });

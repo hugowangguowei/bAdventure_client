@@ -2,8 +2,15 @@
  * Created by wgw on 2016/4/3.
  */
 define(function(require){
-    function baScene(id){
-        this.id = null;
+    function baScene(id,model){
+        this.id = id||null;
+        if(this.id == null){
+            throw new Error("id needed in baScene");
+            return;
+        }
+        if(model){
+            model.sceneArray.push(this);
+        }
         this.childList = {};
     }
     baScene.prototype = {

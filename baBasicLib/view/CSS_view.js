@@ -112,16 +112,6 @@ define(function(require){
              * Ìí¼Ó°ó¶¨º¯Êý
              */
             (function(){
-                /*
-                 this.ROOM_LIST_REFRESH = 'roomListRefresh';
-                 this.INTO_A_ROOM = 'intoARoom';
-                 this.CLIENT_ROOM_INFO_INITIALIZE = 'clientRoomInfoInitialize';
-                 this.GET_OUT_THE_QUEUE = 'getOutTheQueue',
-                 this.GET_OUT_THE_GAME = 'getOutTheGame',
-                 this.START_GAME = 'startGame';
-                 this.CLIENT_MSG_DISTRIBUTE = 'clientMsgDistribute';
-                 this.ROOM_DELETE = 'roomDelete';
-                 */
                 _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(){
                     console.log("addRoomIntroTag");
                 });
@@ -159,6 +149,7 @@ define(function(require){
                     MT_addNewPlayer();
                     return false;
                 });
+
                 function MT_buildNewRoom(){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
                     $newRoom.html(

@@ -5,17 +5,7 @@ define(function(require){
     'use strict';
 
     var SMT = require('socket/WS_msgDefine').SMT;
-
-    var btn_event = require('config/btn_event');
     var ID_manager = require('config/ID_Manager').getInstance();
-    var baButton = require('baBasicLib/baSprites/baButton');
-    var bB_roomIntro = require('privateLib/blocks/bB_roomIntro');
-    var bB_memCtrl = require('privateLib/blocks/bB_memCtrl');
-    var bB_memIntro = require('privateLib/blocks/bB_memIntro');
-    var oS_memShow = require('privateLib/structs/oS_memShow');
-    var oS_roomList = require('privateLib/structs/oS_roomList');
-    var oS_roomMem = require('privateLib/structs/oS_roomMem');
-    var oS_selfControl = require('privateLib/structs/oS_selfControl');
 
     function _createNewRoom(msg){
         var mainShowLayer = global.getLayer("mainShowLayer");
