@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/baBasicLib/baGlobal.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baBasicLib/view/CSS_view.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/btn_event.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config/struct_config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dep/require.js" charset="UTF-8" />

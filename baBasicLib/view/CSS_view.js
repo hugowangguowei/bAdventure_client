@@ -97,7 +97,10 @@ define(function(require){
                             "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
                             "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
                             "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
-                            "<div id = 'MT_rF_buildRoom'></div>"+
+                            "<div id = 'MT_rF_buildRoom'>" +
+                                "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='房间名称：默认随机'>"+
+                                "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='人数：默认5'>"+
+                            "</div>"+
                         "</div>"+
                     "</div>"+
                     "<div id = 'MT_bottom'>"+
@@ -109,7 +112,7 @@ define(function(require){
                 "</div>"
             );
             /**
-             * ���Ӱ󶨺���
+             * 添加绑定函数
              */
             (function(){
                 _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(){
