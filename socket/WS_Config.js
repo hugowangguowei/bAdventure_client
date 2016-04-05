@@ -5,23 +5,19 @@ define(function(require){
     'use strict';
 
     var SMT = require('socket/WS_msgDefine').SMT;
+    var listenerType = require('baBasicLib/view/ViewConfig').listenerType;
     var ID_manager = require('config/ID_Manager').getInstance();
+    var RoomIntroTag = require('privateLib/model/RoomIntroTag');
 
     function _createNewRoom(msg){
-        var mainShowLayer = global.getLayer("mainShowLayer");
         var id = ID_manager.getNewIdForRoomIntro();
-        var ri_new = new bB_roomIntro(id);
+        var mainShowScene = global.getScene("mainShowScene");
+        var rContainer = mainShowScene.getChildById("rContainer");
+        var ri_new = new RoomIntroTag(id,mainShowScene,rContainer);
         ri_new._roomInfo = msg.roomInfo;
         ri_new._leaderIntro = msg.leaderIntro;
         ri_new._memberIntro = msg.memberIntro;
-
-        var os1 = global.getSpriteById("outerS");
-        if(os1){
-            os1.addNode(ri_new);
-            ri_new.addToLayer(mainShowLayer);
-        }else{
-            throw new Error("outerStruct not defined");
-        }
+        global.fireEvent(listenerType.ADD_ROOM_INTRO_TAG,ri_new);
     }
     function _getRoomObjByServerId(os,id){
         var group_roomIntro = os.nodeList["roomIntro"];
@@ -137,9 +133,9 @@ define(function(require){
             }},
             {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msg){
                 console.log("roomListRefresh");
-                var mainShowLayer = global.getLayer("mainShowLayer");
-                var os1 = global.getSpriteById("outerS");
-                var ri = _getRoomObjByServerId(os1,msg.roomInfo.serverID);
+                var mainShowScene = global.getScene("mainShowScene");
+                var rContainer = mainShowScene.getChildById("rContainer");
+                var ri = rContainer.getRoomIntroTagByServerID(msg.roomInfo.serverID);
                 if(!ri){
                     _createNewRoom(msg);
                 }
@@ -149,7 +145,6 @@ define(function(require){
                     ri._memberIntro = msg.memberIntro;
                     ri.cacheOutDate = true;
                 }
-
             }},
             {msgName:SMT.INTO_A_ROOM,msgFunc:function(msg){
                 var mainShowLayer = global.getLayer("mainShowLayer");

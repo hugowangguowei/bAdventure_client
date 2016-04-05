@@ -6,6 +6,7 @@ define(function(require){
     function RoomIntroTag(id,scene,container){
         baNode.call(this);
         this.id = id;
+        this.serverID = null;
         this.type = "RoomIntroTag";
         this.scene = scene;
         this.container = container

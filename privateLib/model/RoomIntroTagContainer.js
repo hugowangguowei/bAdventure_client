@@ -20,6 +20,14 @@ define(function(require){
     RoomIntroTagContainer.prototype.addRoomIntroTag = function(rit){
 
     };
+    RoomIntroTagContainer.prototype.getRoomIntroTagByServerID = function(serverID){
+        for(var i = 0,len = this.roomIntroTagList.length;i<len;i++){
+            if(this.roomIntroTagList[i].serverID == serverID){
+                return this.roomIntroTagList[i];
+            }
+        }
+        return 0;
+    }
     RoomIntroTagContainer.prototype.updateRoomIntroTag = function(rit){
 
     };

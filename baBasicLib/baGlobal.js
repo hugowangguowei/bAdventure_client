@@ -58,7 +58,15 @@ define(function(require){
     };
     baGlobal.prototype.setForegroundScene = function(scene){
         this.foregroundScene = scene;
-    }
+    };
+    baGlobal.prototype.getScene = function(sceneID){
+        for(var i = 0,len = this.sceneArray.length;i<len;i++){
+            if(this.sceneArray[i].id == sceneID){
+                return this.sceneArray[i];
+            }
+        }
+        return 0;
+    };
     //状态机管理========================================================================================================
     baGlobal.prototype.addGameStateMachine = function(gsm){
         gsm.obj = this;

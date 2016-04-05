@@ -24,6 +24,14 @@ define(function(require){
             this.logicParent = arg;
             arg.logicChildList.push(this);
         },
+        getLogicChild:function(id){
+            for(var i in this.logicChildList){
+                if(this.logicChildList[i].id == id){
+                    return this.logicChildList[i];
+                }
+            }
+            return 0;
+        },
         removeLogicChild:function(arg){
             for(var i in this.logicChildList){
                 if(this.logicChildList[i] == arg){

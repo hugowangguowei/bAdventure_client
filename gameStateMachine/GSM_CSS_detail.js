@@ -253,7 +253,7 @@ define(function(require){
          * @constructor
          */
         function GSM_mainShow(_this){
-            var scene_mainShow = new baScene("scene_mainShow",_this.obj);
+            var scene_mainShow = new baScene("mainShowScene",_this.obj);
             var rContainer = new RoomIntroTagContainer("rContainer",scene_mainShow);
             var mContainer = new MemIntroTagContainer("mContainer",scene_mainShow);
             _this.obj.fireEvent(listenerType.SCENE_CHANGE,"mainShow");

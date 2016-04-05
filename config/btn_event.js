@@ -7,7 +7,7 @@ define(function (require) {
 
     /**
      * 请求创建房间
-     * @param roomInfo
+     * @param roomInfo{name:XXX,memNum:XXX}
      * @constructor
      */
     function BTN_E_createNewRoom(roomInfo){

@@ -9,6 +9,7 @@ define(function(require){
     var listenerClass = viewConfig.listenerClass;
     var getGUID = require("baBasicLib/util/GUID");
     var SMT = require('socket/WS_msgDefine').SMT;
+    var btn_event = require("config/btn_event");
 
 
     function CSSView(div,model){
@@ -100,6 +101,11 @@ define(function(require){
                             "<div id = 'MT_rF_buildRoom'>" +
                                 "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='房间名称：默认随机'>"+
                                 "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='人数：默认5'>"+
+                                "<div id = 'MT_rF_bR_show1' class='MT_rF_buildRoomInner'></div>"+
+                                "<div id = 'MT_rF_bR_show2' class='MT_rF_buildRoomInner'>" +
+                                    "<input type = 'button' id = 'MT_btn1_1' class = 'MT_roomBtn_inner1' value = '确定'>"+
+                                    "<input type = 'button' id = 'MT_btn1_2' class = 'MT_roomBtn_inner1' value = '取消'>"+
+                                "</div>"+
                             "</div>"+
                         "</div>"+
                     "</div>"+
@@ -152,7 +158,18 @@ define(function(require){
                     MT_addNewPlayer();
                     return false;
                 });
-
+                $('#MT_rF_buildRoom').on('click',function(e){return false;});
+                $('#MT_btn1_1').on('click',function(e){
+                    $('#MT_rF_bR_show1').html("please wait...");
+                    var roomName = "room_" + $("#MT_rF_bR_input1").val();
+                    var memNum = parseInt($("#MT_rF_bR_input2").val());
+                    var msg = {name:roomName,memNum:memNum};
+                    btn_event.BTN_E_createNewRoom()(msg);
+                });
+                $('#MT_btn1_2').on('click',function(e){
+                    //TODO 如果处于正在连接状态，需要注意
+                    $('#MT_rF_buildRoom').hide();
+                });
                 function MT_buildNewRoom(){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
                     $newRoom.html(
