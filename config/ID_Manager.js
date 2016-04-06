@@ -7,6 +7,7 @@ define(function(require){
     function ID_Manager(){
         this.OUTER_STRUCT_ID = 0;
         this.ROOM_INTRO_ID = 0;
+        this.ROOM_INTRO_VIEW_ID = 0;
         this.MEM_INTRO_ID = 0;
         this.MEM_PLAYER_ID = 0;
         this.initialize();
@@ -22,6 +23,10 @@ define(function(require){
         getNewIdForRoomIntro:function(){
             this.ROOM_INTRO_ID++;
             return "roomIntro_" + this.ROOM_INTRO_ID;
+        },
+        getNewIdForRoomIntroView:function(){
+            this.ROOM_INTRO_VIEW_ID++;
+            return "rI_model_bind_id_" + this.ROOM_INTRO_VIEW_ID;
         },
         getNewIdForMemIntro:function(){
             this.MEM_INTRO_ID++;

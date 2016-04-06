@@ -22,7 +22,7 @@ define(function(require){
     };
     RoomIntroTagContainer.prototype.getRoomIntroTagByServerID = function(serverID){
         for(var i = 0,len = this.roomIntroTagList.length;i<len;i++){
-            if(this.roomIntroTagList[i].serverID == serverID){
+            if(this.roomIntroTagList[i]._roomInfo.serverID == serverID){
                 return this.roomIntroTagList[i];
             }
         }

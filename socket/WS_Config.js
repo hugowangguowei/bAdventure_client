@@ -19,20 +19,11 @@ define(function(require){
         ri_new._memberIntro = msg.memberIntro;
         global.fireEvent(listenerType.ADD_ROOM_INTRO_TAG,ri_new);
     }
-    function _getRoomObjByServerId(os,id){
-        var group_roomIntro = os.nodeList["roomIntro"];
-        if(!group_roomIntro){
-            return 0;
-        }
-        var g_roomList = group_roomIntro.list;
-        var room_i;
-        for(var i = 0;i<g_roomList.length;i++){
-            room_i = g_roomList[i];
-            if(room_i._roomInfo.serverID ==id){
-                return room_i;
-            }
-        }
-        return 0;
+    function _refreshRoom(room,msg){
+        room._roomInfo = msg.roomInfo;
+        room._leaderIntro = msg.leaderIntro;
+        room._memberIntro = msg.memberIntro;
+        global.fireEvent(listenerType.REFRESH_ROOM_INTRO_TAG,room);
     }
     function _buildTheQueueRoom(userType){
         var mainShowLayer = global.getLayer("mainShowLayer");
@@ -119,7 +110,6 @@ define(function(require){
             os2.addNode(btn3);
         }
     }
-
     return {
         WS_URL:'http://localHost:3000',
         msgHandleList:[
@@ -131,20 +121,17 @@ define(function(require){
                     global.GSM.switchToNext("mainShowBasicStruct");
                 }
             }},
-            {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msg){
-                console.log("roomListRefresh");
-                var mainShowScene = global.getScene("mainShowScene");
-                var rContainer = mainShowScene.getChildById("rContainer");
-                var ri = rContainer.getRoomIntroTagByServerID(msg.roomInfo.serverID);
-                if(!ri){
-                    _createNewRoom(msg);
-                }
-                else{
-                    ri._roomInfo = msg.roomInfo;
-                    ri._leaderIntro = msg.leaderIntro;
-                    ri._memberIntro = msg.memberIntro;
-                    ri.cacheOutDate = true;
-                }
+            {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msgFuck){
+                console.log("haha");
+                //var mainShowScene = global.getScene("mainShowScene");
+                //var rContainer = mainShowScene.getChildById("rContainer");
+                //var ri = rContainer.getRoomIntroTagByServerID(msg.roomInfo.serverID);
+                //if(!ri){
+                //    _createNewRoom(msg);
+                //}
+                //else{
+                //    _refreshRoom(ri,msg);
+                //}
             }},
             {msgName:SMT.INTO_A_ROOM,msgFunc:function(msg){
                 var mainShowLayer = global.getLayer("mainShowLayer");

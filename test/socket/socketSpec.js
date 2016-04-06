@@ -19,7 +19,6 @@ function connectToServer(){
 function createNewRoom(){
     require(['socket/WS_Manager','config/btn_event'],
         function(wsManager,btn_event){
-            console.log("haha");
             var roomName = document.getElementById('createRoomName').value;
             var roomMemberNum = document.getElementById("roomMemNum").value;
             var msg = {name:roomName,memNum:roomMemberNum};

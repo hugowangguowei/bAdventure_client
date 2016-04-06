@@ -121,8 +121,15 @@ define(function(require){
              * 添加绑定函数
              */
             (function(){
-                _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(){
-                    console.log("addRoomIntroTag");
+                _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(roomInfo){
+                    var id = roomInfo.viewID;
+                    MT_buildNewRoom(id);
+                    var a = $("#" + id);
+                    console.log(a);
+
+                });
+                _this.model.addListener(listenerType.REFRESH_ROOM_INTRO_TAG,prop,function(roomInfo){
+                    console.log("refreshRoomIntroTag");
                 });
 
                 $("#MT_leftFrame2").hide();
@@ -170,8 +177,9 @@ define(function(require){
                     //TODO 如果处于正在连接状态，需要注意
                     $('#MT_rF_buildRoom').hide();
                 });
-                function MT_buildNewRoom(){
+                function MT_buildNewRoom(id){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
+                    $newRoom.attr("id",id);
                     $newRoom.html(
                         "<div class='rI_b1'></div>" +
                         "<div class='rI_b2'></div>" +

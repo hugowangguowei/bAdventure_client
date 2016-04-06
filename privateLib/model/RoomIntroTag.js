@@ -3,14 +3,18 @@
  */
 define(function(require){
     var baNode = require("baBasicLib/model/baNode");
+    var ID_Manager = require("config/ID_Manager").getInstance();
     function RoomIntroTag(id,scene,container){
         baNode.call(this);
         this.id = id;
         this.serverID = null;
+        this.viewID = ID_Manager.getNewIdForRoomIntroView();
         this.type = "RoomIntroTag";
         this.scene = scene;
         this.container = container
-        this.roomIntroInfo = {};
+        this._roomInfo = {};
+        this._leaderIntro = {};
+        this._memberIntro = {};
     };
     RoomIntroTag.prototype = new baNode();
     RoomIntroTag.prototype.initialize = function(){
