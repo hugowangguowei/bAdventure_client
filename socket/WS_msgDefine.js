@@ -23,6 +23,7 @@ define(function(require){
         this.SYSTEM_INFORM = "system_inform";
         this.BASIC_CONNECT_RETURN = "basicConnectReturn";
         this.ROOM_LIST_REFRESH = 'roomListRefresh';
+        this.WAITING_QUEUE_REFRESH = 'waitingQueueRefresh';
         this.INTO_A_ROOM = 'intoARoom';
         this.CLIENT_ROOM_INFO_INITIALIZE = 'clientRoomInfoInitialize';
         this.GET_OUT_THE_QUEUE = 'getOutTheQueue',

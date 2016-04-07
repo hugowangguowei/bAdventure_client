@@ -25,91 +25,6 @@ define(function(require){
         room._memberIntro = msg.memberIntro;
         global.fireEvent(listenerType.REFRESH_ROOM_INTRO_TAG,room);
     }
-    function _buildTheQueueRoom(userType){
-        var mainShowLayer = global.getLayer("mainShowLayer");
-        var os2;
-        os2 = global.getSpriteById("outerS2");
-        if(os2){
-            os2.removeAllNodes();
-        }else{
-            os2 = new oS_roomMem("outerS2",300,500,600,100,false);
-            os2.addToLayer(mainShowLayer);
-        }
-
-        switch (userType){
-            case "leader":
-                _buildLeaderBtns();
-                break;
-            case "normalMem":
-                _buildNormalBtns();
-                break;
-        }
-
-        function _buildLeaderBtns(){
-            var btn1 = new baButton("btn_mS_cancelRoom");
-            var btn1Loc = {
-                x:os2.x,
-                y:os2.y + os2.height,
-                width:os2.width/5,
-                height:40
-            }
-            btn1.setLoc(btn1Loc);
-            btn1.upStateInfo.text = 'cancelRoom';
-            btn1.addToLayer(mainShowLayer);
-            os2.addNode(btn1);
-
-            var btn2 = new baButton("btn_mS_kickOut");
-            var btn2Loc = {
-                x:os2.x + os2.width/2 - os2.width/10,
-                y:os2.y + os2.height,
-                width:os2.width/5,
-                height:40
-            }
-            btn2.setLoc(btn2Loc);
-            btn2.upStateInfo.text = 'kickOut';
-            btn2.addToLayer(mainShowLayer);
-            os2.addNode(btn2);
-
-            var btn3 = new baButton("btn_mS_startGame");
-            var btn3Loc = {
-                x:os2.x + os2.width - os2.width/5,
-                y:os2.y + os2.height,
-                width:os2.width/5,
-                height:40
-            }
-            btn3.setLoc(btn3Loc);
-            btn3.upStateInfo.text = 'startGame';
-            btn3.addToLayer(mainShowLayer);
-            btn3.bindEvent(btn_event.BTN_E_startGame());
-            os2.addNode(btn3);
-        }
-
-        function _buildNormalBtns(){
-            var btn1 = new baButton("btn_mS_quitRoom");
-            var btn1Loc = {
-                x:os2.x,
-                y:os2.y + os2.height,
-                width:os2.width/5,
-                height:40
-            }
-            btn1.setLoc(btn1Loc);
-            btn1.upStateInfo.text = 'quitRoom';
-            btn1.addToLayer(mainShowLayer);
-            os2.addNode(btn1);
-
-            var btn3 = new baButton("btn_mS_readyGame");
-            var btn3Loc = {
-                x:os2.x + os2.width - os2.width/5,
-                y:os2.y + os2.height,
-                width:os2.width/5,
-                height:40
-            }
-            btn3.setLoc(btn3Loc);
-            btn3.upStateInfo.text = 'readyGame';
-            btn3.addToLayer(mainShowLayer);
-            os2.addNode(btn3);
-        }
-    }
     return {
         WS_URL:'http://localHost:3000',
         msgHandleList:[
@@ -121,22 +36,29 @@ define(function(require){
                     global.GSM.switchToNext("mainShowBasicStruct");
                 }
             }},
-            {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msgFuck){
-                console.log("haha");
-                //var mainShowScene = global.getScene("mainShowScene");
-                //var rContainer = mainShowScene.getChildById("rContainer");
-                //var ri = rContainer.getRoomIntroTagByServerID(msg.roomInfo.serverID);
-                //if(!ri){
-                //    _createNewRoom(msg);
-                //}
-                //else{
-                //    _refreshRoom(ri,msg);
-                //}
+            {msgName:SMT.ROOM_LIST_REFRESH,msgFunc:function(msg){
+                var mainShowScene = global.getScene("mainShowScene");
+                var rContainer = mainShowScene.getChildById("rContainer");
+                var ri = rContainer.getRoomIntroTagByServerID(msg.roomInfo.serverID);
+                if(!ri){
+                    _createNewRoom(msg);
+                }
+                else{
+                    _refreshRoom(ri,msg);
+                }
+            }},
+            {msgName:SMT.WAITING_QUEUE_REFRESH,msgFunc:function(queueInfo){
+                console.log("waitingQueueRefresh");
+                global.fireEvent(listenerType.INTO_WAITING_QUEUE,msg.userType);
+                var leaderInfo = msg.leaderInfo;
+
             }},
             {msgName:SMT.INTO_A_ROOM,msgFunc:function(msg){
+                var mainShowScene = global.getScene("mainShowScene");
+
                 var mainShowLayer = global.getLayer("mainShowLayer");
 
-                _buildTheQueueRoom(msg.userType);
+                //_buildTheQueueRoom(msg.userType);
                 var os2 = global.getSpriteById("outerS2");
 
                 var leader = msg.leaderInfo;

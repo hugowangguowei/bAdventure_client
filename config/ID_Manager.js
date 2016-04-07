@@ -22,7 +22,7 @@ define(function(require){
         },
         getNewIdForRoomIntro:function(){
             this.ROOM_INTRO_ID++;
-            return "roomIntro_" + this.ROOM_INTRO_ID;
+            return "rI_" + this.ROOM_INTRO_ID;
         },
         getNewIdForRoomIntroView:function(){
             this.ROOM_INTRO_VIEW_ID++;
@@ -30,7 +30,7 @@ define(function(require){
         },
         getNewIdForMemIntro:function(){
             this.MEM_INTRO_ID++;
-            return "memIntro_" + this.MEM_INTRO_ID;
+            return "mI_" + this.MEM_INTRO_ID;
         },
         getNewIdForMemPlayer:function(){
             this.MEM_PLAYER_ID++;

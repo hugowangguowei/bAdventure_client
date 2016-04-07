@@ -121,14 +121,11 @@ define(function(require){
              * 添加绑定函数
              */
             (function(){
-                _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(roomInfo){
-                    var id = roomInfo.viewID;
-                    MT_buildNewRoom(id);
-                    var a = $("#" + id);
-                    console.log(a);
-
+                _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(msg){
+                    var roomIntroTag = msg[0];
+                    MT_buildNewRoom(roomIntroTag);
                 });
-                _this.model.addListener(listenerType.REFRESH_ROOM_INTRO_TAG,prop,function(roomInfo){
+                _this.model.addListener(listenerType.REFRESH_ROOM_INTRO_TAG,prop,function(msg){
                     console.log("refreshRoomIntroTag");
                 });
 
@@ -177,14 +174,19 @@ define(function(require){
                     //TODO 如果处于正在连接状态，需要注意
                     $('#MT_rF_buildRoom').hide();
                 });
-                function MT_buildNewRoom(id){
+                function MT_buildNewRoom(roomInfo){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
-                    $newRoom.attr("id",id);
                     $newRoom.html(
                         "<div class='rI_b1'></div>" +
                         "<div class='rI_b2'></div>" +
                         "<div class='rI_b3'></div>"
                     )
+                    //console.log(roomInfo);
+                    var divID = roomInfo.viewID;
+                    $newRoom.attr("id",divID);
+                    var roomID = roomInfo.id;
+                    var $b1 = $newRoom.find('.rI_b1');
+                    $b1.html(roomID);
                     $newRoom.click(function(e){
                         var roomIntroList = $('.roomIntro');
                         roomIntroList.removeClass("roomIntroSelected");
