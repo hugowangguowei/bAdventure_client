@@ -41,16 +41,16 @@ define(function(require){
         this.baseDiv.style.left = "0px";
         this.baseDiv.style.zIndex = 0;
     },
-    CSSView.prototype.addOriListeners = function(){
-        var _this = this;
-        var prop = {
-            id:this.id,
-            class:listenerClass.ORI
-        };
-        this.model.addListener(listenerType.SCENE_CHANGE,prop,function(arg){
-            _this.changeScene(arg[0]);
-        });
-    }
+        CSSView.prototype.addOriListeners = function(){
+            var _this = this;
+            var prop = {
+                id:this.id,
+                class:listenerClass.ORI
+            };
+            this.model.addListener(listenerType.SCENE_CHANGE,prop,function(arg){
+                _this.changeScene(arg[0]);
+            });
+        }
     CSSView.prototype.changeScene = function(sceneName){
         var _this = this;
         var prop = {
@@ -74,10 +74,10 @@ define(function(require){
         function changeScene_mainShow(){
             $('#mainDiv').html(
                 "<div id = 'outS'>"+
-                    "<div id = 'INIT_name'>"+
-                    "<h2>Hi,YOU</h2>"+
-                    "</div>"+
-                    "<input id = 'INIT_connect' type='button' class='INIT_connect' value='connectToServer'>"+
+                "<div id = 'INIT_name'>"+
+                "<h2>Hi,YOU</h2>"+
+                "</div>"+
+                "<input id = 'INIT_connect' type='button' class='INIT_connect' value='connectToServer'>"+
                 "</div>"
             )
             $('#INIT_connect').on('click',function(){
@@ -88,37 +88,37 @@ define(function(require){
         function changeScene_mainShowBasicStruct(){
             $('#mainDiv').html(
                 "<div id = 'outS'>"+
-                    "<div id = 'MT_title'></div>"+
-                    "<div id = 'MT_main'>"+
-                        "<div id = 'MT_leftFrame1'></div>"+
-                        "<div id = 'MT_leftFrame2'></div>"+
-                        "<div id = 'MT_middleFrame'></div>"+
-                        "<div id = 'MT_rightFrame1'></div>"+
-                        "<div id = 'MT_rightFrame2'>"+
-                            "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
-                            "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
-                            "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
-                            "<div id = 'MT_rF_buildRoom'>" +
-                                "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='ÊàøÈó¥ÂêçÁß∞ÔºöÈªòËÆ§ÈöèÊú∫'>"+
-                                "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='‰∫∫Êï∞ÔºöÈªòËÆ§5'>"+
-                                "<div id = 'MT_rF_bR_show1' class='MT_rF_buildRoomInner'></div>"+
-                                "<div id = 'MT_rF_bR_show2' class='MT_rF_buildRoomInner'>" +
-                                    "<input type = 'button' id = 'MT_btn1_1' class = 'MT_roomBtn_inner1' value = 'Á°ÆÂÆö'>"+
-                                    "<input type = 'button' id = 'MT_btn1_2' class = 'MT_roomBtn_inner1' value = 'ÂèñÊ∂à'>"+
-                                "</div>"+
-                            "</div>"+
-                        "</div>"+
-                    "</div>"+
-                    "<div id = 'MT_bottom'>"+
-                        "<div id = 'MT_bottomFrame'>"+
-                            "<div id = 'MT_b_wrap'>"+
-                            "</div>"+
-                        "</div>"+
-                    "</div>"+
+                "<div id = 'MT_title'></div>"+
+                "<div id = 'MT_main'>"+
+                "<div id = 'MT_leftFrame1'></div>"+
+                "<div id = 'MT_leftFrame2'></div>"+
+                "<div id = 'MT_middleFrame'></div>"+
+                "<div id = 'MT_rightFrame1'></div>"+
+                "<div id = 'MT_rightFrame2'>"+
+                "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
+                "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
+                "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
+                "<div id = 'MT_rF_buildRoom'>" +
+                "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='∑øº‰√˚≥∆£∫ƒ¨»œÀÊª˙'>"+
+                "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='»À ˝£∫ƒ¨»œ5'>"+
+                "<div id = 'MT_rF_bR_show1' class='MT_rF_buildRoomInner'></div>"+
+                "<div id = 'MT_rF_bR_show2' class='MT_rF_buildRoomInner'>" +
+                "<input type = 'button' id = 'MT_btn1_1' class = 'MT_roomBtn_inner1' value = '»∑∂®'>"+
+                "<input type = 'button' id = 'MT_btn1_2' class = 'MT_roomBtn_inner1' value = '»°œ˚'>"+
+                "</div>"+
+                "</div>"+
+                "</div>"+
+                "</div>"+
+                "<div id = 'MT_bottom'>"+
+                "<div id = 'MT_bottomFrame'>"+
+                "<div id = 'MT_b_wrap'>"+
+                "</div>"+
+                "</div>"+
+                "</div>"+
                 "</div>"
             );
             /**
-             * Ê∑ªÂä†ÁªëÂÆöÂáΩÊï∞
+             * ÃÌº”∞Û∂®∫Ø ˝
              */
             (function(){
                 _this.model.addListener(listenerType.ADD_ROOM_INTRO_TAG,prop,function(msg){
@@ -175,10 +175,9 @@ define(function(require){
                     btn_event.BTN_E_createNewRoom()(msg);
                 });
                 $('#MT_btn1_2').on('click',function(e){
-                    //TODO Â¶ÇÊûúÂ§Ñ‰∫éÊ≠£Âú®ËøûÊé•Áä∂ÊÄÅÔºåÈúÄË¶ÅÊ≥®ÊÑè
+                    //TODO »Áπ˚¥¶”⁄’˝‘⁄¡¨Ω”◊¥Ã¨£¨–Ë“™◊¢“‚
                     $('#MT_rF_buildRoom').hide();
                 });
-
                 function MT_buildNewRoom(roomInfo){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
                     $newRoom.html(
@@ -186,6 +185,7 @@ define(function(require){
                         "<div class='rI_b2'></div>" +
                         "<div class='rI_b3'></div>"
                     )
+                    //console.log(roomInfo);
                     var divID = roomInfo.viewID;
                     $newRoom.attr("id",divID);
                     var roomID = roomInfo.id;
@@ -198,14 +198,10 @@ define(function(require){
                     })
                     $("#MT_middleFrame").append($newRoom);
                 }
-                function MT_buildNewMemIntro(memIntroTag){
+                function MT_buildNewMemIntro(){
                     var $newRoom = $("<div></div>").addClass("MT_memIntro");
-                    var divID = memIntroTag.viewID;
-                    $newRoom.attr("id",divID);
-                    var memID = memIntroTag.id;
                     $newRoom.html(
-                        memID
-                        //"<div class='mI_img'></div>"
+                        "<div class='mI_img'></div>"
                     )
                     $("#MT_b_wrap").append($newRoom);
                 }

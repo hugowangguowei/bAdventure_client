@@ -124,12 +124,18 @@ define(function (require) {
     }
 
     return{
-        BTN_E_createNewRoom : function(){ return BTN_E_createNewRoom },
-        BTN_E_getIntoARoom : function(){ return BTN_E_getIntoARoom },
-        BTN_E_startGame : function(){ return BTN_E_startGame },
-        BTN_E_ROLL : function(){ return BTN_E_ROLL },
-        BTN_E_CREATE_CLIENT_INPUT : function(){ return BTN_E_CREATE_CLIENT_INPUT },
-        BTN_E_CLIENT_SUBMIT : function(){ return BTN_E_CLIENT_SUBMIT }
+        //BTN_E_createNewRoom : function(){ return BTN_E_createNewRoom },
+        //BTN_E_getIntoARoom : function(){ return BTN_E_getIntoARoom },
+        //BTN_E_startGame : function(){ return BTN_E_startGame },
+        //BTN_E_ROLL : function(){ return BTN_E_ROLL },
+        //BTN_E_CREATE_CLIENT_INPUT : function(){ return BTN_E_CREATE_CLIENT_INPUT },
+        //BTN_E_CLIENT_SUBMIT : function(){ return BTN_E_CLIENT_SUBMIT }
+        BTN_E_createNewRoom : BTN_E_createNewRoom,
+        BTN_E_getIntoARoom : BTN_E_getIntoARoom,
+        BTN_E_startGame : BTN_E_startGame,
+        BTN_E_ROLL : BTN_E_ROLL,
+        BTN_E_CREATE_CLIENT_INPUT : BTN_E_CREATE_CLIENT_INPUT,
+        BTN_E_CLIENT_SUBMIT : BTN_E_CLIENT_SUBMIT
     }
 })
 
