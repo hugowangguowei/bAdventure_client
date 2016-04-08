@@ -195,6 +195,8 @@ define(function(require){
                         var roomIntroList = $('.roomIntro');
                         roomIntroList.removeClass("roomIntroSelected");
                         $(this).addClass("roomIntroSelected");
+
+
                     })
                     $("#MT_middleFrame").append($newRoom);
                 }

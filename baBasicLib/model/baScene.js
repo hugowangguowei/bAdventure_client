@@ -12,6 +12,7 @@ define(function(require){
             model.sceneArray.push(this);
         }
         this.childList = {};
+        this.privatedata = {};
     }
     baScene.prototype = {
         addChild:function(args){

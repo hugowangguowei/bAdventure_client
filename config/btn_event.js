@@ -15,6 +15,19 @@ define(function (require) {
     }
 
     /**
+     * 点选指定房间
+     * @param roomIntroTag
+     * @constructor
+     */
+    function BTN_E_clickARoom(roomIntroTag){
+
+        var mainShowScene = global.getScene("mainShowScene");
+        var roomID = roomIntroTag.serverID;
+        mainShowScene.privatedata._pickedRoomID = roomID;
+        console.log(mainShowScene.privatedata);
+    }
+
+    /**
      * 请求进入房间
      * @constructor
      */
@@ -124,13 +137,8 @@ define(function (require) {
     }
 
     return{
-        //BTN_E_createNewRoom : function(){ return BTN_E_createNewRoom },
-        //BTN_E_getIntoARoom : function(){ return BTN_E_getIntoARoom },
-        //BTN_E_startGame : function(){ return BTN_E_startGame },
-        //BTN_E_ROLL : function(){ return BTN_E_ROLL },
-        //BTN_E_CREATE_CLIENT_INPUT : function(){ return BTN_E_CREATE_CLIENT_INPUT },
-        //BTN_E_CLIENT_SUBMIT : function(){ return BTN_E_CLIENT_SUBMIT }
         BTN_E_createNewRoom : BTN_E_createNewRoom,
+        BTN_E_clickARoom : BTN_E_clickARoom,
         BTN_E_getIntoARoom : BTN_E_getIntoARoom,
         BTN_E_startGame : BTN_E_startGame,
         BTN_E_ROLL : BTN_E_ROLL,
