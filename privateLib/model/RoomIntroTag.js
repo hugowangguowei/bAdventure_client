@@ -4,7 +4,7 @@
 define(function(require){
     var baNode = require("baBasicLib/model/baNode");
     var ID_Manager = require("config/ID_Manager").getInstance();
-    function RoomIntroTag(id,scene,container){
+    function RoomIntroTag(id,container,scene){
         baNode.call(this);
         this.id = id;
         this.serverID = null;

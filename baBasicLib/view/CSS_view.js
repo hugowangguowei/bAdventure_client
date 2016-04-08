@@ -128,6 +128,10 @@ define(function(require){
                 _this.model.addListener(listenerType.REFRESH_ROOM_INTRO_TAG,prop,function(msg){
                     console.log("refreshRoomIntroTag");
                 });
+                _this.model.addListener(listenerType.ADD_MEM_INTRO_TAG,prop,function(msg){
+                    var memIntroTag = msg[0];
+                    MT_buildNewMemIntro(memIntroTag);
+                });
 
                 $("#MT_leftFrame2").hide();
                 $("#MT_rightFrame1").hide();
@@ -174,6 +178,7 @@ define(function(require){
                     //TODO 如果处于正在连接状态，需要注意
                     $('#MT_rF_buildRoom').hide();
                 });
+
                 function MT_buildNewRoom(roomInfo){
                     var $newRoom = $("<div></div>").addClass("roomIntro");
                     $newRoom.html(
@@ -181,7 +186,6 @@ define(function(require){
                         "<div class='rI_b2'></div>" +
                         "<div class='rI_b3'></div>"
                     )
-                    //console.log(roomInfo);
                     var divID = roomInfo.viewID;
                     $newRoom.attr("id",divID);
                     var roomID = roomInfo.id;
@@ -194,10 +198,14 @@ define(function(require){
                     })
                     $("#MT_middleFrame").append($newRoom);
                 }
-                function MT_addNewPlayer(){
+                function MT_buildNewMemIntro(memIntroTag){
                     var $newRoom = $("<div></div>").addClass("MT_memIntro");
+                    var divID = memIntroTag.viewID;
+                    $newRoom.attr("id",divID);
+                    var memID = memIntroTag.id;
                     $newRoom.html(
-                        "<div class='mI_img'></div>"
+                        memID
+                        //"<div class='mI_img'></div>"
                     )
                     $("#MT_b_wrap").append($newRoom);
                 }

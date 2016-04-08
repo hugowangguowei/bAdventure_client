@@ -13,7 +13,7 @@ define(function(require){
         var id = ID_manager.getNewIdForRoomIntro();
         var mainShowScene = global.getScene("mainShowScene");
         var rContainer = mainShowScene.getChildById("rContainer");
-        var ri_new = new RoomIntroTag(id,mainShowScene,rContainer);
+        var ri_new = new RoomIntroTag(id,rContainer,mainShowScene);
         ri_new._roomInfo = msg.roomInfo;
         ri_new._leaderIntro = msg.leaderIntro;
         ri_new._memberIntro = msg.memberIntro;
@@ -48,10 +48,33 @@ define(function(require){
                 }
             }},
             {msgName:SMT.WAITING_QUEUE_REFRESH,msgFunc:function(queueInfo){
+                /*queueInfo示例：
+                var leaderInfo = {
+                    userName:this.roomLeader.userName,
+                    level:this.roomLeader.level,
+                    serverID:this.roomLeader.userID
+                }
+                var memInfo = [
+                    memInfo_i = {
+                    userName:mem.userName,
+                    level:mem.level,
+                    serverID:mem.userID
+                    }
+                ];
+                var yourInfo = {yourID:roomLeader.userID};
+                var userType = "leader";
+                */
                 console.log("waitingQueueRefresh");
-                global.fireEvent(listenerType.INTO_WAITING_QUEUE,msg.userType);
-                var leaderInfo = msg.leaderInfo;
-
+                global.fireEvent(listenerType.INTO_WAITING_QUEUE,queueInfo.userType);
+                var mainShowScene = global.getScene("mainShowScene");
+                var mContainer = mainShowScene.getChildById('mContainer');
+                var memInfo = queueInfo.memInfo;
+                for(var i = 0,len = memInfo.length;i<len;i++){
+                    var id = ID_manager.getNewIdForMemIntro();
+                    var mI = new RoomIntroTag(id,mContainer,mainShowScene);
+                    mI.memIntroInfo = memInfo[i];
+                    global.fireEvent(listenerType.ADD_MEM_INTRO_TAG,mI);
+                }
             }},
             {msgName:SMT.INTO_A_ROOM,msgFunc:function(msg){
                 var mainShowScene = global.getScene("mainShowScene");

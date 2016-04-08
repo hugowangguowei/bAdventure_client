@@ -3,9 +3,11 @@
  */
 define(function(require){
     var baNode = require("baBasicLib/model/baNode");
-    function MemIntroTag(id,scene,container){
+    var ID_Manager = require("config/ID_Manager").getInstance();
+    function MemIntroTag(id,container,scene){
         baNode.call(this);
         this.id = id;
+        this.viewID = ID_Manager.getNewIdForMemIntroView();
         this.type = "MemIntroTag";
         this.scene = scene;
         this.container = container

@@ -9,6 +9,7 @@ define(function(require){
         this.ROOM_INTRO_ID = 0;
         this.ROOM_INTRO_VIEW_ID = 0;
         this.MEM_INTRO_ID = 0;
+        this.MEM_INTRO_VIEW_ID = 0;
         this.MEM_PLAYER_ID = 0;
         this.initialize();
     }
@@ -31,6 +32,10 @@ define(function(require){
         getNewIdForMemIntro:function(){
             this.MEM_INTRO_ID++;
             return "mI_" + this.MEM_INTRO_ID;
+        },
+        getNewIdForMemIntroView:function(){
+            this.MEM_INTRO_VIEW_ID;
+            return "mI_model_bind_id_" + this.MEM_INTRO_VIEW_ID;
         },
         getNewIdForMemPlayer:function(){
             this.MEM_PLAYER_ID++;
