@@ -20,9 +20,9 @@ define(function (require) {
      * @constructor
      */
     function BTN_E_clickARoom(roomIntroTag){
-
+        console.log(roomIntroTag);
         var mainShowScene = global.getScene("mainShowScene");
-        var roomID = roomIntroTag.serverID;
+        var roomID = roomIntroTag._roomInfo.serverID;
         mainShowScene.privatedata._pickedRoomID = roomID;
         console.log(mainShowScene.privatedata);
     }

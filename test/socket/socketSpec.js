@@ -3,7 +3,7 @@
  */
 
 /**
- * Á¬½Ó·şÎñÆ÷
+ * è¿æ¥æœåŠ¡å™¨
  */
 function connectToServer(){
     require(['socket/WS_Manager'],
@@ -14,7 +14,7 @@ function connectToServer(){
 }
 
 /**
- * ´´½¨·¿¼ä
+ * åˆ›å»ºæˆ¿é—´
  */
 function createNewRoom(){
     require(['socket/WS_Manager','config/btn_event'],
@@ -22,6 +22,6 @@ function createNewRoom(){
             var roomName = document.getElementById('createRoomName').value;
             var roomMemberNum = document.getElementById("roomMemNum").value;
             var msg = {name:roomName,memNum:roomMemberNum};
-            btn_event.BTN_E_createNewRoom()(msg);
+            btn_event.BTN_E_createNewRoom(msg);
         });
 }
