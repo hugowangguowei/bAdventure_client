@@ -22,9 +22,9 @@ define(function (require) {
     function BTN_E_clickARoom(roomIntroTag){
         console.log(roomIntroTag);
         var mainShowScene = global.getScene("mainShowScene");
+        var rContainer = mainShowScene.getChildById("rContainer");
         var roomID = roomIntroTag._roomInfo.serverID;
-        mainShowScene.privatedata._pickedRoomID = roomID;
-        console.log(mainShowScene.privatedata);
+        rContainer._picked_RIT_ID = roomID;
     }
 
     /**
@@ -36,22 +36,9 @@ define(function (require) {
         _submitMsg(CMT.ASK_GET_INTO_ROOM,roomID);
 
         function _getChosenRoomID(){
-            var os1 = global.getSpriteById("outerS");
-            var roomGroup = os1.nodeList["roomIntro"];
-            if(!roomGroup){
-                return 0;
-            }
-
-            var rList = roomGroup.list;
-            var id = 0;
-            for(var i = 0;i<rList.length;i++){
-                var room_i = rList[i];
-                if(room_i.isFocusOn){
-                    id = room_i._roomInfo.serverID;
-                    break;
-                }
-            }
-            return id;
+            var mainShowScene = global.getScene("mainShowScene");
+            var rContainer = mainShowScene.getChildById("rContainer");
+            return rContainer._picked_RIT_ID;
         }
     }
 

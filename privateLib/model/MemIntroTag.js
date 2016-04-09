@@ -12,6 +12,7 @@ define(function(require){
         this.scene = scene;
         this.container = container
         this.memIntroInfo = {};
+        this.initialize();
     };
     MemIntroTag.prototype = new baNode();
     MemIntroTag.prototype.initialize = function(){
@@ -19,7 +20,7 @@ define(function(require){
             this.scene.addChild(this);
         }
         if(this.container){
-            this.addToContainer(this.container);
+            this.addToContainer();
         }
     }
     MemIntroTag.prototype.addToContainer = function(){

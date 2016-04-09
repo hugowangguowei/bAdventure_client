@@ -161,7 +161,7 @@ define(function(require){
                 });
                 $("#MT_btn2").attr("disabled",true);
                 $("#MT_btn2").on("click",function(e){
-
+                    btn_event.BTN_E_getIntoARoom();
                     return false;
                 });
                 $('#MT_btn3').on('click',function(e){

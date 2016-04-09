@@ -9,6 +9,7 @@ define(function(require){
         this.type = "MemIntroTag";
         this.scene = scene;
         this.memIntroTagList = [];
+        this._picked_MIT_ID = null;
         this.initialize();
     };
     MemIntroTagContainer.prototype = new baNode();
@@ -18,7 +19,7 @@ define(function(require){
         }
     };
     MemIntroTagContainer.prototype.addMemIntroTag = function(mit){
-
+        this.memIntroTagList.push(mit);
     };
     MemIntroTagContainer.prototype.updateMemIntroTag = function(mit){
 

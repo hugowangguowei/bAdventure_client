@@ -15,6 +15,7 @@ define(function(require){
         this._roomInfo = {};
         this._leaderIntro = {};
         this._memberIntro = {};
+        this.initialize();
     };
     RoomIntroTag.prototype = new baNode();
     RoomIntroTag.prototype.initialize = function(){
@@ -22,7 +23,7 @@ define(function(require){
             this.scene.addChild(this);
         }
         if(this.container){
-            this.addToContainer(this.container);
+            this.addToContainer();
         }
     }
     RoomIntroTag.prototype.addToContainer = function(){

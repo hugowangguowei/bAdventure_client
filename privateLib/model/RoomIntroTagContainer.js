@@ -9,6 +9,7 @@ define(function(require){
         this.type = "RoomIntroTagContainer";
         this.scene = scene;
         this.roomIntroTagList = [];
+        this._picked_RIT_ID = null;
         this.initialize();
     };
     RoomIntroTagContainer.prototype = new baNode();
@@ -18,7 +19,7 @@ define(function(require){
         }
     };
     RoomIntroTagContainer.prototype.addRoomIntroTag = function(rit){
-
+        this.roomIntroTagList.push(rit);
     };
     RoomIntroTagContainer.prototype.getRoomIntroTagByServerID = function(serverID){
         for(var i = 0,len = this.roomIntroTagList.length;i<len;i++){
