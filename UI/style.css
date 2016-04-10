@@ -154,6 +154,33 @@
     background-color: #6f6f6f;
     overflow: scroll;
 }
+#MT_gameControl_div{
+    width: 18%;
+    height: 90%;
+    right: 0;
+    margin: 0.5% 1%;
+    position: absolute;
+}
+.MT_gameControl_btns{
+
+}
+#MT_gC_start{
+    width: 40%;
+    height: 90%;
+    position: absolute;
+}
+#MT_gC_leaderQuit{
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    margin: 0 42%;
+}
+#MT_gC_kick{
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    margin: 12% 42%;
+}
 #MT_b_wrap{
     min-width: 100px;
     height: 90%;

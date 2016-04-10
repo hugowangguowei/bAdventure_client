@@ -88,33 +88,33 @@ define(function(require){
         function changeScene_mainShowBasicStruct(){
             $('#mainDiv').html(
                 "<div id = 'outS'>"+
-                "<div id = 'MT_title'></div>"+
-                "<div id = 'MT_main'>"+
-                "<div id = 'MT_leftFrame1'></div>"+
-                "<div id = 'MT_leftFrame2'></div>"+
-                "<div id = 'MT_middleFrame'></div>"+
-                "<div id = 'MT_rightFrame1'></div>"+
-                "<div id = 'MT_rightFrame2'>"+
-                "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
-                "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
-                "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
-                "<div id = 'MT_rF_buildRoom'>" +
-                "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='房间名称：默认随机'>"+
-                "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='人数：默认5'>"+
-                "<div id = 'MT_rF_bR_show1' class='MT_rF_buildRoomInner'></div>"+
-                "<div id = 'MT_rF_bR_show2' class='MT_rF_buildRoomInner'>" +
-                "<input type = 'button' id = 'MT_btn1_1' class = 'MT_roomBtn_inner1' value = '确定'>"+
-                "<input type = 'button' id = 'MT_btn1_2' class = 'MT_roomBtn_inner1' value = '取消'>"+
-                "</div>"+
-                "</div>"+
-                "</div>"+
-                "</div>"+
-                "<div id = 'MT_bottom'>"+
-                "<div id = 'MT_bottomFrame'>"+
-                "<div id = 'MT_b_wrap'>"+
-                "</div>"+
-                "</div>"+
-                "</div>"+
+                    "<div id = 'MT_title'></div>"+
+                    "<div id = 'MT_main'>"+
+                        "<div id = 'MT_leftFrame1'></div>"+
+                        "<div id = 'MT_leftFrame2'></div>"+
+                        "<div id = 'MT_middleFrame'></div>"+
+                        "<div id = 'MT_rightFrame1'></div>"+
+                        "<div id = 'MT_rightFrame2'>"+
+                            "<input type='button' id = 'MT_btn1' class='roomBtn' value='buildRoom'>"+
+                            "<input type='button' id = 'MT_btn2' class='roomBtn' value='getIntoRoom'>"+
+                            "<input type='button' id = 'MT_btn3' class='roomBtn' value='addMem'>"+
+                            "<div id = 'MT_rF_buildRoom'>" +
+                                "<input type = 'text' id = 'MT_rF_bR_input1' class = 'MT_rF_buildRoomInner' placeholder='房间名称：默认随机'>"+
+                                "<input type = 'text' id = 'MT_rF_bR_input2' class = 'MT_rF_buildRoomInner' placeholder='人数：默认5'>"+
+                                "<div id = 'MT_rF_bR_show1' class='MT_rF_buildRoomInner'></div>"+
+                                "<div id = 'MT_rF_bR_show2' class='MT_rF_buildRoomInner'>" +
+                                    "<input type = 'button' id = 'MT_btn1_1' class = 'MT_roomBtn_inner1' value = '确定'>"+
+                                    "<input type = 'button' id = 'MT_btn1_2' class = 'MT_roomBtn_inner1' value = '取消'>"+
+                                "</div>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
+                    "<div id = 'MT_bottom'>"+
+                        "<div id = 'MT_bottomFrame'>"+
+                            "<div id = 'MT_b_wrap'>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
                 "</div>"
             );
             /**
@@ -127,6 +127,32 @@ define(function(require){
                 });
                 _this.model.addListener(listenerType.REFRESH_ROOM_INTRO_TAG,prop,function(msg){
                     console.log("refreshRoomIntroTag");
+                });
+                _this.model.addListener(listenerType.INTO_WAITING_QUEUE,prop,function(msg){
+                    var userType = msg[0];
+                    var $memControlBtns = $("#MT_gameControl_div");
+                    if($memControlBtns.length == 0){
+                        var $memControlBtns = $("<div></div>");
+                        $memControlBtns.attr("id","MT_gameControl_div");
+                        $("#MT_bottom").append($memControlBtns);
+                    }
+                    switch (userType){
+                        case "leader":
+                            $memControlBtns.html(
+                                "<input type='button' id = 'MT_gC_start'class = 'MT_gameControl_btns' value = '开始'>" +
+                                "<input type='button' id = 'MT_gC_leaderQuit' class = 'mT_gameControl_btns' value = '退出房间'>" +
+                                "<input type='button' id = 'MT_gC_kick' class = 'mT_gameControl_btns' value = '踢除用户'>"
+                            )
+                            $('#MT_gC_start').on('click',function(e){
+                                btn_event.BTN_E_startGame();
+                            });
+                            break;
+                        case "normalMem":
+                            $memControlBtns.html(
+                                "<input type = 'button' id = 'MT_gC_start'class = 'MT_gameControl_btns' value = '准备'>"
+                            )
+                            break;
+                    }
                 });
                 _this.model.addListener(listenerType.ADD_MEM_INTRO_TAG,prop,function(msg){
                     var memIntroTag = msg[0];

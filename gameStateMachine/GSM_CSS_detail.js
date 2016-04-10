@@ -54,7 +54,8 @@ define(function(require){
          * @constructor
          */
         function GSM_gameStruct(_this){
-
+            console.log("主界面");
+            /*
             global.hideAllLayer();
             var gameLayer = new baLayer("gameStructLayer",121);
             global.addLayer(gameLayer);
@@ -245,6 +246,7 @@ define(function(require){
                     memCtrl_i.addToLayer(gameLayer);
                 }
             }
+            */
         }
         /**
          * 游戏初始化界面
