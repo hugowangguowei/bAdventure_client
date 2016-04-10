@@ -68,6 +68,10 @@ define(function(require){
                 break;
             case "mainShowBasicStruct":
                 changeScene_mainShowBasicStruct();
+                break;
+            case "gameStruct":
+                changeScene_gameStruct();
+                break;
         }
         function changeScene_gameLoading(){
         }
@@ -235,6 +239,60 @@ define(function(require){
                     )
                     $("#MT_b_wrap").append($newRoom);
                 }
+            })();
+        }
+        function changeScene_gameStruct(){
+            $('#mainDiv').html(
+                "<div id = 'outS'>" +
+                    "<div id = 'GA_title'></div>"+
+                    "<div id = 'GA_main'>"+
+                        "<div id = 'GA_leftFrame1'></div>"+
+                        "<div id = 'GA_leftFrame2'></div>"+
+                        "<div id = 'GA_middleFrame'></div>"+
+                        "<div id = 'GA_rightFrame1'></div>"+
+                        "<div id = 'GA_rightFrame2'>"+
+                        "</div>"+
+                    "</div>"+
+                    "<div id = 'GA_bottom'>"+
+                        "<input type='text' id = 'GA_input'>"+
+                        "<input type='button' id='GA_submitBtn' value='submit'>"+
+                    "</div>"+
+                "</div>"
+            );
+            (function () {
+                _this.model.addListener(listenerType.ADD_TEXT,prop,function(msg){
+                    var msgInfo = msg[0];
+                    var $newTextTag = $('<div></div>').addClass('GA_textTag');
+                    $newTextTag.html(
+                        "<div class = 'GA_tT1'></div>" +
+                        "<div class='GA_tT2'>"+ msgInfo + "</div>"
+                    )
+                    $("#GA_middleFrame").append($newTextTag);
+                });
+                $("#GA_leftFrame2").hide();
+                $("#GA_rightFrame1").hide();
+                $("#GA_leftFrame1").on("click",function(){
+                    $("#GA_leftFrame1").hide();
+                    $("#GA_leftFrame2").show();
+                });
+                $("#GA_leftFrame2").on("click",function(){
+                    $("#GA_leftFrame2").hide();
+                    $("#GA_leftFrame1").show();
+                });
+                $("#GA_rightFrame1").on("click",function(){
+                    $("#GA_rightFrame1").hide();
+                    $("#GA_rightFrame2").show();
+                });
+                $("#GA_rightFrame2").on("click",function(){
+                    $("#GA_rightFrame2").hide();
+                    $("#GA_rightFrame1").show();
+                });
+                $("#GA_submitBtn").on("click",function(){
+                    var $GA_input = $('#GA_input')
+                    var value = $GA_input.val();
+                    $GA_input.val("");
+                    btn_event.BTN_E_clientSubmit(value);
+                });
             })();
         }
     }

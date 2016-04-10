@@ -18,7 +18,7 @@ define(function(){
             if(id == "no_id"&&listenerClass == "no_class")
                 return 0;
             var removeCount = 0;
-            for(var i = 0,len = this._eventList.length;i<len;i+= 3){
+            for(var i = 0;i<this._eventList.length;i+= 3){
                 if((this._eventList[i+1].id == id||id == "no_id")&&
                     (this._eventList[i+1].class == listenerClass||listenerClass == "no_class")){
                     this._eventList.splice(i,3);

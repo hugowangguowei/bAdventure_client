@@ -55,6 +55,25 @@ define(function(require){
          */
         function GSM_gameStruct(_this){
             console.log("主界面");
+            var gameStructScene = new baScene("gameStructScene",_this.obj);
+            var msg = _this._startGameMsg;
+            switch (msg.playerType){
+                case "leader":
+                    _buildLeaderStruct();
+                    break;
+                case "normal":
+                    _buildNormalStruct();
+                    break;
+            }
+            function _buildLeaderStruct(){
+                var model = _this.obj;
+                model.fireEvent(listenerType.SCENE_CHANGE,"gameStruct");
+            }
+            function _buildNormalStruct(){
+                var model = _this.obj;
+                model.fireEvent(listenerType.SCENE_CHANGE,"gameStruct");
+            }
+
             /*
             global.hideAllLayer();
             var gameLayer = new baLayer("gameStructLayer",121);

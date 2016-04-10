@@ -15,7 +15,8 @@ define(function(){
             REFRESH_MEM_INTRO_TAG:"refreshMemIntroTag",
             REMOVE_MEM_INTRO_TAG:"removeMemIntroTag",
             INTO_WAITING_QUEUE:"intoWaitingQueue",
-            OUT_WAITING_QUEUE:"outWaitingQueue"
+            OUT_WAITING_QUEUE:"outWaitingQueue",
+            ADD_TEXT:"addTest"
         },
         //注册事件类别
         listenerClass:{

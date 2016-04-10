@@ -96,10 +96,7 @@ define(function(require){
                 //TODO
             }},
             {msgName:SMT.CLIENT_MSG_DISTRIBUTE,msgFunc:function(msg){
-                var textB = global.getSpriteById("textShowTag");
-                if(textB){
-                    textB.addText(msg);
-                }
+                global.fireEvent(listenerType.ADD_TEXT,msg);
             }},
             {msgName:SMT.ROOM_DELETE,msgFunc:function(msg){
             }},
