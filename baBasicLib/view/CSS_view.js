@@ -50,6 +50,23 @@ define(function(require){
         this.model.addListener(listenerType.SCENE_CHANGE,prop,function(arg){
             _this.changeScene(arg[0]);
         });
+        this.model.addListener(listenerType.RESURE_CHECK,prop,function(arg){
+            var msg = arg[0];
+            var $resureLayer = $("<div></div>");
+            $resureLayer.attr("id","resureLayer");
+            $resureLayer.html(
+                "<input id = 'resureLayer_btn_1' type = 'button' value = 'OK'>"+
+                "<input id = 'resureLayer_btn_2' type = 'button' value = 'cancel'>"
+            );
+            $resureLayer.hide();
+            var $surBtn = $("#resureLayer_btn_1").attr('value',msg.Y);
+            var $surBtn = $("#resureLayer_btn_2").attr('value',msg.N);
+            var $resureLayer = $('#resureLayer');
+            $resureLayer.show();
+        });
+        this.model.addListener(listenerType.RESURE_CHECK_FINISH,prop,function(arg){
+
+        })
     };
     CSSView.prototype.changeScene = function(sceneName){
         var _this = this;
@@ -251,6 +268,9 @@ define(function(require){
                         "<div id = 'GA_middleFrame'></div>"+
                         "<div id = 'GA_rightFrame1'></div>"+
                         "<div id = 'GA_rightFrame2'>"+
+                            "<input type='button' id = 'GA_rF2_btn1' class='roomBtn' value='quitRoom'>"+
+                            "<input type='button' id = 'GA_rF2_btn2' class='roomBtn' value='保留按钮1'>"+
+                            "<input type='button' id = 'GA_rF2_btn3' class='roomBtn' value='保留按钮2'>"+
                         "</div>"+
                     "</div>"+
                     "<div id = 'GA_bottom'>"+
@@ -287,12 +307,21 @@ define(function(require){
                     $("#GA_rightFrame2").hide();
                     $("#GA_rightFrame1").show();
                 });
+                $("#GA_rF2_btn1").on("click",function(){
+                    console.log("quitRoom");
+                    function quit(){
+                        console.log("quit");
+                    }
+                    _this.model.resureChecker.check(this,quit,function(){return false;});
+                    return false;
+                });
                 $("#GA_submitBtn").on("click",function(){
                     var $GA_input = $('#GA_input')
                     var value = $GA_input.val();
                     $GA_input.val("");
                     btn_event.BTN_E_clientSubmit(value);
                 });
+
             })();
         }
     }

@@ -8,6 +8,8 @@ define(function(){
         //×¢²áÊÂ¼þÃû³Æ
         listenerType:{
             SCENE_CHANGE:"scene_change",
+            RESURE_CHECK:"resureCheck",
+            RESURE_CHECK_FINISH:"resureCheckFinish",
             ADD_ROOM_INTRO_TAG:"addRoomIntroTag",
             REFRESH_ROOM_INTRO_TAG:"refreshRoomIntroTag",
             REMOVE_ROOM_INTRO_TAG:"removeRoomIntroTag",

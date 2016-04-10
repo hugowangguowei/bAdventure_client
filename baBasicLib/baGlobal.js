@@ -5,6 +5,7 @@ define(function(require){
    "use strict";
     var instance = null;
     var baEventSource = require("baBasicLib/baEventSource");
+    var ReSure = require("baBasicLib/controller/Resure");
 
     function baGlobal(){
         baEventSource.call(this);
@@ -24,6 +25,10 @@ define(function(require){
          * @type {module:socket/WS_Manager}
          */
         this.WSM = null;
+        /**
+         * 确认控制器
+         */
+        this.resureChecker = new ReSure();
     }
 
     baGlobal.prototype = new baEventSource();

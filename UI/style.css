@@ -4,6 +4,27 @@
     position: absolute;
     background-color: black;
 }
+/*检查界面样式*/
+#resureLayer{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    opacity:0.50;
+    background-color: #2482bd;
+    z-index: 100;
+}
+#resureLayer_btn_1{
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    margin-left: 40%;
+}
+#resureLayer_btn_2{
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    margin-left: 50%;
+}
 /*初始化界面样式-mainShow*/
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
     #INIT_name{
@@ -277,14 +298,13 @@
     /*margin:0 15%;*/
     position: absolute;
 }
-#GA_btn1{
+#GA_rF2_btn1{
     margin: 5% 15%;
-    /*color: blueviolet;*/
 }
-#GA_btn2{
+#GA_rF2_btn2{
     margin: 25% 15%;
 }
-#GA_btn3{
+#GA_rF2_btn3{
     margin: 45% 15%;
 }
 #GA_bottom{
