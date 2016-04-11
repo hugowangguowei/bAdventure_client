@@ -55,14 +55,14 @@ define(function(require){
             var $resureLayer = $("<div></div>");
             $resureLayer.attr("id","resureLayer");
             $resureLayer.html(
-                "<input id = 'resureLayer_btn_1' type = 'button' value = 'OK'>"+
-                "<input id = 'resureLayer_btn_2' type = 'button' value = 'cancel'>"
+                "<div id = 'resureLayer_text_1'>" + msg.text + "</div>" +
+                "<input id = 'resureLayer_btn_1' type = 'button' value = '"+ msg.Y+ "'>"+
+                "<input id = 'resureLayer_btn_2' type = 'button' value = '"+ msg.N+ "'>"
             );
-            $resureLayer.hide();
-            var $surBtn = $("#resureLayer_btn_1").attr('value',msg.Y);
-            var $surBtn = $("#resureLayer_btn_2").attr('value',msg.N);
-            var $resureLayer = $('#resureLayer');
-            $resureLayer.show();
+            //$("#resureLayer_text_1").html(msg.text);
+            //$("#resureLayer_btn_1").attr('value',msg.Y);
+            //$("#resureLayer_btn_2").attr('value',msg.N);
+            $("#mainDiv").append($resureLayer);
         });
         this.model.addListener(listenerType.RESURE_CHECK_FINISH,prop,function(arg){
 

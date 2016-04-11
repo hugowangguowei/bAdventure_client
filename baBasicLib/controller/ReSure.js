@@ -10,7 +10,7 @@ define(function (require) {
    }
    ReSure.prototype = {
       check: function (context,callBackTrue,callBackFalse) {
-         global.fireEvent(listenerType.RESURE_CHECK,{Y:"确定退出",N:"取消"});
+         global.fireEvent(listenerType.RESURE_CHECK,{text:"你确定退出房间吗？",Y:"确定退出",N:"取消"});
       },
       returnCheckResult:function(result){
          this.fireEvent(listenerType.RESURE_CHECK_FINISH);
@@ -24,6 +24,5 @@ define(function (require) {
          }
       }
    }
-
    return ReSure;
 });
