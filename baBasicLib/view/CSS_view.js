@@ -59,13 +59,17 @@ define(function(require){
                 "<input id = 'resureLayer_btn_1' type = 'button' value = '"+ msg.Y+ "'>"+
                 "<input id = 'resureLayer_btn_2' type = 'button' value = '"+ msg.N+ "'>"
             );
-            //$("#resureLayer_text_1").html(msg.text);
-            //$("#resureLayer_btn_1").attr('value',msg.Y);
-            //$("#resureLayer_btn_2").attr('value',msg.N);
             $("#mainDiv").append($resureLayer);
+            $("#resureLayer_btn_1").on("click",function(){
+                _this.model.resureChecker.returnCheckResult(true);
+            });
+            $("#resureLayer_btn_2").on("click",function(){
+                _this.model.resureChecker.returnCheckResult(false);
+            })
+
         });
         this.model.addListener(listenerType.RESURE_CHECK_FINISH,prop,function(arg){
-
+            $("#resureLayer").remove();
         })
     };
     CSSView.prototype.changeScene = function(sceneName){
@@ -308,11 +312,13 @@ define(function(require){
                     $("#GA_rightFrame1").show();
                 });
                 $("#GA_rF2_btn1").on("click",function(){
-                    console.log("quitRoom");
+                    _this.model.resureChecker.check(this,quit,cancelQuit);
                     function quit(){
                         console.log("quit");
                     }
-                    _this.model.resureChecker.check(this,quit,function(){return false;});
+                    function  cancelQuit(){
+                        console.log("cancelQuit");
+                    }
                     return false;
                 });
                 $("#GA_submitBtn").on("click",function(){

@@ -28,7 +28,7 @@ define(function(require){
         /**
          * 确认控制器
          */
-        this.resureChecker = new ReSure();
+        this.resureChecker = new ReSure(this);
     }
 
     baGlobal.prototype = new baEventSource();
