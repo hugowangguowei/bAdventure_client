@@ -170,6 +170,13 @@
 .MT_roomBtn_inner1{
     width:50%;
 }
+#MT_rF_searchRoom{
+    width: 70%;
+    height: 50%;
+    margin: 70% 0 15% 15%;
+    position: absolute;
+    background-color: white;
+}
 #MT_bottom{
     width: 100%;
     height: 20%;
