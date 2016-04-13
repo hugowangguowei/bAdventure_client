@@ -7,9 +7,11 @@ define(function(){
     return {
         //注册事件名称
         listenerType:{
+            //根事件
             SCENE_CHANGE:"scene_change",
             RESURE_CHECK:"resureCheck",
             RESURE_CHECK_FINISH:"resureCheckFinish",
+            //房间列表界面事件
             ADD_ROOM_INTRO_TAG:"addRoomIntroTag",
             REFRESH_ROOM_INTRO_TAG:"refreshRoomIntroTag",
             REMOVE_ROOM_INTRO_TAG:"removeRoomIntroTag",
@@ -18,7 +20,11 @@ define(function(){
             REMOVE_MEM_INTRO_TAG:"removeMemIntroTag",
             INTO_WAITING_QUEUE:"intoWaitingQueue",
             OUT_WAITING_QUEUE:"outWaitingQueue",
-            ADD_TEXT:"addTest"
+            //游戏主界面事件
+            ADD_TEXT:"addTest",
+            ADD_MEM_TAG:"addMemTag",
+            REFRESH_MEM_TAG:"refreshMemTag",
+            REMOVE_MEM_TAG:"removeMemTag"
         },
         //注册事件类别
         listenerClass:{

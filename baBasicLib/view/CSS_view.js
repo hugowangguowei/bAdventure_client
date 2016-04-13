@@ -294,6 +294,9 @@ define(function(require){
                         "<div id = 'GA_leftFrame1'></div>"+
                         "<div id = 'GA_leftFrame2'></div>"+
                         "<div id = 'GA_middleFrame'></div>"+
+                        "<div id = 'GA_rightFrame0'>" +
+                            "<div id = 'GA_memContainer'></div>"+
+                        "</div>"+
                         "<div id = 'GA_rightFrame1'></div>"+
                         "<div id = 'GA_rightFrame2'>"+
                             "<input type='button' id = 'GA_rF2_btn1' class='roomBtn' value='quitRoom'>"+
@@ -317,6 +320,12 @@ define(function(require){
                     )
                     $("#GA_middleFrame").append($newTextTag);
                 });
+                _this.model.addListener(listenerType.ADD_MEM_TAG,prop,function(msg){
+                    var $newMem = $("<div></div>").addClass("GA_memTag");
+                    $('#GA_memContainer').append($newMem);
+                });
+                _this.model.addListener(listenerType.REFRESH_MEM_TAG,prop,function(msg){});
+                _this.model.addListener(listenerType.REMOVE_MEM_TAG,prop,function(msg){});
                 $("#GA_leftFrame2").hide();
                 $("#GA_rightFrame1").hide();
                 $("#GA_leftFrame1").on("click",function(){

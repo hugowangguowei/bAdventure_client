@@ -11,6 +11,8 @@ define(function(require){
         this.MEM_INTRO_ID = 0;
         this.MEM_INTRO_VIEW_ID = 0;
         this.MEM_PLAYER_ID = 0;
+        this.MEM_ID = 0;
+        this.MEM_VIEW_ID = 0;
         this.initialize();
     }
     ID_Manager.prototype = {
@@ -34,8 +36,16 @@ define(function(require){
             return "mI_" + this.MEM_INTRO_ID;
         },
         getNewIdForMemIntroView:function(){
-            this.MEM_INTRO_VIEW_ID;
+            this.MEM_INTRO_VIEW_ID++;
             return "mI_model_bind_id_" + this.MEM_INTRO_VIEW_ID;
+        },
+        getNewIdForMemTag:function(){
+            this.MEM_ID++;
+            return "mem_tag_" + this.MEM_ID;
+        },
+        getNewIdForMemViewTag:function(){
+            this.MEM_VIEW_ID++;
+            return "mT_model_bind_id_" + this.MEM_VIEW_ID;
         },
         getNewIdForMemPlayer:function(){
             this.MEM_PLAYER_ID++;
