@@ -297,8 +297,8 @@ define(function(require){
                         "<div id = 'GA_rightFrame1'></div>"+
                         "<div id = 'GA_rightFrame2'>"+
                             "<input type='button' id = 'GA_rF2_btn1' class='roomBtn' value='quitRoom'>"+
-                            "<input type='button' id = 'GA_rF2_btn2' class='roomBtn' value='保留按钮1'>"+
-                            "<input type='button' id = 'GA_rF2_btn3' class='roomBtn' value='保留按钮2'>"+
+                            "<input type='button' id = 'GA_rF2_btn2' class='roomBtn' value='userProp'>"+
+                            "<input type='button' id = 'GA_rF2_btn3' class='roomBtn' value='setting'>"+
                         "</div>"+
                     "</div>"+
                     "<div id = 'GA_bottom'>"+
