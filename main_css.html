@@ -19,7 +19,6 @@
                 test:"./test"
             }
         });
-
         var global;
         var imageArray;
         require(['baBasicLib/baGlobal',
@@ -28,7 +27,6 @@
             'gameStateMachine/GSM_CSS_detail',
             'baBasicLib/view/CSS_view'],
                 function(baGlobal,testObj,gsm,GSM_detail,CSS_view){
-
             global = baGlobal.getInstance();
             var mainDiv = document.getElementById("mainDiv");
             var view1 = new CSS_view(mainDiv,global);
