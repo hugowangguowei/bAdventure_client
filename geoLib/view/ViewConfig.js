@@ -6,6 +6,9 @@ define(function(){
         //注册事件名称
         listenerType:{
             //根事件
+            SCENE_CHANGE:"scene_change",
+            RESURE_CHECK:"resureCheck",
+            RESURE_CHECK_FINISH:"resureCheckFinish",
             //房间列表界面事件
             ADD_ROOM_INTRO_TAG:"addRoomIntroTag",
             REFRESH_ROOM_INTRO_TAG:"refreshRoomIntroTag",
