@@ -39,16 +39,19 @@ define(function(require){
         this.baseDiv.style.zIndex = 0;
     },
     GeoView.prototype.addOriListeners = function() {
-        var _this = this;
+        var self = this;
         var prop = {
             id: this.id,
             class: "ori"
         };
-        this.model.addListener(listenerType.SCENE_CHANGE, prop, function (arg) {
-            _this.changeScene(arg[0]);
+        this.model.addListener("paperChange", prop, function (arg) {
+            var paperInfo = self.model.paperInfo;
+            self.drawPaper(paperInfo);
+
         });
     };
     GeoView.prototype.addBasicStruct = function(){
+        var self = this;
         var outerStruct = $("<div></div>");
         outerStruct.attr("id","outS");
         outerStruct.html(
@@ -57,17 +60,27 @@ define(function(require){
             "<canvas id ='rightCanvas'></canvas>"
         );
         $("#mainDiv").append(outerStruct);
+
         var $mainC = $("#mainCanvas");
-        $mainC[0].addEventListener('mousedown',function(e){
-            console.log(e);
-            console.log("mouseDown");
+        var canvas = $mainC[0];
+        var c_w = canvas.width , c_h = canvas.height;
+        canvas.addEventListener('mousedown',function(e){
+            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
+            self.mouseInput('mousedown',loc);
         },false)
-        $mainC[0].addEventListener('mousemove',function(e){
-            console.log('mousemove');
+        canvas.addEventListener('mousemove',function(e){
+            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
+            self.mouseInput('mousemove',loc);
         },false)
-        $mainC[0].addEventListener('mouseup',function(e){
-            console.log('mouseup');
+        canvas.addEventListener('mouseup',function(e){
+            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
+            self.mouseInput('mousemove',loc);
         },false)
+
+    };
+    GeoView.prototype.drawPaper = function(paperInfo){
+        var canvas = $("#mainCanvas")[0];
+        var cxt = canvas.getContext("2d");
 
     }
     return GeoView;
