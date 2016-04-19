@@ -7,6 +7,7 @@ define(function(require){
     var listenerType = viewConfig.listenerType;
     var listenerClass = viewConfig.listenerClass;
     var getGUID = require("baBasicLib/util/GUID");
+    var baLib = require("baBasicLib/util/baLib");
 
     function GeoView(div,model){
         View.call(this,div,model);
@@ -55,32 +56,32 @@ define(function(require){
         var outerStruct = $("<div></div>");
         outerStruct.attr("id","outS");
         outerStruct.html(
-            "<canvas id = 'mainCanvas'></canvas>" +
-            "<canvas id ='bottomCanvas'></canvas>" +
-            "<canvas id ='rightCanvas'></canvas>"
+            "<canvas id = 'mainCanvas'></canvas>"
+            //"<canvas id ='bottomCanvas'></canvas>" +
+            //"<canvas id ='rightCanvas'></canvas>"
         );
         $("#mainDiv").append(outerStruct);
-        var mainCache = document.createElement("canvas");
-        mainCache.width = 1000;
-        mainCache.height = 1000;
-        self._mainCache = mainCache;
-
         var $mainC = $("#mainCanvas");
         var canvas = $mainC[0];
         canvas.width = 800;
         canvas.height = 800;
         var c_w = canvas.width , c_h = canvas.height;
         canvas.addEventListener('mousedown',function(e){
-            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.model.mouseInput('mousedown',loc);
+            var loc = baLib.getPointOnDiv(e.pageX, e.pageY,canvas);
+            console.log(loc);
+            var pLoc = {x:loc.x/c_w , y: loc.y/c_h};
+            console.log(pLoc);
+            self.model.mouseInput('mousedown',pLoc);
         },false)
         canvas.addEventListener('mousemove',function(e){
-            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.model.mouseInput('mousemove',loc);
+            var loc = baLib.getPointOnDiv(e.pageX, e.pageY,canvas);
+            var pLoc = {x:loc.x/c_w , y: loc.y/c_h};
+            self.model.mouseInput('mousemove',pLoc);
         },false)
         canvas.addEventListener('mouseup',function(e){
-            var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.model.mouseInput('mouseup',loc);
+            var loc = baLib.getPointOnDiv(e.pageX, e.pageY,canvas);
+            var pLoc = {x:loc.x/c_w , y: loc.y/c_h};
+            self.model.mouseInput('mouseup',pLoc);
         },false)
 
     };
