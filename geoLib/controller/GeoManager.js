@@ -10,15 +10,15 @@ define(function(require){
         baEventSource.call(this);
         this.type = "GeoManager";
         this.mouseInfo = {
-            state:'down'
+            state:'up'
         };
         this.penInfo = {
-            weight:2,
+            weight:50,
             radius:5
         }
         this.paperInfo = {
-            width:500,
-            height:500,
+            width:50,
+            height:50,
             dataArray:[]
         };
         this.initialize();
@@ -61,10 +61,10 @@ define(function(require){
         //传入的loc数据{x:x0,y:y0}，x0 和 y0是比例值
         var width = self.paperInfo.width;
         var height = self.paperInfo.height;
-        var x = parseInt(loc.x * self.paperInfo.x);
-        var y = parseInt(loc.y * self.paperInfo.y);
+        var x = parseInt(loc.x * self.paperInfo.width);
+        var y = parseInt(loc.y * self.paperInfo.height);
         var penWeight = self.penInfo.weight;
-        self.paperInfo.dataArray[y * height + x] += penWeight;
+        self.paperInfo.dataArray[y * width + x] += penWeight;
 
         this.fireEvent("paperChange");
     }

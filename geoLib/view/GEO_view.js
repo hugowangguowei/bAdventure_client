@@ -60,27 +60,63 @@ define(function(require){
             "<canvas id ='rightCanvas'></canvas>"
         );
         $("#mainDiv").append(outerStruct);
+        var mainCache = document.createElement("canvas");
+        mainCache.width = 1000;
+        mainCache.height = 1000;
+        self._mainCache = mainCache;
 
         var $mainC = $("#mainCanvas");
         var canvas = $mainC[0];
+        canvas.width = 800;
+        canvas.height = 800;
         var c_w = canvas.width , c_h = canvas.height;
         canvas.addEventListener('mousedown',function(e){
             var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.mouseInput('mousedown',loc);
+            self.model.mouseInput('mousedown',loc);
         },false)
         canvas.addEventListener('mousemove',function(e){
             var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.mouseInput('mousemove',loc);
+            self.model.mouseInput('mousemove',loc);
         },false)
         canvas.addEventListener('mouseup',function(e){
             var loc = {x: e.layerX/c_w , y: e.layerY/c_h};
-            self.mouseInput('mousemove',loc);
+            self.model.mouseInput('mouseup',loc);
         },false)
 
     };
     GeoView.prototype.drawPaper = function(paperInfo){
-        var canvas = $("#mainCanvas")[0];
+        var self = this;
+        //var canvas = self._mainCache;
+        var $mainC = $("#mainCanvas");
+        var canvas = $mainC[0];
         var cxt = canvas.getContext("2d");
+        var dataArray = paperInfo.dataArray;
+        var width = paperInfo.width;
+        var height = paperInfo.height;
+        var bx = canvas.width/width;
+        var by = canvas.height/height;
+        for(var i = 0;i<dataArray.length;i++){
+            var x = (i%width)*bx;
+            var y = parseInt(i/width)*by;
+            var h = dataArray[i];
+            var color = getColorByH(h);
+            cxt.fillStyle = color;
+            cxt.fillRect(x,y,bx,by);
+            cxt.fill();
+        }
+
+
+
+        function getColorByH(height){
+            if(h >= 255)h = 255;
+            var tem = h.toString(16);
+            if(h <= 16){
+                tem = "0" + tem;
+            }
+            var color = "#" + tem + tem + tem;
+            return color;
+        }
+
 
     }
     return GeoView;
