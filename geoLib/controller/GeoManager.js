@@ -14,11 +14,11 @@ define(function(require){
         };
         this.penInfo = {
             weight:50,
-            radius:5
+            radius:10
         }
         this.paperInfo = {
-            width:50,
-            height:50,
+            width:100,
+            height:100,
             dataArray:[]
         };
         this.initialize();
@@ -53,22 +53,41 @@ define(function(require){
             self.draw(loc);
         }
         function mouseUpHandle(loc){
-
         }
     };
     GeoManager.prototype.draw = function(loc){
         var self = this;
-        //´«ÈëµÄlocÊı¾İ{x:x0,y:y0}£¬x0 ºÍ y0ÊÇ±ÈÀıÖµ
+        //ä¼ å…¥çš„locæ•°æ®{x:x0,y:y0}ï¼Œx0 å’Œ y0æ˜¯æ¯”ä¾‹å€¼
         var width = self.paperInfo.width;
         var height = self.paperInfo.height;
         var x = parseInt(loc.x * self.paperInfo.width);
         var y = parseInt(loc.y * self.paperInfo.height);
         var penWeight = self.penInfo.weight;
-        self.paperInfo.dataArray[y * width + x] += penWeight;
+        var penRadius = self.penInfo.radius;
+        var t1 = new Date().getTime();
+        for(var i = 0;i<penRadius*2;i++){
+            var _x = x - penRadius + i;
+            if(_x >= 0 && _x < width){
+                for(var j = 0;j<penRadius*2;j++){
+                    var _y = y - penRadius + j;
+                    if(_y >= 0 && _y < height){
+                        var c_r = (i-penRadius)*(i-penRadius) + (j-penRadius)*(j-penRadius);
+                        var p = c_r/(penRadius*penRadius);
+                        if(p<=1){
+                            var _penWeight = (1-p) * penWeight;
+                            //console.log(_x + "  " + _y + "  " + _y * width + _x);
+                            self.paperInfo.dataArray[_y * width + _x] += _penWeight;
+                        }
+                    }
+                }
+            }
+        }
+        var t2 = new Date().getTime();
+        console.log(t2 - t1);
+        //self.paperInfo.dataArray[y * width + x] += penWeight;
 
         this.fireEvent("paperChange");
     }
-
     return{
         getInstance: function () {
             if(!instance){

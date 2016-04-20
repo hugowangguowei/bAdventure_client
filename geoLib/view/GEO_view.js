@@ -68,9 +68,7 @@ define(function(require){
         var c_w = canvas.width , c_h = canvas.height;
         canvas.addEventListener('mousedown',function(e){
             var loc = baLib.getPointOnDiv(e.pageX, e.pageY,canvas);
-            console.log(loc);
             var pLoc = {x:loc.x/c_w , y: loc.y/c_h};
-            console.log(pLoc);
             self.model.mouseInput('mousedown',pLoc);
         },false)
         canvas.addEventListener('mousemove',function(e){
@@ -105,7 +103,7 @@ define(function(require){
             cxt.fillRect(x,y,bx,by);
             cxt.fill();
         }
-
+        //console.log(count);
 
 
         function getColorByH(height){
