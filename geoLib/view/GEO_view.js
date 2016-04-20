@@ -16,7 +16,6 @@ define(function(require){
         this.model = null;
         this.initialize(div,model);
     };
-
     GeoView.prototype = new View();
     GeoView.prototype.initialize = function(div,model,width,height){
         this.model = model;
@@ -47,7 +46,8 @@ define(function(require){
         };
         this.model.addListener("paperChange", prop, function (arg) {
             var paperInfo = self.model.paperInfo;
-            self.drawPaper(paperInfo);
+            var colorInfo = self.model.colorInfo;
+            self.drawPaper(paperInfo,colorInfo);
 
         });
     };
@@ -83,7 +83,7 @@ define(function(require){
         },false)
 
     };
-    GeoView.prototype.drawPaper = function(paperInfo){
+    GeoView.prototype.drawPaper = function(paperInfo,colorInfo){
         var self = this;
         //var canvas = self._mainCache;
         var $mainC = $("#mainCanvas");
@@ -123,15 +123,40 @@ define(function(require){
                 cxt.fill();
             }
         }
-
         function getColorByH(h){
-            if(h >= 255)h = 255;
-            var tem = h.toString(16);
-            if(h <= 16){
+            var destR,destG,destB;
+            var oriR,oriG,oriB;
+            var maxH;
+            if(h >= 0){
+                maxH = colorInfo.c3.H;
+                if(h > colorInfo.c3.H)h = colorInfo.c3.H;
+                destR = colorInfo.c3.R;
+                destG = colorInfo.c3.G;
+                destB = colorInfo.c3.B;
+
+            }else{
+                maxH = colorInfo.c1.H;
+                if(h < colorInfo.c1.H)h = colorInfo.c1.H;
+                destR = colorInfo.c1.R;
+                destG = colorInfo.c1.G;
+                destB = colorInfo.c1.B;
+            }
+            oriR = colorInfo.c2.R;
+            oriG = colorInfo.c2.G;
+            oriB = colorInfo.c2.B;
+            var finR = oriR + h/maxH*(destR - oriR);
+            var finG = oriG + h/maxH*(destG - oriG);
+            var finB = oriB + h/maxH*(destB - oriB);
+
+            var color = "#" + NumToString(finB) + NumToString(finG) + NumToString(finR);
+            return color;
+        }
+        function NumToString(num){
+            var tem = parseInt(num).toString(16);
+            if(num <= 16){
                 tem = "0" + tem;
             }
-            var color = "#" + tem + tem + tem;
-            return color;
+            return tem;
         }
 
 

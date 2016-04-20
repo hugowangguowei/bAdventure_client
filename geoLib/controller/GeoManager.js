@@ -14,13 +14,18 @@ define(function(require){
         };
         this.penInfo = {
             weight:20,
-            radius:50
+            radius:10
         }
         this.paperInfo = {
             width:100,
             height:100,
             dataArray:[]
         };
+        this.colorInfo = {
+            c1:{R:255,G:0,B:0,H:-255},
+            c2:{R:0,G:255,B:0,H:0},
+            c3:{R:0,G:0,B:255,H:255}
+        }
         this.initialize();
     }
     GeoManager.prototype = new baEventSource();
