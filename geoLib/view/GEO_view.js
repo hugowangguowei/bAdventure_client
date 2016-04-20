@@ -89,24 +89,42 @@ define(function(require){
         var $mainC = $("#mainCanvas");
         var canvas = $mainC[0];
         var cxt = canvas.getContext("2d");
+        cxt.clearRect(0,0,canvas.width,canvas.height);
         var dataArray = paperInfo.dataArray;
         var width = paperInfo.width;
         var height = paperInfo.height;
         var bx = canvas.width/width;
         var by = canvas.height/height;
-        for(var i = 0;i<dataArray.length;i++){
-            var x = (i%width)*bx;
-            var y = parseInt(i/width)*by;
-            var h = dataArray[i];
-            var color = getColorByH(h);
-            cxt.fillStyle = color;
-            cxt.fillRect(x,y,bx,by);
-            cxt.fill();
+        drawRect();
+        //drawText();
+        function drawRect(){
+            for(var i = 0;i<dataArray.length;i++){
+                var x = (i%width)*bx;
+                var y = parseInt(i/width)*by;
+                var h = dataArray[i];
+                var color = getColorByH(parseInt(h));
+                cxt.fillStyle = color;
+
+                cxt.fillRect(x,y,bx,by);
+                cxt.fill();
+            }
         }
-        //console.log(count);
+        function drawText(){
+            for(var i = 0;i<dataArray.length;i++){
+                var x = (i%width)*bx;
+                var y = parseInt(i/width)*by;
+                var h = dataArray[i];
+                var color = getColorByH(h);
+                //cxt.fillStyle = color;
+                cxt.fillStyle = "black";
+                if(h!= 0)
+                    cxt.fillText(parseInt(h),x,y);
+                //cxt.fillRect(x,y,bx,by);
+                cxt.fill();
+            }
+        }
 
-
-        function getColorByH(height){
+        function getColorByH(h){
             if(h >= 255)h = 255;
             var tem = h.toString(16);
             if(h <= 16){

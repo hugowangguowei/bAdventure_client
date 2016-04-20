@@ -13,8 +13,8 @@ define(function(require){
             state:'up'
         };
         this.penInfo = {
-            weight:50,
-            radius:10
+            weight:20,
+            radius:50
         }
         this.paperInfo = {
             width:100,
