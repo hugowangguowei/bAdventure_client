@@ -24,7 +24,8 @@ define(function(require){
         this.colorInfo = {
             c1:{R:255,G:0,B:0,H:-255},
             c2:{R:0,G:255,B:0,H:0},
-            c3:{R:0,G:0,B:255,H:255}
+            c3:{R:0,G:0,B:255,H:255},
+            colorList:[]
         }
         this.initialize();
     }
@@ -92,6 +93,41 @@ define(function(require){
         //self.paperInfo.dataArray[y * width + x] += penWeight;
 
         this.fireEvent("paperChange");
+    }
+    GeoManager.prototype.updateColor = function(c1,c2,c3){
+        var cList = [];
+        cList.push(c1);
+        cList.push(c2);
+        cList.push(c3);
+        for(var i = 0;i<3;i++){
+            var c_i = cList[i];
+            if(c_i.H < cList[0].H){
+                cList.splice(i,1);
+                cList.unshift(c_i);
+            }
+            if(c_i.H > cList[2].H){
+                cList.splice(i,1);
+                cList.push(c_i);
+            }
+        }
+        console.log(cList);
+        var colorList = [];
+        for(var i = 1;i<3;i++){
+            var interval1= cList[i].H - cList[i-1].H;
+            var iR1 = cList[i].R - cList[i-1].R;
+            var iG1 = cList[i].G - cList[i-1].G;
+            var iB1 = cList[i].B - cList[i-1].B;
+            var iR1t,iG1t,iB1t;
+            for(var m = 0;m<interval1;m++){
+                iR1t = parseInt(parseInt(cList[i-1].R) + m*iR1/interval1);
+                iG1t = parseInt(parseInt(cList[i-1].G) + m*iG1/interval1);
+                iB1t = parseInt(parseInt(cList[i-1].B) + m*iB1/interval1);
+                colorList.push("rgb(" + iR1t + "," + iG1t + "," + iB1t + ")");
+            }
+        }
+        this.colorInfo.colorList = colorList;
+        console.log(colorList);
+        this.fireEvent("colorChange");
     }
     return{
         getInstance: function () {
