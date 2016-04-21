@@ -85,7 +85,6 @@ define(function(require){
     };
     GeoView.prototype.drawPaper = function(paperInfo,colorInfo){
         var self = this;
-        //var canvas = self._mainCache;
         var $mainC = $("#mainCanvas");
         var canvas = $mainC[0];
         var cxt = canvas.getContext("2d");
@@ -98,13 +97,16 @@ define(function(require){
         drawRect();
         //drawText();
         function drawRect(){
+            var colorInfo = self.model.colorInfo;
+            var interval = colorInfo.c3.H - colorInfo.c1.H;
+            var listLen = colorInfo.colorList.length;
             for(var i = 0;i<dataArray.length;i++){
                 var x = (i%width)*bx;
                 var y = parseInt(i/width)*by;
                 var h = dataArray[i];
-                var color = getColorByH(parseInt(h));
+                var per = (h- colorInfo.c1.H)/interval;
+                var color = colorInfo.colorList[parseInt(listLen * per)];
                 cxt.fillStyle = color;
-
                 cxt.fillRect(x,y,bx,by);
                 cxt.fill();
             }
@@ -119,11 +121,13 @@ define(function(require){
                 cxt.fillStyle = "black";
                 if(h!= 0)
                     cxt.fillText(parseInt(h),x,y);
-                //cxt.fillRect(x,y,bx,by);
                 cxt.fill();
             }
         }
         function getColorByH(h){
+
+
+
             var destR,destG,destB;
             var oriR,oriG,oriB;
             var maxH;

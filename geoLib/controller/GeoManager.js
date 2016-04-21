@@ -32,10 +32,13 @@ define(function(require){
     GeoManager.prototype = new baEventSource();
     GeoManager.prototype.initialize = function(){
         var self = this;
+        //初始化地图数组
         var len = self.paperInfo.width * self.paperInfo.height;
         for(var i = 0;i<len;i++){
             self.paperInfo.dataArray.push(0);
         }
+        //初始化画笔
+        this.refreshColorList();
     };
     GeoManager.prototype.mouseInput = function(type,loc){
         var self = this;
@@ -110,7 +113,18 @@ define(function(require){
                 cList.push(c_i);
             }
         }
+        this.colorInfo.c1 = cList[0];
+        this.colorInfo.c2 = cList[1];
+        this.colorInfo.c3 = cList[2];
         console.log(cList);
+        this.refreshColorList();
+        this.fireEvent("colorChange");
+    }
+    GeoManager.prototype.refreshColorList = function(){
+        var cList = [];
+        cList.push(this.colorInfo.c1);
+        cList.push(this.colorInfo.c2);
+        cList.push(this.colorInfo.c3);
         var colorList = [];
         for(var i = 1;i<3;i++){
             var interval1= cList[i].H - cList[i-1].H;
@@ -126,9 +140,8 @@ define(function(require){
             }
         }
         this.colorInfo.colorList = colorList;
-        console.log(colorList);
-        this.fireEvent("colorChange");
     }
+
     return{
         getInstance: function () {
             if(!instance){
