@@ -13,13 +13,16 @@ define(function(require){
             state:'up'
         };
         this.penInfo = {
+            maxH:255,
+            minH:-255,
             weight:20,
             radius:10
         }
         this.paperInfo = {
-            width:100,
-            height:100,
-            dataArray:[]
+            width:1000,
+            height:1000,
+            dataArray:[],
+            cachedPix:[]
         };
         this.colorInfo = {
             c1:{R:255,G:0,B:0,H:-255},
@@ -73,7 +76,10 @@ define(function(require){
         var y = parseInt(loc.y * self.paperInfo.height);
         var penWeight = self.penInfo.weight;
         var penRadius = self.penInfo.radius;
+        var maxH = self.penInfo.maxH;
+        var minH = self.penInfo.minH;
         var t1 = new Date().getTime();
+        var cachedPix = [];
         for(var i = 0;i<penRadius*2;i++){
             var _x = x - penRadius + i;
             if(_x >= 0 && _x < width){
@@ -84,17 +90,21 @@ define(function(require){
                         var p = c_r/(penRadius*penRadius);
                         if(p<=1){
                             var _penWeight = (1-p) * penWeight;
-                            //console.log(_x + "  " + _y + "  " + _y * width + _x);
                             self.paperInfo.dataArray[_y * width + _x] += _penWeight;
+                            //self.paperInfo.dataArray[_y * width + _x] = parseInt(self.paperInfo.dataArray[_y * width + _x]) + _penWeight;
+                            if(self.paperInfo.dataArray[_y*width + _x] > maxH)self.paperInfo.dataArray[_y*width + _x] = maxH;
+                            if(self.paperInfo.dataArray[_y*width + _x] < minH)self.paperInfo.dataArray[_y*width + _x] = minH;
+                            cachedPix.push(_x);
+                            cachedPix.push(_y);
+                            cachedPix.push(self.paperInfo.dataArray[_y*width + _x]);
                         }
                     }
                 }
             }
         }
+        self.paperInfo.cachedPix = cachedPix;
         var t2 = new Date().getTime();
         console.log(t2 - t1);
-        //self.paperInfo.dataArray[y * width + x] += penWeight;
-
         this.fireEvent("paperChange");
     }
     GeoManager.prototype.updateColor = function(c1,c2,c3){

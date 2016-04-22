@@ -22,6 +22,7 @@ define(function(require){
         this.setDIV(div,width,height);
         this.addOriListeners();
         this.addBasicStruct();
+        this.initPaper();
     }
     GeoView.prototype.setDIV = function(div,width,height){
         this.baseDiv = div;
@@ -83,27 +84,64 @@ define(function(require){
         },false)
 
     };
+    GeoView.prototype.initPaper = function(){
+        var self = this;
+        var $mainC = $("#mainCanvas");
+        var canvas = $mainC[0];
+        var cxt = canvas.getContext("2d");
+        var dataArray = self.model.paperInfo.dataArray;
+        var width = self.model.paperInfo.width;
+        var height = self.model.paperInfo.height;
+        var bx = canvas.width/width;
+        var by = canvas.height/height;
+        //var color = self.model.colorInfo.colorList[0];
+        var color = "rgb(0,255,0)";
+        cxt.fillStyle = color;
+        cxt.fillRect(0,0,canvas.width,canvas.height);
+        cxt.fill();
+    }
     GeoView.prototype.drawPaper = function(paperInfo,colorInfo){
         var self = this;
         var $mainC = $("#mainCanvas");
         var canvas = $mainC[0];
         var cxt = canvas.getContext("2d");
-        cxt.clearRect(0,0,canvas.width,canvas.height);
         var dataArray = paperInfo.dataArray;
         var width = paperInfo.width;
         var height = paperInfo.height;
         var bx = canvas.width/width;
         var by = canvas.height/height;
-        drawRect();
+        drawRect_p();
         //drawText();
+        function drawRect_p(){
+            var cachedPix = self.model.paperInfo.cachedPix;
+            var colorInfo = self.model.colorInfo;
+            var interval = colorInfo.c3.H - colorInfo.c1.H;
+            var listLen = colorInfo.colorList.length - 1;
+            for(var i = 0;i<cachedPix.length;i+=3){
+                var x = cachedPix[i] * bx;
+                var y = cachedPix[i+1] * by;
+                var h = cachedPix[i+2];
+                var per = (h- colorInfo.c1.H)/interval;
+                var color = colorInfo.colorList[parseInt(listLen * per)];
+                if(!color){
+                    console.log("ha");
+                }
+                cxt.fillStyle = color;
+                cxt.fillRect(x,y,bx,by);
+                cxt.fill();
+            }
+        }
         function drawRect(){
             var colorInfo = self.model.colorInfo;
             var interval = colorInfo.c3.H - colorInfo.c1.H;
-            var listLen = colorInfo.colorList.length;
+            var listLen = colorInfo.colorList.length - 1;
             for(var i = 0;i<dataArray.length;i++){
                 var x = (i%width)*bx;
                 var y = parseInt(i/width)*by;
                 var h = dataArray[i];
+                if(h != 0){
+                    console.log("ha");
+                }
                 var per = (h- colorInfo.c1.H)/interval;
                 var color = colorInfo.colorList[parseInt(listLen * per)];
                 cxt.fillStyle = color;
@@ -112,6 +150,7 @@ define(function(require){
             }
         }
         function drawText(){
+            cxt.clearRect(0,0,canvas.width,canvas.height);
             for(var i = 0;i<dataArray.length;i++){
                 var x = (i%width)*bx;
                 var y = parseInt(i/width)*by;
@@ -125,9 +164,6 @@ define(function(require){
             }
         }
         function getColorByH(h){
-
-
-
             var destR,destG,destB;
             var oriR,oriG,oriB;
             var maxH;
