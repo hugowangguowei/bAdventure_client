@@ -3,7 +3,7 @@
  */
 define(function (require) {
 
-    var CMT = require('socket/WS_msgDefine').CMT;
+    var CMT = require('privateLib/webSocket/WS_msgDefine').CMT;
 
     /**
      * 请求创建房间

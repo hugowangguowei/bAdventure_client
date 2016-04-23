@@ -4,12 +4,12 @@
 define(function(require){
 
     var View = require("baBasicLib/view/View");
-    var viewConfig = require("baBasicLib/view/ViewConfig");
+    var viewConfig = require("privateLib/view/ViewConfig");
     var listenerType = viewConfig.listenerType;
     var listenerClass = viewConfig.listenerClass;
     var getGUID = require("baBasicLib/util/GUID");
-    var SMT = require('socket/WS_msgDefine').SMT;
-    var btn_event = require("config/btn_event");
+    var SMT = require('privateLib/webSocket/WS_msgDefine').SMT;
+    var btn_event = require("privateLib/config/btn_event");
 
 
     function CSSView(div,model){

@@ -6,9 +6,9 @@
  * 连接服务器
  */
 function connectToServer(){
-    require(['socket/WS_Manager'],
-        function(wsManager){
-            var WSM = wsManager.getInstance(global);
+    require(['baBasicLib/webSocket/WS_Manager','privateLib/webSocket/WS_Config','privateLib/webSocket/WS_msgDefine'],
+        function(wsManager,WS_config,WS_msgDefine){
+            var WSM = wsManager.getInstance(global,WS_config,WS_msgDefine);
             WSM.connectToServer();
     });
 }
@@ -17,7 +17,7 @@ function connectToServer(){
  * 创建房间
  */
 function createNewRoom(){
-    require(['socket/WS_Manager','config/btn_event'],
+    require(['baBasicLib/webSocket/WS_Manager','privateLib/config/btn_event'],
         function(wsManager,btn_event){
             var roomName = document.getElementById('createRoomName').value;
             var roomMemberNum = document.getElementById("roomMemNum").value;

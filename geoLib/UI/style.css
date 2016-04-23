@@ -8,6 +8,15 @@
 #mainCanvas{
     position: absolute;
     margin: 1% 1% ;
+    width: 800px;
+    height: 800px;
+    border:solid 1px black;
+}
+#secCanvas{
+    position: absolute;
+    margin: 1% 50% ;
+    width: 800px;
+    height: 800px;
     border:solid 1px black;
 }
 #bottomCanvas{

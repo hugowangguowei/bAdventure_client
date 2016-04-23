@@ -4,14 +4,12 @@
 
 define(function(require){
     "use strict";
-
-    var WS_CONFIG = require('socket/WS_Config');
-    var WS_msgDefine = require('socket/WS_msgDefine');
+    
     var io = require('dep/socket.io');
 
     var instance = null;
 
-    var WSManager = function(global){
+    var WSManager = function(global,WS_config,WS_msgDefine){
         if(!global){
             throw new Error("wsManager must depend on a global");
             return 0;
@@ -20,11 +18,11 @@ define(function(require){
         this.webSocket = null;
         this.msgHandleList = [];
         this.clientInfo = {};
-        this.initialize();
+        this.initialize(WS_config,WS_msgDefine);
     }
 
     WSManager.prototype = {
-        initialize:function(){
+        initialize:function(WS_CONFIG,WS_msgDefine){
             this.global.WSM = this;
             //建立连接
             var url = WS_CONFIG.WS_URL;
@@ -52,9 +50,9 @@ define(function(require){
     }
 
     return {
-        getInstance:function(global){
+        getInstance:function(global,config,msgDefine){
             if(!instance){
-                instance = new WSManager(global);
+                instance = new WSManager(global,config,msgDefine);
             }
             return instance;
         }

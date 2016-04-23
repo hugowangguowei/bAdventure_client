@@ -4,9 +4,9 @@
 define(function(require){
     'use strict';
 
-    var SMT = require('socket/WS_msgDefine').SMT;
-    var listenerType = require('baBasicLib/view/ViewConfig').listenerType;
-    var ID_manager = require('config/ID_Manager').getInstance();
+    var SMT = require('privateLib/webSocket/WS_msgDefine').SMT;
+    var listenerType = require('privateLib/view/ViewConfig').listenerType;
+    var ID_manager = require('privateLib/config/ID_Manager').getInstance();
     var RoomIntroTag = require('privateLib/model/RoomIntroTag');
     var MemIntroTag = require('privateLib/model/MemIntroTag');
 

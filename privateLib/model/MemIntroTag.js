@@ -3,7 +3,7 @@
  */
 define(function(require){
     var baNode = require("baBasicLib/model/baNode");
-    var ID_Manager = require("config/ID_Manager").getInstance();
+    var ID_Manager = require("privateLib/config/ID_Manager").getInstance();
     function MemIntroTag(id,container,scene){
         baNode.call(this);
         this.id = id;

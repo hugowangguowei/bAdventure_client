@@ -8,8 +8,8 @@
 define(function(require){
 
         var baScene = require('baBasicLib/model/baScene');
-        var btn_event = require('config/btn_event');
-        var ID_Manager = require('config/ID_Manager').getInstance();
+        var btn_event = require('privateLib/config/btn_event');
+        var ID_Manager = require('privateLib/config/ID_Manager').getInstance();
         var baNode = require("baBasicLib/model/baNode");
         var MemIntroTag = require("privateLib/model/MemIntroTag");
         var MemIntroTagContainer = require("privateLib/model/MemIntroTagContainer");
@@ -18,7 +18,7 @@ define(function(require){
         var memTag = require("privateLib/model/MemTag");
         var memTagContainer = require("privateLib/model/MemTagContainer");
 
-        var viewConfig = require('baBasicLib/view/ViewConfig');
+        var viewConfig = require('privateLib/view/ViewConfig');
         var listenerType = viewConfig.listenerType;
 
         /**

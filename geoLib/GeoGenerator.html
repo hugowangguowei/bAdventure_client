@@ -21,8 +21,10 @@
         require(['geoLib/controller/GeoManager','geoLib/view/GEO_view','geoLib/view/COLOR_view'],
                 function(GeoManager,Geo_view,Color_view){
                     var geoManager = GeoManager.getInstance();
-                    var mainDiv = document.getElementById("mainDiv");
-                    var geoView = new Geo_view(mainDiv,geoManager);
+                    var mainCanvas = document.getElementById("mainCanvas");
+                    var geoView1 = new Geo_view(mainCanvas,geoManager,"color");
+                    var secCanvas = document.getElementById("secCanvas");
+                    var geoView2 = new Geo_view(secCanvas,geoManager,"text");
                     var colorView = new Color_view(null,geoManager);
                     $("#penInfoSub").click(function(){
                         var penW = $("#penWeight").val();
@@ -84,6 +86,9 @@
     <input id = "colorInfoSub" type="button" value="提交">
     渐变效果：<canvas id = "colorPane" style="width: 512px;height: 10px"></canvas>
     <hr>
-    <div id = "mainDiv"></div>
+    <div id = "mainDiv">
+        <canvas id = "mainCanvas"></canvas>
+        <canvas id = "secCanvas"></canvas>
+    </div>
 </body>
 </html>

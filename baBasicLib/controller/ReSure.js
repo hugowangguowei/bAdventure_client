@@ -2,7 +2,7 @@
  * Created by wgw on 2016/4/10.
  */
 define(function (require) {
-   var listenerType = require("baBasicLib/view/ViewConfig").listenerType;
+   var listenerType = require("privateLib/view/ViewConfig").listenerType;
    function ReSure(model){
       this.model = model;
       this.context = null;

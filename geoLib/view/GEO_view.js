@@ -9,36 +9,22 @@ define(function(require){
     var getGUID = require("baBasicLib/util/GUID");
     var baLib = require("baBasicLib/util/baLib");
 
-    function GeoView(div,model){
+    function GeoView(div,model,showType){
         View.call(this,div,model);
         this.id = getGUID();
         this.div = null;
         this.model = null;
+        this.showType = showType||"color";
         this.initialize(div,model);
     };
     GeoView.prototype = new View();
-    GeoView.prototype.initialize = function(div,model,width,height){
+    GeoView.prototype.initialize = function(div,model){
+        this.div = div;
         this.model = model;
-        this.setDIV(div,width,height);
         this.addOriListeners();
         this.addBasicStruct();
         this.initPaper();
     }
-    GeoView.prototype.setDIV = function(div,width,height){
-        this.baseDiv = div;
-        var width = width||900;
-        var height = height||900;
-        this.width = width;
-        this.height = height;
-        this.baseDiv.width = width;
-        this.baseDiv.height = height;
-        this.baseDiv.style.width = width + "px";
-        this.baseDiv.style.height = height + "px";
-        this.baseDiv.style.position = "relative";
-        this.baseDiv.style.top = "0px";
-        this.baseDiv.style.left = "0px";
-        this.baseDiv.style.zIndex = 0;
-    },
     GeoView.prototype.addOriListeners = function() {
         var self = this;
         var prop = {
@@ -54,16 +40,7 @@ define(function(require){
     };
     GeoView.prototype.addBasicStruct = function(){
         var self = this;
-        var outerStruct = $("<div></div>");
-        outerStruct.attr("id","outS");
-        outerStruct.html(
-            "<canvas id = 'mainCanvas'></canvas>"
-            //"<canvas id ='bottomCanvas'></canvas>" +
-            //"<canvas id ='rightCanvas'></canvas>"
-        );
-        $("#mainDiv").append(outerStruct);
-        var $mainC = $("#mainCanvas");
-        var canvas = $mainC[0];
+        var canvas = this.div;
         canvas.width = 800;
         canvas.height = 800;
         var c_w = canvas.width , c_h = canvas.height;
@@ -95,23 +72,30 @@ define(function(require){
         var bx = canvas.width/width;
         var by = canvas.height/height;
         //var color = self.model.colorInfo.colorList[0];
-        var color = "rgb(0,255,0)";
-        cxt.fillStyle = color;
-        cxt.fillRect(0,0,canvas.width,canvas.height);
-        cxt.fill();
+        if(this.showType == "color"){
+            var color = "rgb(0,255,0)";
+            cxt.fillStyle = color;
+            cxt.fillRect(0,0,canvas.width,canvas.height);
+            cxt.fill();
+        }
     }
     GeoView.prototype.drawPaper = function(paperInfo,colorInfo){
         var self = this;
-        var $mainC = $("#mainCanvas");
-        var canvas = $mainC[0];
+        var canvas = this.div;
         var cxt = canvas.getContext("2d");
         var dataArray = paperInfo.dataArray;
         var width = paperInfo.width;
         var height = paperInfo.height;
         var bx = canvas.width/width;
         var by = canvas.height/height;
-        drawRect_p();
-        //drawText();
+        switch (self.showType){
+            case "color":
+                drawRect_p();
+                break;
+            case "text":
+                drawText();
+                break;
+        }
         function drawRect_p(){
             var cachedPix = self.model.paperInfo.cachedPix;
             var colorInfo = self.model.colorInfo;
@@ -150,16 +134,18 @@ define(function(require){
             }
         }
         function drawText(){
-            cxt.clearRect(0,0,canvas.width,canvas.height);
-            for(var i = 0;i<dataArray.length;i++){
-                var x = (i%width)*bx;
-                var y = parseInt(i/width)*by;
-                var h = dataArray[i];
-                var color = getColorByH(h);
-                //cxt.fillStyle = color;
-                cxt.fillStyle = "black";
-                if(h!= 0)
-                    cxt.fillText(parseInt(h),x,y);
+            var cachedPix = self.model.paperInfo.cachedPix;
+            var colorInfo = self.model.colorInfo;
+            var interval = colorInfo.c3.H - colorInfo.c1.H;
+            var listLen = colorInfo.colorList.length - 1;
+            for(var i = 0;i<cachedPix.length;i+=3) {
+                var x = cachedPix[i] * bx;
+                var y = cachedPix[i + 1] * by;
+                var h = parseInt(cachedPix[i + 2]);
+                var color = "black";
+                cxt.clearRect(x, y, bx, by);
+                cxt.fillStyle = color;
+                cxt.fillText(h, x, y);
                 cxt.fill();
             }
         }

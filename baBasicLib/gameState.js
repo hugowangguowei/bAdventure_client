@@ -43,7 +43,6 @@ define(function(){
             }
         },
     };
-
     return gameStateMachine;
 });
 
