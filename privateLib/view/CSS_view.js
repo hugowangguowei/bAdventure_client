@@ -106,8 +106,7 @@ define(function(require){
                 "</div>"
             )
             $('#INIT_connect').on('click',function(){
-                console.log("hah");
-                connectToServer();
+                btn_event.BTN_E_connectToServer();
             });
         }
         function changeScene_mainShowBasicStruct(){

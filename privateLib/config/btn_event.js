@@ -2,8 +2,20 @@
  * Created by wangguowei on 2001/1/11.
  */
 define(function (require) {
+    var CMT = require('geoLib/webSocket/WS_msgDefine').CMT;
+    var wsManager = require('geoLib/webSocket/WS_Manager');
+    var wsConfig = require('geoLib/webSocket/WS_Config');
+    var wsMsgDefine = require('geoLib/webSocket/WS_msgDefine');
+    var WSM = null;
 
-    var CMT = require('privateLib/webSocket/WS_msgDefine').CMT;
+    /**
+     * 连接服务器
+     * @constructor
+     */
+    function BTN_E_connectToServer(){
+        WSM = wsManager.getInstance(global,wsConfig,wsMsgDefine);
+        WSM.connectToServer();
+    }
 
     /**
      * 请求创建房间
@@ -77,7 +89,10 @@ define(function (require) {
         var msgName = msgName||"default";
         var msgDetail = msgDetail||"";
 
-        var socket = global.WSM.webSocket;
+        if(!WSM){
+            WSM.getInstance(global,wsConfig,wsMsgDefine);
+        }
+        var socket = WSM.webSocket;
         try{
             socket.emit(msgName,msgDetail);
         }catch(e){
@@ -87,6 +102,7 @@ define(function (require) {
     }
 
     return{
+        BTN_E_connectToServer:BTN_E_connectToServer,
         BTN_E_createNewRoom : BTN_E_createNewRoom,
         BTN_E_clickARoom : BTN_E_clickARoom,
         BTN_E_getIntoARoom : BTN_E_getIntoARoom,

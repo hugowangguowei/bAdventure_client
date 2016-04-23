@@ -18,14 +18,24 @@
                 GeoView:"geoLib/view"
             }
         });
-        require(['geoLib/controller/GeoManager','geoLib/view/GEO_view','geoLib/view/COLOR_view'],
-                function(GeoManager,Geo_view,Color_view){
+        require([
+                    'geoLib/controller/GeoManager',
+                    'geoLib/view/GEO_view',
+                    'geoLib/view/COLOR_view',
+                    'baBasicLib/webSocket/WS_Manager',
+                    'geoLib/webSocket/WS_Config',
+                    'geoLib/webSocket/WS_msgDefine',
+                    'geoLib/config/btn_event'
+                ],
+                function(GeoManager,Geo_view,Color_view,wsManager,wsConfig,wsMsgDefine,btn_event){
                     var geoManager = GeoManager.getInstance();
                     var mainCanvas = document.getElementById("mainCanvas");
                     var geoView1 = new Geo_view(mainCanvas,geoManager,"color");
                     var secCanvas = document.getElementById("secCanvas");
                     var geoView2 = new Geo_view(secCanvas,geoManager,"text");
                     var colorView = new Color_view(null,geoManager);
+
+                    var WSM = wsManager.getInstance(geoManager,wsConfig,wsMsgDefine);
                     $("#penInfoSub").click(function(){
                         var penW = $("#penWeight").val();
                         var penR = $("#penRadius").val();
@@ -56,7 +66,9 @@
                         geoManager.updateColor(c1,c2,c3);
 
                     });
-
+                    $("#connectSer").click(function () {
+                        btn_event.BTN_E_connectToServer();
+                    })
                 });
 
 
@@ -86,6 +98,9 @@
     <input id = "colorInfoSub" type="button" value="提交">
     渐变效果：<canvas id = "colorPane" style="width: 512px;height: 10px"></canvas>
     <hr>
+    <input id = "connectSer" type="button" value="连接服务器">
+    <input id = "mapName" type="text" value="地图名称">
+    <input id = "submitMap" type="button" value="提交地图">
     <div id = "mainDiv">
         <canvas id = "mainCanvas"></canvas>
         <canvas id = "secCanvas"></canvas>

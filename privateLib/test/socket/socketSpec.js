@@ -3,17 +3,6 @@
  */
 
 /**
- * 连接服务器
- */
-function connectToServer(){
-    require(['baBasicLib/webSocket/WS_Manager','privateLib/webSocket/WS_Config','privateLib/webSocket/WS_msgDefine'],
-        function(wsManager,WS_config,WS_msgDefine){
-            var WSM = wsManager.getInstance(global,WS_config,WS_msgDefine);
-            WSM.connectToServer();
-    });
-}
-
-/**
  * 创建房间
  */
 function createNewRoom(){

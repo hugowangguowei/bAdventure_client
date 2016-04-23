@@ -26,6 +26,7 @@ define(function(require){
         room._memberIntro = msg.memberIntro;
         global.fireEvent(listenerType.REFRESH_ROOM_INTRO_TAG,room);
     }
+
     return {
         WS_URL:'http://localHost:3000',
         msgHandleList:[
