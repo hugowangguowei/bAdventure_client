@@ -68,7 +68,12 @@
                     });
                     $("#connectSer").click(function () {
                         btn_event.BTN_E_connectToServer();
-                    })
+                    });
+                    $("#submitMap").click(function(){
+                        var mapName = $("#mapName").val();
+                        var mapInfo = geoManager.paperInfo;
+                        btn_event.BTN_E_uploadMap({mapName:mapName,mapInfo:mapInfo});
+                    });
                 });
 
 
@@ -99,7 +104,7 @@
     渐变效果：<canvas id = "colorPane" style="width: 512px;height: 10px"></canvas>
     <hr>
     <input id = "connectSer" type="button" value="连接服务器">
-    <input id = "mapName" type="text" value="地图名称">
+    <input id = "mapName" type="text" value="mapName">
     <input id = "submitMap" type="button" value="提交地图">
     <div id = "mainDiv">
         <canvas id = "mainCanvas"></canvas>

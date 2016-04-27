@@ -19,8 +19,8 @@ define(function(require){
             radius:10
         }
         this.paperInfo = {
-            width:1000,
-            height:1000,
+            width:2,
+            height:2,
             dataArray:[],
             cachedPix:[]
         };

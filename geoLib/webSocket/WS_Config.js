@@ -18,7 +18,6 @@ define(function(require){
             }},
             {msgName:SMT.BASIC_CONNECT_RETURN,msgFunc:function(msg){
                 if(msg == "ok"){
-                    alert("hah");
                     console.log("connected!");
                 }
             }},

@@ -16,7 +16,11 @@ define(function (require) {
         WSM = wsManager.getInstance(null,wsConfig,wsMsgDefine);
         WSM.connectToServer();
     }
-
+    function BTN_E_uploadMap(mapInfo){
+        var msgName = CMT.UPLOAD_MAP;
+        var msgDetail = mapInfo;
+        _submitMsg(msgName,msgDetail);
+    }
     /**
      * 向服务器提交请求
      * @param msgName
@@ -28,7 +32,7 @@ define(function (require) {
         var msgDetail = msgDetail||"";
 
         if(!WSM){
-            WSM.getInstance(global,wsConfig,wsMsgDefine);
+            WSM.getInstance(null,wsConfig,wsMsgDefine);
         }
         var socket = WSM.webSocket;
         try{
@@ -40,7 +44,8 @@ define(function (require) {
     }
 
     return{
-        BTN_E_connectToServer:BTN_E_connectToServer
+        BTN_E_connectToServer:BTN_E_connectToServer,
+        BTN_E_uploadMap:BTN_E_uploadMap
     }
 })
 

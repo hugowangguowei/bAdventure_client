@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/baBasicLib/baGlobal.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baBasicLib/controller/ReSure.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dep/require.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gameLib/script/revengerRoad/chapter_1.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/config/btn_event.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/controller/GeoManager.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/view/GEO_view.js" charset="UTF-8" />
@@ -14,6 +15,5 @@
     <file url="file://$PROJECT_DIR$/privateLib/view/CAN_edition/blocks/bB_memCtrl.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/privateLib/view/CSS_view.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/privateLib/webSocket/WS_Config.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/test/socket/socketSpec.js" charset="UTF-8" />
   </component>
 </project>

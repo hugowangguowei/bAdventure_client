@@ -20,16 +20,16 @@ define(function(require){
 
     GManager.prototype = {
         initialize:function(initInfo){
-            initGeo();
-            function initGeo(){
-
-            };
             this.timer.timerTask = setInterval(function(){
                 for(var i = 0;i<this.spriteList.length;i++){
                     var sprite_i = this.spriteList[i];
                     sprite_i.action();
                 }
             },this.timer.frameSpeed);
+        },
+        loadChapter:function(chapterInfo,charaInfo){
+
         }
+
     }
 });
