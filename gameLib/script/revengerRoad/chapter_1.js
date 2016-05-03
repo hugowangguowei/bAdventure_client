@@ -4,7 +4,7 @@
  */
 
 define(function(require){
-    var mapManager = require('gameLib/controller/MapManager');
+    var mapManager = require('gameLib/controller/MapManager').getInstance();
 
     return{
         Map:mapManager.getMap("RR_c1"),

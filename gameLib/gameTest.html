@@ -19,7 +19,8 @@
             }
         });
         require(['gameLib/GManager','gameLib/script/revengerRoad/chapter_1'],function(GManager,chapter_1){
-            gm.loadChapter(chapter_1);
+            var gm = new GManager();
+            gm.loadChapter(chapter_1,null,true);
         });
     </script>
 </head>

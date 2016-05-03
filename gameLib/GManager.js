@@ -2,7 +2,7 @@
  * Created by wgw on 2016/4/18.
  */
 define(function(require){
-    var spriteManager = require("gameLib/controller/SpriteManager");
+    var spriteManager = require("gameLib/controller/SpriteManager").getInstance();
     var Geo = require("gameLib/model/Geo");
 
     function GManager(initInfo){
@@ -27,6 +27,7 @@ define(function(require){
             }
         },
         startLeaderEngine:function(chapterInfo){
+            var self = this;
             if(chapterInfo.Map){
                 this.geoInfo.generateByFile(chapterInfo.Map);
             }
@@ -43,8 +44,9 @@ define(function(require){
             }
 
             this.timer.timerTask = setInterval(function(){
-                for(var i = 0;i<this.spriteList.length;i++){
-                    var sprite_i = this.spriteList[i];
+
+                for(var i = 0;i<self.spriteList.length;i++){
+                    var sprite_i = self.spriteList[i];
                     sprite_i.action();
                 }
             },this.timer.frameSpeed);
@@ -54,4 +56,6 @@ define(function(require){
         }
 
     }
+
+    return GManager;
 });

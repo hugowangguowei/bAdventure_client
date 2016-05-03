@@ -16,10 +16,12 @@ define(function (require) {
             this.width = geoInfo.width;
             this.height = geoInfo.height;
             this.dataArray = geoInfo.dataArray;
-            this.objectArray = geoInfo.dataArray;
-            for(var i = 0;i<this.geoInfo.objectArray;i++){
-                this.geoInfo.objectArray[i] = 0;
+            this.objectArray = [];
+            for(var i = 0;i<this.dataArray.length;i++){
+                this.objectArray.push(0);
             }
         }
     }
+
+    return Geo;
 })

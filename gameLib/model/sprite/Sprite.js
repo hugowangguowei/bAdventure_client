@@ -20,4 +20,6 @@ define(function(require){
 
         }
     }
+
+    return Sprite;
 });
