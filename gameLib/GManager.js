@@ -2,17 +2,11 @@
  * Created by wgw on 2016/4/18.
  */
 define(function(require){
-    //var RR_c1 = require("gameLib/script/revengerRoad/chapter_1");
-
+    var spriteManager = require("gameLib/controller/SpriteManager");
+    var Geo = require("gameLib/model/Geo");
 
     function GManager(initInfo){
-        this.geoInfo = {
-            hasMap:false,
-            width:0,
-            height:0,
-            backgroundPic:null,
-            dataArray:[]
-        }
+        this.geoInfo = new Geo();
         this.spriteList = [];
         this.timer = {
             timerTask:null,
@@ -29,19 +23,22 @@ define(function(require){
             if(isLeader){
                 this.startLeaderEngine(chapterInfo);
             }else{
-                this.startFallowerEngine(chapterInfo);
+                this.startFollowerEngine(chapterInfo);
             }
         },
         startLeaderEngine:function(chapterInfo){
             if(chapterInfo.Map){
-                this.geoInfo.width = chapterInfo.Map.width;
-                this.geoInfo.height = chapterInfo.Map.height;
-                this.geoInfo.dataArray = chapterInfo.Map.dataArray;
+                this.geoInfo.generateByFile(chapterInfo.Map);
             }
             if(chapterInfo.Sprite){
                 var spriteList = chapterInfo.Sprite;
                 for(var i in spriteList){
-
+                    var num = spriteList[i].num;
+                    for(var m = 0;m<num;m++){
+                        var sprite_i = spriteManager.generateSpriteByType(i);
+                        sprite_i.addToGeo(this.geoInfo);
+                        this.spriteList.push(sprite_i);
+                    }
                 }
             }
 
@@ -51,6 +48,9 @@ define(function(require){
                     sprite_i.action();
                 }
             },this.timer.frameSpeed);
+        },
+        startFollowerEngine:function(chapterInfo){
+
         }
 
     }

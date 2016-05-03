@@ -13,6 +13,9 @@ define(function(require){
         initialize:function(){
 
         },
+        addToGeo:function(geoInfo){
+
+        },
         action:function(){
 
         }

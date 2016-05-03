@@ -2,8 +2,10 @@
  * Created by wgw on 2016/4/27.
  */
 define(function(require){
+    var testMap = require('gameLib/test/script/revengerRoad/chapter_1/mapData');
 
     var instance = null;
+
     function MapManager(){
 
     }
@@ -12,7 +14,7 @@ define(function(require){
 
         },
         getMap:function(mapName){
-            return "ha";
+            return testMap;
         }
     }
 

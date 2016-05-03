@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../dep/require.js"></script>
+    <script type="text/javascript" src="../dep/jquery-1.9.1.js"></script>
+    <script>
+        requirejs.config({
+            baseUrl:"../",
+            path:{
+                baBasicLib:"./baBasicLib",
+                config:"./config",
+                gameStateMachine:"./gameStateMachine",
+                dep:"../dep",
+                privateLib:"./privateLib",
+                socket:":/socket",
+                test:"./test"
+            }
+        });
+        require(['gameLib/GManager','gameLib/script/revengerRoad/chapter_1'],function(GManager,chapter_1){
+            gm.loadChapter(chapter_1);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

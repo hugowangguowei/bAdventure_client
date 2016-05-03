@@ -8,7 +8,9 @@ define(function (require) {
 
     }
     SpriteManager.prototype ={
+        generateSpriteByType:function(type){
 
+        }
     }
 
     return {

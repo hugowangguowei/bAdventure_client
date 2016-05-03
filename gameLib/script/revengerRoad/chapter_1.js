@@ -9,8 +9,8 @@ define(function(require){
     return{
         Map:mapManager.getMap("RR_c1"),
         Sprite:{
-            "leader":{num:1},
-            "follower":{num:4},
+            //"leader":{num:1},
+            //"follower":{num:4},
             "bear":{num:1}
         }
     }
