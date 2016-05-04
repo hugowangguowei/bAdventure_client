@@ -4,8 +4,10 @@
 define(function(require){
     var spriteManager = require("gameLib/controller/SpriteManager").getInstance();
     var Geo = require("gameLib/model/Geo");
+    var baEventSource = require("baBasicLib/baEventSource");
 
     function GManager(initInfo){
+        baEventSource.call(this);
         this.geoInfo = new Geo();
         this.spriteList = [];
         this.timer = {
@@ -15,45 +17,45 @@ define(function(require){
         this.initialize(initInfo);
     }
 
-    GManager.prototype = {
-        initialize:function(initInfo){
+    GManager.prototype = new baEventSource();
+    GManager.prototype.initialize = function(initInfo){
 
-        },
-        loadChapter:function(chapterInfo,charaInfo,isLeader){
-            if(isLeader){
-                this.startLeaderEngine(chapterInfo);
-            }else{
-                this.startFollowerEngine(chapterInfo);
-            }
-        },
-        startLeaderEngine:function(chapterInfo){
-            var self = this;
-            if(chapterInfo.Map){
-                this.geoInfo.generateByFile(chapterInfo.Map);
-            }
-            if(chapterInfo.Sprite){
-                var spriteList = chapterInfo.Sprite;
-                for(var i in spriteList){
-                    var num = spriteList[i].num;
-                    for(var m = 0;m<num;m++){
-                        var sprite_i = spriteManager.generateSpriteByType(i);
-                        sprite_i.addToGeo(this.geoInfo);
-                        this.spriteList.push(sprite_i);
-                    }
-                }
-            }
-
-            this.timer.timerTask = setInterval(function(){
-
-                for(var i = 0;i<self.spriteList.length;i++){
-                    var sprite_i = self.spriteList[i];
-                    sprite_i.action();
-                }
-            },this.timer.frameSpeed);
-        },
-        startFollowerEngine:function(chapterInfo){
-
+    };
+    GManager.prototype.loadChapter = function(chapterInfo,charaInfo,isLeader){
+        if(isLeader){
+            this.startLeaderEngine(chapterInfo);
+        }else{
+            this.startFollowerEngine(chapterInfo);
         }
+    };
+    GManager.prototype.startLeaderEngine = function(chapterInfo){
+        var self = this;
+        if(chapterInfo.Map){
+            this.geoInfo.generateByFile(chapterInfo.Map);
+        }
+        if(chapterInfo.Sprite){
+            var spriteList = chapterInfo.Sprite;
+            for(var i in spriteList){
+                var num = spriteList[i].num;
+                for(var m = 0;m<num;m++){
+                    var sprite_i = spriteManager.generateSpriteByType(i);
+                    sprite_i.addToGeo(this.geoInfo);
+                    this.spriteList.push(sprite_i);
+                }
+            }
+        }
+
+        this.timer.timerTask = setInterval(function(){
+            var changedSprite = [];
+            for(var i = 0;i<self.spriteList.length;i++){
+                var sprite_i = self.spriteList[i];
+                sprite_i.action();
+                changedSprite.push(sprite_i.getOutPut());
+            }
+            this.fireEvent("spriteChange",changedSprite);
+        },this.timer.frameSpeed);
+    };
+    GManager.prototype.startFollowerEngine = function(chapterInfo){
 
     }
 

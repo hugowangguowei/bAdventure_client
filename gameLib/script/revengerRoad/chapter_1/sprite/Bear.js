@@ -5,9 +5,12 @@ define(function (require) {
     var Sprite = require("gameLib/model/sprite/Sprite");
     var util = require("baBasicLib/util/baLib");
 
-    function Bear(){
+    function Bear(id){
         Sprite.call(this);
-        this.bindGeo = null;
+        this.id = id;
+        this.type = "bear";
+
+        this.geoInfo = null;
         this.locInfo = {
             x:0,
             y:0
@@ -36,7 +39,7 @@ define(function (require) {
         var height = geoInfo.height;
         var loc_x = parseInt((0.4 + Math.random()*0.2)*width);
         var loc_y = parseInt((0.4 + Math.random()*0.2)*height);
-        this.bindGeo = geoInfo;
+        this.geoInfo = geoInfo;
         this.locInfo.x = loc_x;
         this.locInfo.y = loc_y;
     };
@@ -56,11 +59,17 @@ define(function (require) {
         var mapWidth = geoInfo.width;
         var mapHeight = geoInfo.height;
         viewInfo.data = util.getCircleAreaInArray(mapWidth,mapHeight,loc.x,loc.y,viewInfo.range);
-        console.log(viewInfo.data);
-
+        console.log(viewInfo.data.length);
     };
     Bear.prototype.moveHandle = function () {
-
+    }
+    Bear.prototype.getOutPut = function(){
+        return{
+            id:this.id,
+            type:this.type,
+            locInfo:this.locInfo,
+            viewData:this.viewInfo.data
+        }
     }
 
     return Bear;

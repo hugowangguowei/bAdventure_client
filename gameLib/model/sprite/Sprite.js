@@ -5,8 +5,6 @@ define(function(require){
    function Sprite(id){
        this.id = id;
        this.geoInfo = {
-           hasGeo:false,
-           GeoLoc:{x:null,y:null}
        }
    }
     Sprite.prototype = {
@@ -18,6 +16,9 @@ define(function(require){
         },
         action:function(){
 
+        },
+        getOutPut: function () {
+            return null;
         }
     }
 

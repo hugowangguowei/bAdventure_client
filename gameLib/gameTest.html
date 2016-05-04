@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="UI/style.css" type="text/css"/>
     <script type="text/javascript" src="../dep/require.js"></script>
     <script type="text/javascript" src="../dep/jquery-1.9.1.js"></script>
     <script>
@@ -18,13 +19,18 @@
                 test:"./test"
             }
         });
-        require(['gameLib/GManager','gameLib/script/revengerRoad/chapter_1'],function(GManager,chapter_1){
-            var gm = new GManager();
-            gm.loadChapter(chapter_1,null,true);
+        require(['gameLib/GManager',
+                    'gameLib/script/revengerRoad/chapter_1',
+                    'gameLib/view/GAME_view'],
+                function(GManager,chapter_1,GameView){
+                    var gm = new GManager();
+                    gm.loadChapter(chapter_1,null,true);
+                    var mainCanvas = document.getElementById("mainCanvas");
+                    var gameView = new GameView(mainCanvas,gm);
         });
     </script>
 </head>
 <body>
-
+<canvas id = "mainCanvas"></canvas>
 </body>
 </html>
