@@ -56,11 +56,31 @@ define(function(require){
         };
     }
 
+    function getCircleAreaInArray(w,h,x,y,r){
+        var data = [];
+        var _temX,_temY;
+        for(var i = 0;i<(2*r + 1);i++){
+            _temX = x-r+i;
+            if(_temX >= 0 && _temX <= w){
+                for(var j = 0;j<(2*r + 1);j ++){
+                    _temY = y -r +j;
+                    if(_temY>= 0 && _temY<= h){
+                        if((i - r)*(i - r) + (j - r)*(j-r) < r*r){
+                            data.push(_temY * w + _temX);
+                        }
+                    }
+                }
+            }
+        }
+        return data;
+    }
+
     return {
         cloneObject:cloneObject,
         isEmpty:isEmpty,
         isOwnEmpty:isOwnEmpty,
         getRandomColor:getRandomColor,
-        getPointOnDiv:getPointOnDiv
+        getPointOnDiv:getPointOnDiv,
+        getCircleAreaInArray:getCircleAreaInArray
     }
 })
