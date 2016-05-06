@@ -32,7 +32,7 @@ define(function(require){
         var self = this;
         if(chapterInfo.Map){
             this.geoInfo.generateByFile(chapterInfo.Map);
-            this.fireEvent('geoChange');
+            self.fireEvent('geoChange');
         }
         if(chapterInfo.Sprite){
             var spriteList = chapterInfo.Sprite;
@@ -53,7 +53,7 @@ define(function(require){
                 sprite_i.action();
                 changedSprite.push(sprite_i.getOutPut());
             }
-            this.fireEvent("spriteChange",changedSprite);
+            self.fireEvent("spriteChange",changedSprite);
         },this.timer.frameSpeed);
     };
     GManager.prototype.startFollowerEngine = function(chapterInfo){

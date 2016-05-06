@@ -24,9 +24,10 @@
                     'gameLib/view/GAME_view'],
                 function(GManager,chapter_1,GameView){
                     var gm = new GManager();
-                    gm.loadChapter(chapter_1,null,true);
                     var mainCanvas = document.getElementById("mainCanvas");
                     var gameView = new GameView(mainCanvas,gm);
+                    gm.loadChapter(chapter_1,null,true);
+
         });
     </script>
 </head>

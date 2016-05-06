@@ -4,12 +4,12 @@
 define(function (require) {
     var Sprite = require("gameLib/model/sprite/Sprite");
     var util = require("baBasicLib/util/baLib");
-
+    var bearView = require("gameLib/script/revengerRoad/chapter_1/spriteView/BearView");
     function Bear(id){
         Sprite.call(this);
         this.id = id;
         this.type = "bear";
-
+        this.bindView = new bearView();
         this.geoInfo = null;
         this.locInfo = {
             x:0,
