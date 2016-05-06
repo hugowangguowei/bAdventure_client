@@ -29,21 +29,39 @@ define(function(require){
             id: this.id,
             class: "ori"
         };
-        this.model.addListener("geoChange",function(arg){
-            var msg = arg[0];
-
+        this.model.addListener("geoChange",function(){
+            var geo = this.model.geoInfo;
+            drawGeo(geo,self._geoCache);
         });
         this.model.addListener("spriteChange", prop, function (arg) {
             var msg = arg[0];
 
         });
+        function drawGeo(geo,canvas){
+            var dataArray = geo.dataArray;
+            var d_w = geo.width;
+            var d_h = geo.height;
+            var c_w = canvas.width;
+            var c_h = canvas.height;
+
+        }
     };
     GameView.prototype.addBasicStruct = function(){
         var self = this;
+        var c_w = 800,c_h = 800;
+
         var canvas = this.div;
-        canvas.width = 800;
-        canvas.height = 800;
-        var c_w = canvas.width , c_h = canvas.height;
+        canvas.width = c_w;
+        canvas.height = c_h;
+
+        self._geoCache = document.createElement("canvas");
+        self._geoCache.width =c_w;
+        self._geoCache.height = c_h;
+
+        self._spriteCache = document.createElement('canvas');
+        self._spriteCache.width = c_w;
+        self._spriteCache.height = c_h;
+
     };
     return GameView;
 })

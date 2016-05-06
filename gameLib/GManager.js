@@ -32,6 +32,7 @@ define(function(require){
         var self = this;
         if(chapterInfo.Map){
             this.geoInfo.generateByFile(chapterInfo.Map);
+            this.fireEvent('geoChange');
         }
         if(chapterInfo.Sprite){
             var spriteList = chapterInfo.Sprite;
