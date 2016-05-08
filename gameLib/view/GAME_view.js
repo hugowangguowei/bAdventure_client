@@ -32,19 +32,19 @@ define(function(require){
         this.model.addListener("geoChange",prop,function(){
             var geo = self.model.geoInfo;
             drawGeo(geo,self._geoCache);
-            self._geoCacheChanged = true;
+            //self._geoCacheChanged = true;
             self.draw();
         });
         this.model.addListener("spriteChange", prop, function (arg) {
             var spriteList = self.model.spriteList;
             drawSpriteList(spriteList,self._spriteCache);
-            self._spriteCacheChanged = true;
-            self    .draw();
+            //self._spriteCacheChanged = true;
+            self.draw();
         });
         function drawGeo(geo,canvas){
             var dataArray = geo.dataArray;
-            var d_w = geo.width;
-            var d_h = geo.height;
+            var d_w = geo.xNum;
+            var d_h = geo.yNum;
             var c_w = canvas.width;
             var c_h = canvas.height;
             var _w = c_w/d_w;
@@ -66,23 +66,26 @@ define(function(require){
 
         };
         function drawSpriteList(spriteList,canvas){
+            var cxt = canvas.getContext("2d");
+            cxt.clearRect(0,0,canvas.width,canvas.height);
             for(var i = 0,len = spriteList.length;i<len;i++){
                 var sprite_i = spriteList[i];
                 var spriteView = sprite_i.bindView;
-                spriteView.draw(canvas,sprite_i.locInfo);
+                spriteView.draw(canvas);
             }
         }
     };
     GameView.prototype.draw = function(){
         var cxt = this.div.getContext("2d");
-        if(this._geoCacheChanged){
+        cxt.clearRect(0,0,this.div.width,this.div.height);
+        //if(this._geoCacheChanged){
             cxt.drawImage(this._geoCache,0,0);
-            this._geoCacheChanged = false;
-        }
-        if(this._spriteCacheChanged){
+            //this._geoCacheChanged = false;
+        //}
+        //if(this._spriteCacheChanged){
             cxt.drawImage(this._spriteCache,0,0);
-            this._spriteCacheChanged = false;
-        }
+            //this._spriteCacheChanged = false;
+        //}
     }
     GameView.prototype.addBasicStruct = function(){
         var self = this;

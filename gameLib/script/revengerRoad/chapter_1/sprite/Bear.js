@@ -9,11 +9,12 @@ define(function (require) {
         Sprite.call(this);
         this.id = id;
         this.type = "bear";
-        this.bindView = new bearView();
+        this.bindView = new bearView(this);
         this.geoInfo = null;
         this.locInfo = {
             x:0,
-            y:0
+            y:0,
+            direction:0
         };
         this.viewInfo = {
             stamp:0,
@@ -21,6 +22,9 @@ define(function (require) {
             range:5,
             data:[]
         };
+        this.aimInfo = {
+            aimLoc:null
+        }
         this.interfereInfo = {
 
         };
@@ -35,13 +39,17 @@ define(function (require) {
 
     Bear.prototype = new Sprite();
     Bear.prototype.addToGeo = function(geoInfo){
+        this.geoInfo = geoInfo;
+
         var width = geoInfo.width;
         var height = geoInfo.height;
         var loc_x = parseInt((0.4 + Math.random()*0.2)*width);
         var loc_y = parseInt((0.4 + Math.random()*0.2)*height);
-        this.geoInfo = geoInfo;
+        var direction = Math.random()*Math.PI*2;
         this.locInfo.x = loc_x;
         this.locInfo.y = loc_y;
+        this.locInfo.direction = direction;
+
     };
     Bear.prototype.action = function(){
         this.viewHandle();
@@ -56,12 +64,27 @@ define(function (require) {
         viewInfo.stamp = _t;
         var loc = this.locInfo;
         var geoInfo = this.geoInfo;
-        var mapWidth = geoInfo.width;
-        var mapHeight = geoInfo.height;
-        viewInfo.data = util.getCircleAreaInArray(mapWidth,mapHeight,loc.x,loc.y,viewInfo.range);
-        console.log(viewInfo.data.length);
+        //var mapWidth = geoInfo.width;
+        //var mapHeight = geoInfo.height;
+        //viewInfo.data = util.getCircleAreaInArray(mapWidth,mapHeight,loc.x,loc.y,viewInfo.range);
+        //var aimInfo = this.aimInfo;
+        //var len = viewInfo.data.length;
+        //aimInfo.aimLoc = parseInt(Math.random()*len);
+
     };
     Bear.prototype.moveHandle = function () {
+        var moveInfo = this.moveInfo;
+        var _t = new Date().getTime();
+        if(_t - moveInfo.stamp < moveInfo.actInterval){
+            return;
+        }
+        moveInfo.stamp = _t;
+        var loc = this.locInfo;
+        var dir = loc.direction;
+        var stepLength = moveInfo.stepLength;
+        loc.x += stepLength * Math.cos(stepLength);
+        loc.y += stepLength * Math.sin(stepLength);
+
     }
     Bear.prototype.getOutPut = function(){
         return{
