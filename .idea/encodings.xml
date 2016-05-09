@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/baBasicLib/baGlobal.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baBasicLib/controller/ReSure.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baBasicLib/model/baQuaTree.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dep/require.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gameLib/script/revengerRoad/chapter_1.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/config/btn_event.js" charset="UTF-8" />

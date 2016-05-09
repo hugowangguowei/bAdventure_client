@@ -107,17 +107,17 @@ define(function(require){
                 this.parent.spriteCountMinus();
         },
         /**
-         * ·Ö½ÚµãÒÆ³ıÔªËØºó¸¸½ÚµãµÄÏìÓ¦
+         * åˆ†èŠ‚ç‚¹ç§»é™¤å…ƒç´ åçˆ¶èŠ‚ç‚¹çš„å“åº”
          */
         oneSpriteDeleted:function(){
-        //TODO :ºÃÏñ·Ç³£¸´ÔÓ°¡Õâ¸öµØ·½
+        //TODO :å¥½åƒéå¸¸å¤æ‚å•Šè¿™ä¸ªåœ°æ–¹
             var spriteList = this.getSpriteList();
             this.nodeList = [];
             this.spriteList = [];
             this.buildBySpriteList(spriteList);
         },
         /**
-         * ÅĞ¶Ï½ÚµãÊÇ·ñ¿ÉÔÙ·Ö
+         * åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦å¯å†åˆ†
          * @returns {boolean}
          */
         canDivide:function(){
@@ -127,7 +127,7 @@ define(function(require){
             return false;
         },
         /**
-         * Èç¹ûÒ»¸ö½ÚµãµÄÔªËØÂú±à£¬ÔòĞÂ½¨ËÄ¸ö·ÖÖ§
+         * å¦‚æœä¸€ä¸ªèŠ‚ç‚¹çš„å…ƒç´ æ»¡ç¼–ï¼Œåˆ™æ–°å»ºå››ä¸ªåˆ†æ”¯
          */
         divide:function(){
             var x = this.bounds.x,y = this.bounds.y,w= this.bounds.w,h = this.bounds.h;
@@ -170,7 +170,7 @@ define(function(require){
             this.spriteList = [];
         },
         /**
-         * ½«¶ÔÏó·ÅÈë·ÖÖ§½ÚµãÖĞ
+         * å°†å¯¹è±¡æ”¾å…¥åˆ†æ”¯èŠ‚ç‚¹ä¸­
          * @param sprite
          */
         putSpriteIntoNode:function(sprite){
@@ -189,7 +189,7 @@ define(function(require){
             }
         },
         /**
-         * ÒÆ³ı·ÖÖ§½Úµã
+         * ç§»é™¤åˆ†æ”¯èŠ‚ç‚¹
          */
         removeNodeList:function(){
             for(var i = 0;i<this.nodeList.length;i++){
@@ -202,7 +202,7 @@ define(function(require){
             this.nodeList = [];
         },
         /**
-         * »ñÈ¡Ê÷¼°Æä×Ó½ÚµãµÄ»ù±¾ĞÅÏ¢
+         * è·å–æ ‘åŠå…¶å­èŠ‚ç‚¹çš„åŸºæœ¬ä¿¡æ¯
          * @param infoList
          */
         getBasicTreeInfo:function(infoList){
@@ -227,7 +227,7 @@ define(function(require){
             return infoList;
         },
         /**
-         * »ñÈ¡Ê÷ÉÏËùÓĞÒ¶×Ó½ÚµãµÄ»ù±¾ĞÅÏ¢
+         * è·å–æ ‘ä¸Šæ‰€æœ‰å¶å­èŠ‚ç‚¹çš„åŸºæœ¬ä¿¡æ¯
          * @param infoList
          * @returns {*|Array}
          */
