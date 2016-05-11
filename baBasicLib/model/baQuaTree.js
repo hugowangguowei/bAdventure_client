@@ -75,7 +75,7 @@ define(function(require){
         insertSprite:function(sprite_i){
             this.spriteCount ++;
             if(this.nodeList.length){
-                this.pushSpriteIntoNode(sprite_i);
+                this.putSpriteIntoNode(sprite_i);
             }
             else{
                 this.spriteList.push(sprite_i);

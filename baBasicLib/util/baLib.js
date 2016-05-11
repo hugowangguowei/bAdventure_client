@@ -75,12 +75,20 @@ define(function(require){
         return data;
     }
 
+    function getTwoSpriteDis(sprite_1,sprite_2){
+        var _x = sprite_1.loc.x - sprite_2.loc.x;
+        var _y = sprite_1.loc.y - sprite_2.loc.y;
+        var dis = Math.sqrt(_x*_x + _y*_y);
+        return dis;
+    }
+
     return {
         cloneObject:cloneObject,
         isEmpty:isEmpty,
         isOwnEmpty:isOwnEmpty,
         getRandomColor:getRandomColor,
         getPointOnDiv:getPointOnDiv,
-        getCircleAreaInArray:getCircleAreaInArray
+        getCircleAreaInArray:getCircleAreaInArray,
+        getTwoSpriteDis:getTwoSpriteDis
     }
 })

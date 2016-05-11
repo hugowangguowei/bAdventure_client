@@ -40,8 +40,8 @@ define(function(require){
                 var num = spriteList[i].num;
                 for(var m = 0;m<num;m++){
                     var sprite_i = spriteManager.generateSpriteByType(i);
-                    sprite_i.addToGeo(this.geoInfo);
-                    this.spriteList.push(sprite_i);
+                    this.addSprite(sprite_i);
+
                 }
             }
         }
@@ -58,7 +58,10 @@ define(function(require){
     };
     GManager.prototype.startFollowerEngine = function(chapterInfo){
 
-    }
-
+    };
+    GManager.prototype.addSprite = function(sprite_i){
+        sprite_i.addToGeo(this.geoInfo);
+        this.spriteList.push(sprite_i);
+    };
     return GManager;
 });

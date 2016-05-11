@@ -41,6 +41,9 @@ define(function(require){
             //self._spriteCacheChanged = true;
             self.draw();
         });
+        function drawQuaTree(geo,canvas){
+
+        };
         function drawGeo(geo,canvas){
             var dataArray = geo.dataArray;
             var d_w = geo.xNum;

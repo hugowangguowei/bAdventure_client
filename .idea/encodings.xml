@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/baBasicLib/model/baQuaTree.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dep/require.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gameLib/script/revengerRoad/chapter_1.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gameLib/test/script/revengerRoad/chapter_1/buttonEvent.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/config/btn_event.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/controller/GeoManager.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/geoLib/view/GEO_view.js" charset="UTF-8" />
