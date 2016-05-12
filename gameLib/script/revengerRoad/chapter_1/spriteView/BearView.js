@@ -35,7 +35,7 @@ define(function(require){
         var cxt = canvas.getContext("2d");
         cxt.save();
         cxt.translate(x - BearViewCache.width/2, y + BearViewCache.height/2);
-        cxt.rotate(direction);//Ðý×ª47¶È
+        cxt.rotate(direction);//æ—‹è½¬47åº¦
         cxt.drawImage(BearViewCache,BearViewCache.width/2, BearViewCache.height/2);
         cxt.restore();
         //cxt.fillStyle = "blue";
