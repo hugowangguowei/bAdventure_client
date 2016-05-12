@@ -34,7 +34,7 @@ define(function (require) {
         this.moveInfo = {
             stamp:0,
             actInterval:40,
-            stepLength:0.2,
+            stepLength:2,
             climbAbility:2
         };
 
@@ -104,11 +104,24 @@ define(function (require) {
             return;
         }
         moveInfo.stamp = _t;
+
         var loc = this.loc;
         var dir = loc.direction;
         var stepLength = moveInfo.stepLength;
         loc.x += stepLength * Math.cos(dir);
         loc.y += stepLength * Math.sin(dir);
+
+        var geoInfo = this.geoInfo;
+        if(loc.x <= 0||loc.x >= geoInfo.width){
+            loc.direction = Math.PI - loc.direction;
+        }
+        if(loc.y <= 0||loc.y >= geoInfo.height){
+            loc.direction = -1*loc.direction;
+        }
+
+        this.quaTreeNode.deleteSprite(this);
+        this.geoInfo.addQuaNode(this);
+
 
     }
     Bear.prototype.getOutPut = function(){

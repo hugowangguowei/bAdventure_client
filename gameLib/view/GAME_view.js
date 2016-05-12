@@ -32,17 +32,36 @@ define(function(require){
         this.model.addListener("geoChange",prop,function(){
             var geo = self.model.geoInfo;
             drawGeo(geo,self._geoCache);
-            //self._geoCacheChanged = true;
             self.draw();
         });
         this.model.addListener("spriteChange", prop, function (arg) {
+            var geo = self.model.geoInfo;
             var spriteList = self.model.spriteList;
             drawSpriteList(spriteList,self._spriteCache);
-            //self._spriteCacheChanged = true;
+            drawQuaTree(geo,self._quaTreeCache);
             self.draw();
         });
+        GameView.prototype.draw = function(){
+            var cxt = this.div.getContext("2d");
+            cxt.clearRect(0,0,this.div.width,this.div.height);
+            cxt.drawImage(this._geoCache,0,0);
+            cxt.drawImage(this._spriteCache,0,0);
+            cxt.drawImage(this._quaTreeCache,0,0);
+        }
         function drawQuaTree(geo,canvas){
-
+            var cxt = canvas.getContext("2d");
+            cxt.clearRect(0,0,canvas.width,canvas.height);
+            var quaTree = geo.quaTree;
+            var leafList = [];
+            quaTree.getLeafNodeInfo(leafList);
+            for(var i = 0,len = leafList.length;i<len;i++){
+                var leaf_i = leafList[i];
+                var color = leaf_i.markColor;
+                var bounds = leaf_i.bounds;
+                cxt.strokeStyle = color;
+                cxt.strokeRect(bounds.x,bounds.y,bounds.w,bounds.h);
+                cxt.stroke();
+            }
         };
         function drawGeo(geo,canvas){
             var dataArray = geo.dataArray;
@@ -78,18 +97,7 @@ define(function(require){
             }
         }
     };
-    GameView.prototype.draw = function(){
-        var cxt = this.div.getContext("2d");
-        cxt.clearRect(0,0,this.div.width,this.div.height);
-        //if(this._geoCacheChanged){
-            cxt.drawImage(this._geoCache,0,0);
-            //this._geoCacheChanged = false;
-        //}
-        //if(this._spriteCacheChanged){
-            cxt.drawImage(this._spriteCache,0,0);
-            //this._spriteCacheChanged = false;
-        //}
-    }
+
     GameView.prototype.addBasicStruct = function(){
         var self = this;
         var c_w = 800,c_h = 800;
@@ -106,6 +114,9 @@ define(function(require){
         self._spriteCache.width = c_w;
         self._spriteCache.height = c_h;
 
+        self._quaTreeCache = document.createElement('canvas');
+        self._quaTreeCache.width = c_w;
+        self._quaTreeCache.height = c_h;
     };
     return GameView;
 })

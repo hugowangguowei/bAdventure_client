@@ -9,7 +9,7 @@ define(function(require){
         this.bounds = {x:0,y:0,w:0,h:0};
         this.minW = 1;
         this.minH = 1;
-        this.maxSpriteNum = 100;
+        this.maxSpriteNum = 5;
         this.spriteCount = 0;
 
         this.markColor = "#FF0000";
@@ -249,6 +249,11 @@ define(function(require){
             }
             return infoList;
         },
+        /**
+         * 根据位置获取响应的子节点
+         * @param loc
+         * @returns {*}
+         */
         getNodeByLoc:function(loc){
             if(this.nodeList.length){
                 var childNode;

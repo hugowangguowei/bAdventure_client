@@ -11,8 +11,10 @@ function test1(){
     require(
         ['gameLib/script/revengerRoad/chapter_1/sprite/Bear'],
         function(Bear){
-            var bear = new Bear;
-            gm.addSprite(bear);
+            for(var i = 0;i<10;i++){
+                var bear = new Bear;
+                gm.addSprite(bear);
+            }
         })
 }
 
