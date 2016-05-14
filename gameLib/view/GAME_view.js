@@ -44,7 +44,7 @@ define(function(require){
         GameView.prototype.draw = function(){
             var cxt = this.div.getContext("2d");
             cxt.clearRect(0,0,this.div.width,this.div.height);
-            cxt.drawImage(this._geoCache,0,0);
+            //cxt.drawImage(this._geoCache,0,0);
             cxt.drawImage(this._spriteCache,0,0);
             cxt.drawImage(this._quaTreeCache,0,0);
         }

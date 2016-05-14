@@ -40,6 +40,7 @@ define(function(require){
                 var num = spriteList[i].num;
                 for(var m = 0;m<num;m++){
                     var sprite_i = spriteManager.generateSpriteByType(i);
+                    sprite_i.testSignal.watch = true;
                     this.addSprite(sprite_i);
 
                 }

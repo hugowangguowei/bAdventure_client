@@ -19,10 +19,13 @@ define(function (require) {
             y:0,
             direction:0
         };
+        this.propInfo = {
+
+        };
         this.viewInfo = {
             stamp:0,
-            actInterval:2000,
-            range:5,
+            actInterval:200,
+            range:50,
             data:[]
         };
         this.aimInfo = {
@@ -37,7 +40,9 @@ define(function (require) {
             stepLength:2,
             climbAbility:2
         };
-
+        this.testSignal = {
+            watch:false
+        }
     }
 
     Bear.prototype = new Sprite();
@@ -73,8 +78,9 @@ define(function (require) {
 
 
         var loc = this.loc;
-        loc.direction += (Math.random() - 0.5);
+        //loc.direction += (Math.random() - 0.5);
         var geoInfo = this.geoInfo;
+        var viewObj = this.getObjInView();
     };
     Bear.prototype.getObjInView = function(){
         var loc = this.loc;
@@ -84,18 +90,25 @@ define(function (require) {
             return null;
         var w = quaTreeNode.bounds.w;
         var spriteList = quaTreeNode.spriteList;
+        var list = [];
         if(w <= viewInfo.range){
-            return spriteList;
-        }else{
-            var list = [];
+            list = spriteList;
+        }
+        else{
             for(var i = 0,len = spriteList.length;i<len;i++){
                 var sprite_i = spriteList[i];
                 if(util.getTwoSpriteDis(sprite_i,this) <= viewInfo.range){
                     list.push(sprite_i);
                 }
             }
-            return list;
+            if(list.length>1 && this.testSignal.watch){
+                console.log(list);
+            }
         }
+
+
+
+        return list;
     };
     Bear.prototype.moveHandle = function () {
         var moveInfo = this.moveInfo;
@@ -123,7 +136,7 @@ define(function (require) {
         this.geoInfo.addQuaNode(this);
 
 
-    }
+    };
     Bear.prototype.getOutPut = function(){
         return{
             id:this.id,
@@ -131,7 +144,7 @@ define(function (require) {
             loc:this.loc,
             viewData:this.viewInfo.data
         }
-    }
+    };
 
     return Bear;
 })

@@ -34,9 +34,9 @@ define(function(require){
         var y = relY*cH;
         var cxt = canvas.getContext("2d");
         cxt.save();
-        cxt.translate(x - BearViewCache.width/2, y + BearViewCache.height/2);
+        cxt.translate(x, y);
         cxt.rotate(direction);//旋转47度
-        cxt.drawImage(BearViewCache,BearViewCache.width/2, BearViewCache.height/2);
+        cxt.drawImage(BearViewCache,-1*BearViewCache.width/2, -1*BearViewCache.height/2);
         cxt.restore();
         //cxt.fillStyle = "blue";
         //cxt.fillRect(x,y,4,4);
