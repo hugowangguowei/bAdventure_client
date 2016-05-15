@@ -29,7 +29,8 @@ define(function (require) {
             data:[]
         };
         this.aimInfo = {
-            aimLoc:null
+            aimLoc:null,
+            aimObj:null
         }
         this.interfereInfo = {
 
@@ -80,7 +81,9 @@ define(function (require) {
         var loc = this.loc;
         //loc.direction += (Math.random() - 0.5);
         var geoInfo = this.geoInfo;
-        var viewObj = this.getObjInView();
+        var viewObjList = this.getObjInView();
+        var aimObj = this.getAim(viewObjList);
+        this.aimInfo.aimObj = aimObj;
     };
     Bear.prototype.getObjInView = function(){
         var loc = this.loc;
@@ -110,6 +113,15 @@ define(function (require) {
 
         return list;
     };
+    Bear.prototype.getAim = function(viewObjList){
+        var len = viewObjList.length;
+        if(!len){
+            return 0;
+        }
+        var num = parseInt(Math.random() * len);
+        var aimObj = viewObjList[num];
+        return aimObj;
+    }
     Bear.prototype.moveHandle = function () {
         var moveInfo = this.moveInfo;
         var _t = new Date().getTime();
@@ -124,6 +136,9 @@ define(function (require) {
         loc.x += stepLength * Math.cos(dir);
         loc.y += stepLength * Math.sin(dir);
 
+
+
+
         var geoInfo = this.geoInfo;
         if(loc.x <= 0||loc.x >= geoInfo.width){
             loc.direction = Math.PI - loc.direction;
@@ -131,9 +146,9 @@ define(function (require) {
         if(loc.y <= 0||loc.y >= geoInfo.height){
             loc.direction = -1*loc.direction;
         }
-
         this.quaTreeNode.deleteSprite(this);
         this.geoInfo.addQuaNode(this);
+
 
 
     };
