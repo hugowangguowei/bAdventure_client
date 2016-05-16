@@ -20,7 +20,10 @@ define(function (require) {
             direction:0
         };
         this.propInfo = {
-
+            baseLife:10,
+            life:10,
+            accLength:4,
+            accNum:5
         };
         this.viewInfo = {
             stamp:0,
@@ -30,7 +33,9 @@ define(function (require) {
         };
         this.aimInfo = {
             aimLoc:null,
-            aimObj:null
+            aimObj:null,
+            aimEmptyInterval:20,
+            aimEmptySignal:20
         }
         this.interfereInfo = {
 
@@ -38,7 +43,7 @@ define(function (require) {
         this.moveInfo = {
             stamp:0,
             actInterval:40,
-            stepLength:2,
+            stepLength:0.5,
             climbAbility:2
         };
         this.testSignal = {
@@ -68,7 +73,8 @@ define(function (require) {
         }
     };
     Bear.prototype.viewHandle = function(){
-        //view�¼������ж�
+        //view事件触发判断
+        var self = this;
         var viewInfo = this.viewInfo;
         var _t = new Date().getTime();
         if(_t - viewInfo.stamp < viewInfo.actInterval){
@@ -77,52 +83,68 @@ define(function (require) {
         viewInfo.stamp = _t;
         viewInfo.actInterval += (Math.random()*300 - 150);
 
+        var viewObjList = _getObjInView();
+        var aimObj = _getAim(viewObjList);
+        _setAim(aimObj);
 
-        var loc = this.loc;
-        //loc.direction += (Math.random() - 0.5);
-        var geoInfo = this.geoInfo;
-        var viewObjList = this.getObjInView();
-        var aimObj = this.getAim(viewObjList);
-        this.aimInfo.aimObj = aimObj;
-    };
-    Bear.prototype.getObjInView = function(){
-        var loc = this.loc;
-        var viewInfo = this.viewInfo;
-        var quaTreeNode = this.quaTreeNode;
-        if(!quaTreeNode)
-            return null;
-        var w = quaTreeNode.bounds.w;
-        var spriteList = quaTreeNode.spriteList;
-        var list = [];
-        if(w <= viewInfo.range){
-            list = spriteList;
-        }
-        else{
-            for(var i = 0,len = spriteList.length;i<len;i++){
-                var sprite_i = spriteList[i];
-                if(util.getTwoSpriteDis(sprite_i,this) <= viewInfo.range){
-                    list.push(sprite_i);
+        function _getObjInView(){
+            var loc = self.loc;
+            var viewInfo = self.viewInfo;
+            var quaTreeNode = self.quaTreeNode;
+            if(!quaTreeNode)
+                return null;
+            var w = quaTreeNode.bounds.w;
+            var spriteList = quaTreeNode.spriteList;
+            var list = [];
+            if(w <= viewInfo.range){
+                list = spriteList;
+            }
+            else{
+                for(var i = 0,len = spriteList.length;i<len;i++){
+                    var sprite_i = spriteList[i];
+                    if(util.getTwoSpriteDis(sprite_i,self) <= viewInfo.range){
+                        list.push(sprite_i);
+                    }
+                }
+                if(list.length>1 && self.testSignal.watch){
+                    console.log(list);
                 }
             }
-            if(list.length>1 && this.testSignal.watch){
-                console.log(list);
+            return list;
+        };
+        function _getAim(viewObjList){
+            var len = viewObjList.length;
+            if(!len){
+                return 0;
             }
+            var num = parseInt(Math.random() * len);
+            var aimObj = viewObjList[num];
+            if(aimObj == self){
+                viewObjList.splice(num,1);
+                aimObj = _getAim(viewObjList);
+            }
+            return aimObj;
+        };
+        function _setAim(aimObj){
+            var aimInfo = self.aimInfo;
+            aimInfo.aimObj = aimObj;
+            if(aimObj){
+                aimInfo.aimLoc = {x:aimObj.loc.x,y:aimObj.loc.y};
+                aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
+            }
+            else{
+                aimInfo.aimEmptySignal--;
+                console.log(aimInfo.aimEmptySignal);
+                if(aimInfo.aimEmptySignal <= 0){
+                    aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
+                    self.loc.direction = Math.random()* 0.6 - 0.3 + self.loc.direction;
+                }
+            }
+
         }
-
-
-
-        return list;
     };
-    Bear.prototype.getAim = function(viewObjList){
-        var len = viewObjList.length;
-        if(!len){
-            return 0;
-        }
-        var num = parseInt(Math.random() * len);
-        var aimObj = viewObjList[num];
-        return aimObj;
-    }
     Bear.prototype.moveHandle = function () {
+        var self = this;
         var moveInfo = this.moveInfo;
         var _t = new Date().getTime();
         if(_t - moveInfo.stamp < moveInfo.actInterval){
@@ -131,10 +153,10 @@ define(function (require) {
         moveInfo.stamp = _t;
 
         var loc = this.loc;
-        var dir = loc.direction;
-        var stepLength = moveInfo.stepLength;
-        loc.x += stepLength * Math.cos(dir);
-        loc.y += stepLength * Math.sin(dir);
+        var speed = _getSpeed();
+        var dir = _getDir();
+        loc.x += speed * Math.cos(dir);
+        loc.y += speed * Math.sin(dir);
 
 
 
@@ -149,8 +171,40 @@ define(function (require) {
         this.quaTreeNode.deleteSprite(this);
         this.geoInfo.addQuaNode(this);
 
+        //获取当前目标的速度
+        function _getSpeed(){
+            var moveInfo = self.moveInfo;
+            var aimInfo = self.aimInfo;
+            var baseSpeed = moveInfo.stepLength;
+            if(aimInfo.aimObj){
+            }
+            return baseSpeed;
+        };
+        //获取当前目标的方向
+        function _getDir(){
+            var aimInfo = self.aimInfo;
+            var dir = 0;
+            if(aimInfo.aimLoc){
+                var aimLoc = aimInfo.aimLoc;
+                var _x = aimLoc.x - loc.x , _y = aimLoc.y - loc.y;
 
-
+                if(_y > 0){
+                    dir = Math.atan(_y/_x);
+                }
+                else if(_y < 0){
+                    dir = Math.PI + Math.atan(_y/_x);
+                }else{
+                    if(_x > 0){
+                        dir = 0;
+                    }else{
+                        dir = Math.PI;
+                    }
+                }
+                return dir;
+            }else{
+                return self.loc.direction;
+            }
+        }
     };
     Bear.prototype.getOutPut = function(){
         return{
