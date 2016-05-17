@@ -49,6 +49,7 @@ define(function(require){
 
         this.timer.timerTask = setInterval(function(){
             var changedSprite = [];
+            //console.log(self.spriteList.length);
             for(var i = 0;i<self.spriteList.length;i++){
                 var sprite_i = self.spriteList[i];
                 sprite_i.action();
@@ -61,8 +62,19 @@ define(function(require){
 
     };
     GManager.prototype.addSprite = function(sprite_i){
+        sprite_i.GM = this;
         sprite_i.addToGeo(this.geoInfo);
         this.spriteList.push(sprite_i);
     };
+    GManager.prototype.removeSprite = function(sprite){
+        for(var i = 0;i<this.spriteList.length;i++){
+            var sprite_i = this.spriteList[i];
+            if(sprite_i == sprite){
+                this.spriteList.splice(i,1);
+                return true;
+            }
+        }
+        return false;
+    }
     return GManager;
 });

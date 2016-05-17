@@ -88,7 +88,6 @@ define(function(require){
             }
         },
         deleteSprite: function (sprite) {
-            this.spriteCountMinus();
             for(var i = 0;i<this.spriteList.length;i++){
                 var sprite_i = this.spriteList[i];
                 if(sprite_i.id == sprite.id){
@@ -97,8 +96,11 @@ define(function(require){
                     if(this.parent){
                         this.parent.oneSpriteDeleted();
                     }
+                    this.spriteCountMinus();
+                    return true;
                 }
             }
+            return false;
         },
         spriteCountMinus:function(){
             if(this.spriteCount)

@@ -11,6 +11,7 @@ define(function (require) {
         this.id = id||GUID();
         this.type = "bear";
         this.AI = true;
+        this.GM = null;
         this.bindView = new bearView(this);
         this.geoInfo = null;
         this.quaTreeNode = null;
@@ -23,7 +24,8 @@ define(function (require) {
             baseLife:10,
             life:10,
             accLength:4,
-            accNum:5
+            accNum:5,
+            damage:5
         };
         this.viewInfo = {
             stamp:0,
@@ -31,6 +33,16 @@ define(function (require) {
             range:50,
             data:[]
         };
+        this.moveInfo = {
+            stamp:0,
+            actInterval:40,
+            stepLength:2,
+            climbAbility:2
+        };
+        this.attackInfo = {
+            stamp:0,
+            actInterval:100
+        }
         this.aimInfo = {
             aimLoc:null,
             aimObj:null,
@@ -39,12 +51,6 @@ define(function (require) {
         }
         this.interfereInfo = {
 
-        };
-        this.moveInfo = {
-            stamp:0,
-            actInterval:40,
-            stepLength:0.5,
-            climbAbility:2
         };
         this.testSignal = {
             watch:false
@@ -57,8 +63,8 @@ define(function (require) {
 
         var width = geoInfo.width;
         var height = geoInfo.height;
-        var loc_x = parseInt((0.4 + Math.random()*0.2)*width);
-        var loc_y = parseInt((0.4 + Math.random()*0.2)*height);
+        var loc_x = parseInt(Math.random()*width);
+        var loc_y = parseInt(Math.random()*height);
         var direction = Math.random()*Math.PI*2;
         this.loc.x = loc_x;
         this.loc.y = loc_y;
@@ -70,6 +76,7 @@ define(function (require) {
         if(this.AI){
             this.viewHandle();
             this.moveHandle();
+            this.attackHandle();
         }
     };
     Bear.prototype.viewHandle = function(){
@@ -134,7 +141,9 @@ define(function (require) {
             }
             else{
                 aimInfo.aimEmptySignal--;
-                console.log(aimInfo.aimEmptySignal);
+                aimInfo.aimLoc = 0;
+                //console.log(aimInfo.aimEmptySignal);
+                //console.log(self.loc.direction);
                 if(aimInfo.aimEmptySignal <= 0){
                     aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
                     self.loc.direction = Math.random()* 0.6 - 0.3 + self.loc.direction;
@@ -158,9 +167,6 @@ define(function (require) {
         loc.x += speed * Math.cos(dir);
         loc.y += speed * Math.sin(dir);
 
-
-
-
         var geoInfo = this.geoInfo;
         if(loc.x <= 0||loc.x >= geoInfo.width){
             loc.direction = Math.PI - loc.direction;
@@ -171,7 +177,7 @@ define(function (require) {
         this.quaTreeNode.deleteSprite(this);
         this.geoInfo.addQuaNode(this);
 
-        //获取当前目标的速度
+        //获取速度
         function _getSpeed(){
             var moveInfo = self.moveInfo;
             var aimInfo = self.aimInfo;
@@ -180,7 +186,7 @@ define(function (require) {
             }
             return baseSpeed;
         };
-        //获取当前目标的方向
+        //获取方向
         function _getDir(){
             var aimInfo = self.aimInfo;
             var dir = 0;
@@ -200,11 +206,66 @@ define(function (require) {
                         dir = Math.PI;
                     }
                 }
-                return dir;
-            }else{
-                return self.loc.direction;
+                self.loc.direction = dir;
+            }
+
+            return self.loc.direction;
+
+        }
+    };
+    Bear.prototype.attackHandle = function(){
+        var self = this;
+        var attackInfo = this.attackInfo;
+        var _t = new Date().getTime();
+        if(_t - attackInfo.stamp < attackInfo.actInterval){
+            return;
+        }
+        attackInfo.stamp = _t;
+
+        var aimInfo = self.aimInfo;
+        if(aimInfo.aimObj){
+            var damageCount = _damageCount();
+            var damageResult = aimInfo.aimObj.getDamage(damageCount);
+            _damageCallback(damageResult);
+        }else{
+
+        }
+
+        function _damageCount(){
+            return self.propInfo.damage;
+        }
+        function _damageCallback(info){
+            switch (info){
+                case "killed":
+                    _killOne();
+                    break;
+                case 0:
+                    break;
             }
         }
+        function _killOne(){
+            var propInfo = self.propInfo;
+            propInfo.life += 10;
+            propInfo.damage += 1;
+        }
+    };
+    Bear.prototype.getDamage = function(damageNum){
+        var self = this;
+        var propInfo = self.propInfo;
+        propInfo.life -= damageNum;
+        if(propInfo.life > 0){
+            return 0;
+        }else{
+            self.died();
+            return "killed";
+        }
+    };
+    Bear.prototype.died = function(){
+        //console.log(this.quaTreeNode);
+        if(!this.quaTreeNode.deleteSprite(this)){
+            //console.log("??");
+        };
+        this.GM.removeSprite(this);
     };
     Bear.prototype.getOutPut = function(){
         return{
