@@ -21,6 +21,7 @@
             }
         });
         var gm;
+        var WSM;
         require(['gameLib/GManager',
                     'gameLib/script/revengerRoad/chapter_1',
                     'gameLib/view/GAME_view'],
@@ -29,7 +30,6 @@
                     var mainCanvas = document.getElementById("mainCanvas");
                     var gameView = new GameView(mainCanvas,gm);
                     gm.loadChapter(chapter_1,null,true);
-
         });
     </script>
 </head>

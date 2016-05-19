@@ -59,7 +59,6 @@ define(function(require){
         },this.timer.frameSpeed);
     };
     GManager.prototype.startFollowerEngine = function(chapterInfo){
-
     };
     GManager.prototype.addSprite = function(sprite_i){
         sprite_i.GM = this;
