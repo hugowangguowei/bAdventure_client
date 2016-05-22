@@ -90,7 +90,7 @@ define(function(require){
         function drawSpriteList(spriteList,canvas){
             var cxt = canvas.getContext("2d");
             cxt.clearRect(0,0,canvas.width,canvas.height);
-            for(var i = 0,len = spriteList.length;i<len;i++){
+            for(var i in spriteList){
                 var sprite_i = spriteList[i];
                 var spriteView = sprite_i.bindView;
                 spriteView.draw(canvas);

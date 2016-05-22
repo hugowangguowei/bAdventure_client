@@ -61,6 +61,7 @@ define(function(require){
     Game.prototype.startFollowerEngine = function(chapterInfo){
     };
     Game.prototype.input = function (type,info) {
+        var self = this;
         switch (type){
             case "spriteChange":
                 _spriteChange(info);
@@ -69,8 +70,16 @@ define(function(require){
 
         function _spriteChange(info){
             for(var i = 0;i<info.length;i++){
-
+                var sInfo = info[i];
+                var id = sInfo.id;
+                var sprite = self.spriteList[id];
+                if(sprite){
+                    for(var m in sInfo){
+                        sprite[m] = sInfo[m];
+                    }
+                }
             }
+            self.fireEvent("spriteChange",info);
         }
     }
     Game.prototype.addSprite = function(sprite_i){
