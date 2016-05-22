@@ -16,8 +16,9 @@ define(function(require){
                 if(msg == "ok"){
                 }
             }},
-            {msgName:SMT.GAME_INFO,msgFunc:function(msg){
-                console.log(msg);
+            {msgName:"event_msg",msgFunc:function(msg){
+                //console.log(msg);
+                gm.input(msg[0],msg[1]);
             }},
             {msgName:"test",msgFunc:function(msg){
                 console.log(msg);

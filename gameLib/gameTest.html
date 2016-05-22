@@ -22,11 +22,11 @@
         });
         var gm;
         var WSM;
-        require(['gameLib/GManager',
+        require(['gameLib/Game',
                     'gameLib/script/revengerRoad/chapter_1',
                     'gameLib/view/GAME_view'],
-                function(GManager,chapter_1,GameView){
-                    gm = new GManager();
+                function(Game,chapter_1,GameView){
+                    gm = new Game();
                     var mainCanvas = document.getElementById("mainCanvas");
                     var gameView = new GameView(mainCanvas,gm);
                     gm.loadChapter(chapter_1,null,true);

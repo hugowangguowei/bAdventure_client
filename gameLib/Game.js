@@ -6,10 +6,10 @@ define(function(require){
     var Geo = require("gameLib/model/Geo");
     var baEventSource = require("baBasicLib/baEventSource");
 
-    function GManager(initInfo){
+    function Game(initInfo){
         baEventSource.call(this);
         this.geoInfo = new Geo();
-        this.spriteList = [];
+        this.spriteList = {};
         this.timer = {
             timerTask:null,
             frameSpeed:40
@@ -17,18 +17,18 @@ define(function(require){
         this.initialize(initInfo);
     }
 
-    GManager.prototype = new baEventSource();
-    GManager.prototype.initialize = function(initInfo){
+    Game.prototype = new baEventSource();
+    Game.prototype.initialize = function(initInfo){
 
     };
-    GManager.prototype.loadChapter = function(chapterInfo,charaInfo,isLeader){
+    Game.prototype.loadChapter = function(chapterInfo,charaInfo,isLeader){
         if(isLeader){
             this.startLeaderEngine(chapterInfo);
         }else{
             this.startFollowerEngine(chapterInfo);
         }
     };
-    GManager.prototype.startLeaderEngine = function(chapterInfo){
+    Game.prototype.startLeaderEngine = function(chapterInfo){
         var self = this;
         if(chapterInfo.Map){
             this.geoInfo.generateByFile(chapterInfo.Map);
@@ -40,32 +40,45 @@ define(function(require){
                 var num = spriteList[i].num;
                 for(var m = 0;m<num;m++){
                     var sprite_i = spriteManager.generateSpriteByType(i);
+                    sprite_i.id = i + "_" + m;
                     sprite_i.testSignal.watch = true;
                     this.addSprite(sprite_i);
-
                 }
             }
         }
 
-        this.timer.timerTask = setInterval(function(){
-            var changedSprite = [];
-            //console.log(self.spriteList.length);
-            for(var i = 0;i<self.spriteList.length;i++){
-                var sprite_i = self.spriteList[i];
-                sprite_i.action();
-                changedSprite.push(sprite_i.getOutPut());
+        //this.timer.timerTask = setInterval(function(){
+        //    var changedSprite = [];
+        //    //console.log(self.spriteList.length);
+        //    for(var i = 0;i<self.spriteList.length;i++){
+        //        var sprite_i = self.spriteList[i];
+        //        sprite_i.action();
+        //        changedSprite.push(sprite_i.getOutPut());
+        //    }
+        //    self.fireEvent("spriteChange",changedSprite);
+        //},this.timer.frameSpeed);
+    };
+    Game.prototype.startFollowerEngine = function(chapterInfo){
+    };
+    Game.prototype.input = function (type,info) {
+        switch (type){
+            case "spriteChange":
+                _spriteChange(info);
+                break;
+        }
+
+        function _spriteChange(info){
+            for(var i = 0;i<info.length;i++){
+
             }
-            self.fireEvent("spriteChange",changedSprite);
-        },this.timer.frameSpeed);
-    };
-    GManager.prototype.startFollowerEngine = function(chapterInfo){
-    };
-    GManager.prototype.addSprite = function(sprite_i){
+        }
+    }
+    Game.prototype.addSprite = function(sprite_i){
         sprite_i.GM = this;
         sprite_i.addToGeo(this.geoInfo);
-        this.spriteList.push(sprite_i);
+        this.spriteList[sprite_i.id] = sprite_i;
     };
-    GManager.prototype.removeSprite = function(sprite){
+    Game.prototype.removeSprite = function(sprite){
         for(var i = 0;i<this.spriteList.length;i++){
             var sprite_i = this.spriteList[i];
             if(sprite_i == sprite){
@@ -75,5 +88,5 @@ define(function(require){
         }
         return false;
     }
-    return GManager;
+    return Game;
 });
