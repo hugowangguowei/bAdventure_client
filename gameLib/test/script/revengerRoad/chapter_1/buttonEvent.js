@@ -8,6 +8,8 @@ function init(){
     $("#t2").val("连接服务器");
     $("#t3").val("开始游戏");
     $("#t3").attr('disabled','true');
+    $("#t4").val("加入游戏");
+    $("#t4").attr('disabled','true');
 }
 
 function test1(){
@@ -24,6 +26,7 @@ function test1(){
 function test2(){
     $("#t2").attr('disabled','true');
     $("#t3").removeAttr('disabled');
+    $("#t4").removeAttr('disabled');
     require(
         ['baBasicLib/webSocket/WS_Manager',
         'gameLib/webSocket/WS_Config',
@@ -40,7 +43,7 @@ function test3(){
 }
 
 function test4(){
-
+    WSM.webSocket.emit('JoinGame');
 }
 
 function test5(){

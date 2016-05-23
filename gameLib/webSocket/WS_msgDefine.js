@@ -10,7 +10,8 @@ define(function(require){
     function CLIENT_MSG_TYPE(){
         this.DISCONNECT = 'disconnect',
         this.BASIC_CONNECT = 'basicConnect',
-        this.START_GAME = 'startGame';
+        this.START_GAME = 'startGame',
+        this.JOIN_GAME = 'joinGame'
     }
 
     /**
