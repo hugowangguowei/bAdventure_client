@@ -13,14 +13,16 @@ function init(){
 }
 
 function test1(){
-    require(
-        ['gameLib/script/revengerRoad/chapter_1/sprite/Bear'],
-        function(Bear){
-            for(var i = 0;i<10;i++){
-                var bear = new Bear;
-                gm.addSprite(bear);
-            }
-        })
+    //在本地添加小熊
+    //require(
+    //    ['gameLib/script/revengerRoad/chapter_1/sprite/Bear'],
+    //    function(Bear){
+    //        for(var i = 0;i<10;i++){
+    //            var bear = new Bear;
+    //            gm.addSprite(bear);
+    //        }
+    //    })
+    WSM.webSocket.emit('test',"addBear");
 }
 
 function test2(){
@@ -43,8 +45,9 @@ function test3(){
 }
 
 function test4(){
-    WSM.webSocket.emit('JoinGame');
+    WSM.webSocket.emit('joinGame');
 }
+
 
 function test5(){
 
