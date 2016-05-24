@@ -18,6 +18,14 @@ define(function (require) {
             }
 
             return sprite;
+        },
+        generateSpriteByDetail:function(detail){
+            var sprite;
+            switch (detail.type){
+                case 'bear':
+                    sprite = new Bear(detail.prop);
+                    break;
+            }
         }
     }
 
