@@ -10,6 +10,7 @@ define(function(require){
         baEventSource.call(this);
         this.geoInfo = new Geo();
         this.spriteList = {};
+        this.spriteCount = 0;
         this.timer = {
             timerTask:null,
             frameSpeed:40
@@ -63,12 +64,23 @@ define(function(require){
     Game.prototype.input = function (type,info) {
         var self = this;
         switch (type){
-            case "spriteChange":
-                _spriteChange(info);
+            case "addSprite":
+                _addSprite(info);
+                break;
+            case "refreshSprite":
+                _refreshSprite(info);
+                break;
+            case "removeSprite":
+                _removeSprite(info);
                 break;
         }
 
-        function _spriteChange(info){
+        function _addSprite(info){
+            var sprite_i = spriteManager.generateSpriteByDetail(info);
+            this.addSprite(sprite_i);
+            this.fireEvent("spriteChange");
+        };
+        function _refreshSprite(info){
             for(var i = 0;i<info.length;i++){
                 var sInfo = info[i];
                 var id = sInfo.id;
@@ -80,22 +92,45 @@ define(function(require){
                 }
             }
             self.fireEvent("spriteChange",info);
+        };
+        function _removeSprite(id){
+            this.removeSpriteById(id);
         }
     }
     Game.prototype.addSprite = function(sprite_i){
         sprite_i.GM = this;
         sprite_i.addToGeo(this.geoInfo);
         this.spriteList[sprite_i.id] = sprite_i;
+        this.spriteCount++;
     };
     Game.prototype.removeSprite = function(sprite){
         for(var i = 0;i<this.spriteList.length;i++){
             var sprite_i = this.spriteList[i];
             if(sprite_i == sprite){
-                this.spriteList.splice(i,1);
+                delete sprite_i;
+                this.spriteCount--;
                 return true;
             }
         }
         return false;
+    };
+    Game.prototype.getSpriteById = function(id){
+        for(var i in this.spriteList){
+            var sprite_i = this.spriteList[i];
+            if(sprite_i.id == id){
+                return sprite_i;
+            }
+        }
+        return false;
+    };
+    Game.prototype.removeSpriteById = function(id){
+        if(this.spriteList[id]){
+            delete this.spriteList[id];
+            this.spriteCount--;
+            return true;
+        }
+        return false;
     }
+
     return Game;
 });

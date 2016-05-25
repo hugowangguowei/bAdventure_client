@@ -6,9 +6,9 @@ define(function (require) {
     var util = require("baBasicLib/util/baLib");
     var GUID = require("baBasicLib/util/GUID");
     var bearView = require("gameLib/script/revengerRoad/chapter_1/spriteView/BearView");
-    function Bear(id){
+    function Bear(prop){
         Sprite.call(this);
-        this.id = id||GUID();
+        this.id = GUID();
         this.type = "bear";
         this.AI = true;
         this.GM = null;
@@ -54,10 +54,17 @@ define(function (require) {
         };
         this.testSignal = {
             watch:false
-        }
+        };
+        this.initialize(prop);
     }
 
     Bear.prototype = new Sprite();
+    Bear.prototype.initialize = function(prop){
+        var self = this;
+        for(var i in prop){
+            self[i] = prop[i];
+        }
+    }
     Bear.prototype.addToGeo = function(geoInfo){
         this.geoInfo = geoInfo;
 

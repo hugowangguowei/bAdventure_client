@@ -45,6 +45,9 @@ define(function(require){
             var clientInfo = this.getClientInfo();
             this.webSocket.emit("basicConnect",clientInfo);
         },
+        sendMsg:function(msgType,msgDetail){
+            this.webSocket.emit(msgType,msgDetail);
+        },
         disConnect:function(){
         }
     }

@@ -22,7 +22,12 @@ function test1(){
     //            gm.addSprite(bear);
     //        }
     //    })
-    WSM.webSocket.emit('test',"addBear");
+    for(var i = 0;i<10;i++){
+        var id = "bear_" + Math.random();
+        var loc = {x:parseInt(Math.random()*1000),y:parseInt(Math.random()*800),direction:0};
+        var info = {type:"addSprite",detail:{type:"bear",prop:{id:id,loc:loc}}};
+        WSM.sendMsg("gameInput",info);
+    }
 }
 
 function test2(){
