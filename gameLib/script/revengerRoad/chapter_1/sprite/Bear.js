@@ -268,9 +268,10 @@ define(function (require) {
         }
     };
     Bear.prototype.died = function(){
-        //console.log(this.quaTreeNode);
+        if(!this.quaTreeNode){
+            console.log("?");
+        }
         if(!this.quaTreeNode.deleteSprite(this)){
-            //console.log("??");
         };
         this.GM.removeSprite(this);
     };

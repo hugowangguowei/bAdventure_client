@@ -26,6 +26,8 @@ define(function (require) {
                     sprite = new Bear(detail.prop);
                     break;
             }
+
+            return sprite;
         }
     }
 

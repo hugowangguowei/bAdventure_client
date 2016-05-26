@@ -77,8 +77,8 @@ define(function(require){
 
         function _addSprite(info){
             var sprite_i = spriteManager.generateSpriteByDetail(info);
-            this.addSprite(sprite_i);
-            this.fireEvent("spriteChange");
+            self.addSprite(sprite_i);
+            self.fireEvent("spriteChange");
         };
         function _refreshSprite(info){
             for(var i = 0;i<info.length;i++){
@@ -94,7 +94,7 @@ define(function(require){
             self.fireEvent("spriteChange",info);
         };
         function _removeSprite(id){
-            this.removeSpriteById(id);
+            self.removeSpriteById(id);
         }
     }
     Game.prototype.addSprite = function(sprite_i){
