@@ -6,18 +6,14 @@ define(function (require) {
     var util = require("baBasicLib/util/baLib");
     var GUID = require("baBasicLib/util/GUID");
     var bearView = require("gameLib/script/revengerRoad/chapter_1/spriteView/BearView");
-
     function Bear(prop){
         Sprite.call(this);
         this.id = GUID();
         this.type = "bear";
-        this.bindView = new bearView(this)
         this.AI = true;
         this.GM = null;
-        this.geoInfo = {
-            bindGeo:null,
-            quaTreeNode:null
-        };
+        this.bindView = new bearView(this);
+        this.geoInfo = null;
         this.quaTreeNode = null;
         this.loc = {
             x:0,
@@ -29,8 +25,7 @@ define(function (require) {
             life:10,
             accLength:4,
             accNum:5,
-            damage:5,
-            isDead:false
+            damage:5
         };
         this.viewInfo = {
             stamp:0,
@@ -47,13 +42,13 @@ define(function (require) {
         this.attackInfo = {
             stamp:0,
             actInterval:100
-        };
+        }
         this.aimInfo = {
             aimLoc:null,
             aimObj:null,
             aimEmptyInterval:20,
             aimEmptySignal:20
-        };
+        }
         this.interfereInfo = {
 
         };
@@ -69,40 +64,39 @@ define(function (require) {
         for(var i in prop){
             self[i] = prop[i];
         }
-    };
-    Bear.prototype.addToGeo = function(geo){
-        this.geoInfo.bindGeo = geo;
-        this.geoInfo.bindGeo.addQuaNode(this);
+    }
+    Bear.prototype.addToGeo = function(geoInfo){
+        this.geoInfo = geoInfo;
 
-        var width = geo.width;
-        var height = geo.height;
+        var width = geoInfo.width;
+        var height = geoInfo.height;
         var loc_x = parseInt(Math.random()*width);
         var loc_y = parseInt(Math.random()*height);
         var direction = Math.random()*Math.PI*2;
         this.loc.x = loc_x;
         this.loc.y = loc_y;
         this.loc.direction = direction;
+        this.geoInfo.addQuaNode(this);
+
     };
     Bear.prototype.refreshGeo = function(){
-        if(this.geoInfo.quaTreeNode){
-            this.geoInfo.quaTreeNode.deleteSprite(this);
-            this.geoInfo.bindGeo.addQuaNode(this);
+        if(this.quaTreeNode){
+            this.quaTreeNode.deleteSprite(this);
+            this.geoInfo.addQuaNode(this);
         }else{
+            //console.log(this.propInfo.life);
         }
-    }
+    };
     Bear.prototype.removeFromGeo = function(){
-        if(this.geoInfo.quaTreeNode){
-            this.geoInfo.quaTreeNode.deleteSprite(this);
-        }
-    }
+
+    };
     Bear.prototype.action = function(){
         if(this.AI){
             this.viewHandle();
             this.moveHandle();
-            this.attackHandle();
+            //this.attackHandle();
         }
     };
-
     Bear.prototype.viewHandle = function(){
         //view事件触发判断
         var self = this;
@@ -121,12 +115,9 @@ define(function (require) {
         function _getObjInView(){
             var loc = self.loc;
             var viewInfo = self.viewInfo;
-            var quaTreeNode = self.geoInfo.quaTreeNode;
-            if(!quaTreeNode){
-                console.log("can't find own tree");
+            var quaTreeNode = self.quaTreeNode;
+            if(!quaTreeNode)
                 return [];
-            }
-
             var w = quaTreeNode.bounds.w;
             var spriteList = quaTreeNode.spriteList;
             var list = [];
@@ -141,6 +132,7 @@ define(function (require) {
                     }
                 }
                 if(list.length>1 && self.testSignal.watch){
+                    console.log(list);
                 }
             }
             return list;
@@ -159,34 +151,23 @@ define(function (require) {
             return aimObj;
         };
         function _setAim(aimObj){
-            //console.log("------------------------------")
-            //console.log("old--------");
-            //if(!self.aimInfo.aimObj){
-            //    console.log("noAim");
-            //}else{
-            //    console.log(self.aimInfo.aimObj.id);
-            //}
-            //console.log("new--------");
-            //if(!aimObj){
-            //    console.log("noObj");
-            //}else{
-            //    console.log(aimObj.id);
-            //}
-
             var aimInfo = self.aimInfo;
-            self.aimInfo.aimObj = aimObj;
+            aimInfo.aimObj = aimObj;
             if(aimObj){
-                self.aimInfo.aimLoc = {x:aimObj.loc.x,y:aimObj.loc.y};
-                self.aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
+                aimInfo.aimLoc = {x:aimObj.loc.x,y:aimObj.loc.y};
+                aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
             }
             else{
-                self.aimInfo.aimEmptySignal--;
-                self.aimInfo.aimLoc = 0;
-                if(self.aimInfo.aimEmptySignal <= 0){
-                    self.aimInfo.aimEmptySignal = self.aimInfo.aimEmptyInterval;
+                aimInfo.aimEmptySignal--;
+                aimInfo.aimLoc = 0;
+                //console.log(aimInfo.aimEmptySignal);
+                //console.log(self.loc.direction);
+                if(aimInfo.aimEmptySignal <= 0){
+                    aimInfo.aimEmptySignal = aimInfo.aimEmptyInterval;
                     self.loc.direction = Math.random()* 0.6 - 0.3 + self.loc.direction;
                 }
             }
+
         }
     };
     Bear.prototype.moveHandle = function () {
@@ -203,7 +184,8 @@ define(function (require) {
         var dir = _getDir();
         loc.x += speed * Math.cos(dir);
         loc.y += speed * Math.sin(dir);
-        var geoInfo = this.geoInfo.bindGeo;
+
+        var geoInfo = this.geoInfo;
         if(loc.x <= 0||loc.x >= geoInfo.width){
             loc.direction = Math.PI - loc.direction;
         }
@@ -211,7 +193,7 @@ define(function (require) {
             loc.direction = -1*loc.direction;
         }
 
-        self.refreshGeo();
+
 
         //获取速度
         function _getSpeed(){
@@ -259,15 +241,10 @@ define(function (require) {
         attackInfo.stamp = _t;
 
         var aimInfo = self.aimInfo;
-        //if(aimInfo.aimObj&&aimInfo.aimObj.isAttackable(this)){
         if(aimInfo.aimObj){
-            //var sLife = self.propInfo.life;
-            //var aLife = aimInfo.aimObj.propInfo.life;
-            //if(sLife >= aLife){
-                var damageCount = _damageCount();
-                var damageResult = aimInfo.aimObj.getDamage(damageCount);
-                _damageCallback(damageResult);
-            //}
+            var damageCount = _damageCount();
+            var damageResult = aimInfo.aimObj.getDamage(damageCount);
+            _damageCallback(damageResult);
         }else{
 
         }
@@ -297,39 +274,19 @@ define(function (require) {
         if(propInfo.life > 0){
             return 0;
         }else{
-            if(!self.geoInfo.quaTreeNode){
-                console.log("??");
-            }
             self.died();
             return "killed";
         }
     };
     Bear.prototype.died = function(){
-        if(!this.geoInfo.quaTreeNode){
-            console.log("!!");
+        if(!this.quaTreeNode){
+            console.log("?");
         }
-        if(!this.geoInfo.quaTreeNode.deleteSprite(this)){
+        if(!this.quaTreeNode.deleteSprite(this)){
         };
-
         this.GM.removeSprite(this);
-        this.GM.fireEvent('removeSprite',this.id);
-    };
-    Bear.prototype.isDead = function(){
-        if(this.propInfo.life <= 0){
-            return true;
-        }
-        return false;
-    };
-    Bear.prototype.isAttackable = function(beater){
-        var self = this;
-        var sLife = self.propInfo.life;
-        var bLife = beater.propInfo.life;
-        if(sLife<=bLife)
-            return true;
-        return false;
     };
     Bear.prototype.getOutPut = function(){
-        //TODO 现在的情况是不论sprite Change与否都会返回
         return{
             id:this.id,
             type:this.type,

@@ -6,9 +6,13 @@ define(function (require) {
     var instance = null;
 
     function SpriteManager(){
-
     }
     SpriteManager.prototype ={
+        /**
+         * 通过对象类型来生成sprite
+         * @param type
+         * @returns {*}
+         */
         generateSpriteByType:function(type){
             var sprite;
             switch (type){
@@ -19,6 +23,20 @@ define(function (require) {
 
             return sprite;
         },
+        /**
+         * 通过属性来生成sprite
+         * 参数格式：
+         * {
+         *   type:"bear",
+         *   prop:{
+         *      id:id,
+         *      loc:**
+         *   }
+         * }
+         * 说明：所有在prop对象中的sprite属性会被覆盖
+         * @param detail
+         * @returns {*}
+         */
         generateSpriteByDetail:function(detail){
             var sprite;
             switch (detail.type){

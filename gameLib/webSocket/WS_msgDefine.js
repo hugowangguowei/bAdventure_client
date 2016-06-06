@@ -10,8 +10,10 @@ define(function(require){
     function CLIENT_MSG_TYPE(){
         this.DISCONNECT = 'disconnect',
         this.BASIC_CONNECT = 'basicConnect',
+        this.DEBUG = 'debug',
         this.START_GAME = 'startGame',
-        this.JOIN_GAME = 'joinGame'
+        this.JOIN_GAME = 'joinGame',
+        this.GAME_INPUT = 'gameInput'
     }
 
     /**
@@ -21,7 +23,8 @@ define(function(require){
     function SERVER_MSG_TYPE(){
         this.SYSTEM_INFORM = "system_inform";
         this.BASIC_CONNECT_RETURN = "basicConnectReturn";
-        this.GAME_INFO = 'gameInfo'
+        this.GAME_INFO = 'gameInfo';
+        this.GAME_SYN = 'gameSyn';
     }
 
     return {

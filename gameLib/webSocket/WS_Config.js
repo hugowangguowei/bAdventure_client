@@ -17,7 +17,10 @@ define(function(require){
                 }
             }},
             {msgName:"event_msg",msgFunc:function(msg){
-                gm.input(msg[0],msg[1]);
+                gm.input(msg[0],msg[1],msg["packNum"]);
+            }},
+            {msgName:SMT.GAME_SYN,msgFunc:function(msg){
+                gm.getSyn(msg);
             }},
             {msgName:"test",msgFunc:function(msg){
             }}

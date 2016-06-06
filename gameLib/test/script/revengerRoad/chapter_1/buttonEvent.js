@@ -13,15 +13,6 @@ function init(){
 }
 
 function test1(){
-    //在本地添加小熊
-    //require(
-    //    ['gameLib/script/revengerRoad/chapter_1/sprite/Bear'],
-    //    function(Bear){
-    //        for(var i = 0;i<10;i++){
-    //            var bear = new Bear;
-    //            gm.addSprite(bear);
-    //        }
-    //    })
     for(var i = 0;i<10;i++){
         var id = "bear_" + Math.random();
         var loc = {x:parseInt(Math.random()*1000),y:parseInt(Math.random()*800),direction:0};
@@ -53,7 +44,39 @@ function test4(){
     WSM.webSocket.emit('joinGame');
 }
 
-
 function test5(){
 
 }
+
+//gameInput消息格式示范
+/*
+var msg = {
+    type:"XX",(refreshSprite)
+    detail:{
+        type:"acc",
+        detail:""
+    }
+}
+*/
+
+$(document).keydown(function(event){
+    console.log(event.keyCode);
+    switch (event.keyCode){
+        case 37:
+            //turnLeft
+            WSM.sendMsg("gameInput",{type:"refreshSprite",detail:{type:"turnLeft",detail:""}});
+            break;
+        case 38:
+            //acc
+            WSM.sendMsg("gameInput",{type:"refreshSprite",detail:{type:"acc",detail:""}});
+            break;
+        case 39:
+            //turnRight
+            WSM.sendMsg("gameInput",{type:"refreshSprite",detail:{type:"turnRight",detail:""}});
+            break;
+        case 40:
+            //draw
+            WSM.sendMsg("gameInput",{type:"refreshSprite",detail:{type:"draw",detail:""}});
+            break;
+    }
+});

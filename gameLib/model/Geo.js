@@ -29,7 +29,8 @@ define(function (require) {
             }
         },
         addQuaNode:function(sprite){
-            this.quaTree.insertSprite(sprite);
+            var node = this.quaTree.insertSprite(sprite);
+            //sprite.geoInfo.quaTreeNode = node;
         },
         getLocByNum:function(i){
             if(i <0 || i>this.dataArray.length){

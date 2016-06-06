@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="UI/style.css" type="text/css"/>
     <script type="text/javascript" src="../dep/require.js"></script>
     <script type="text/javascript" src="../dep/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="./test/script/revengerRoad/chapter_1/buttonEvent.js"></script>
+    <script type="text/javascript" src="./test/script/revengerRoad/chapter_1/buttonEvent_local.js"></script>
     <script>
         requirejs.config({
             baseUrl:"../",
@@ -23,7 +23,7 @@
         var gm;
         var WSM;
         //是否单身
-        var isSingle = false;
+        var isSingle = true;
         require(['gameLib/Game',
                     'gameLib/script/revengerRoad/chapter_1',
                     'gameLib/view/GAME_view'],
@@ -37,10 +37,10 @@
 </head>
 <body onload="init()">
 <input type="button" id = "t1" value="test1" onclick="test1()">
-<input type="button" id = "t2" value="test2" onclick="test2()">
-<input type="button" id = "t3" value="test3" onclick="test3()">
-<input type="button" id = "t4" value="test4" onclick="test4()">
-<input type="button" id = "t5" value="test5" onclick="test5()">
+<input type="button" id = "t2" value="test1" onclick="test2()">
+<input type="button" id = "t3" value="test1" onclick="test3()">
+<input type="button" id = "t4" value="test1" onclick="test4()">
+<input type="button" id = "t5" value="test1" onclick="test5()">
 <hr>
 <canvas id = "mainCanvas"></canvas>
 </body>

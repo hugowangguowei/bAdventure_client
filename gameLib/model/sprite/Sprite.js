@@ -14,6 +14,12 @@ define(function(require){
         addToGeo:function(geoInfo){
 
         },
+        setQuaTreeNode:function(node){
+            this.geoInfo.quaTreeNode = node;
+        },
+        removeQuaTreeNode:function(){
+            this.geoInfo.quaTreeNode = 0;
+        },
         action:function(){
 
         },

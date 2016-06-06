@@ -5,6 +5,7 @@ define(function(require){
     var spriteManager = require("gameLib/controller/SpriteManager").getInstance();
     var Geo = require("gameLib/model/Geo");
     var baEventSource = require("baBasicLib/baEventSource");
+    var errorCheck = require("gameLib/webSocket/WS_errorCheck");
 
     function Game(initInfo){
         baEventSource.call(this);
@@ -17,10 +18,9 @@ define(function(require){
         }
         this.initialize(initInfo);
     }
-
+    //《疯狂HTML5+CSS+JAVASCRIPT》
     Game.prototype = new baEventSource();
     Game.prototype.initialize = function(initInfo){
-
     };
     Game.prototype.loadChapter = function(chapterInfo,charaInfo,isLeader){
         if(isLeader){
@@ -48,20 +48,58 @@ define(function(require){
             }
         }
 
-        //this.timer.timerTask = setInterval(function(){
-        //    var changedSprite = [];
-        //    //console.log(self.spriteList.length);
-        //    for(var i = 0;i<self.spriteList.length;i++){
-        //        var sprite_i = self.spriteList[i];
-        //        sprite_i.action();
-        //        changedSprite.push(sprite_i.getOutPut());
-        //    }
-        //    self.fireEvent("spriteChange",changedSprite);
-        //},this.timer.frameSpeed);
+        //判断是否为单机测试
+        //如果为真，启动循环
+        if(isSingle){
+            this.timer.timerTask = setInterval(function(){
+                var changedSprite = [];
+
+                for(var i in self.spriteList){
+                    var sprite_i = self.spriteList[i];
+                    sprite_i.action();
+                    changedSprite.push(sprite_i.getOutPut());
+                }
+                self.fireEvent("spriteChange",changedSprite);
+            },this.timer.frameSpeed);
+        }
+
     };
     Game.prototype.startFollowerEngine = function(chapterInfo){
     };
-    Game.prototype.input = function (type,info) {
+    Game.prototype.getSyn = function (msg) {
+        var self = this;
+        if(!msg.length){
+            return false;
+        }
+        var id,type,detail;
+        outerLoop:
+        for(var i in self.spriteList){
+            var sprite_i = self.spriteList[i];
+            var isExist = false;
+            innerLoop:
+            for(var m = 0;m < msg.length;m++){
+                var sInfo_m = msg[m];
+                if(sprite_i.id == sInfo_m.id){
+                    isExist = true;
+                    break innerLoop;
+                }
+            }
+            if(!isExist){
+                self.removeSprite(sprite_i);
+            }
+        }
+        for(var i = 0;i<msg.length;i++){
+            var sInfo_i = msg[i];
+            if(!self.spriteList[sInfo_i.id]){
+                type = sInfo_i.type;
+                id = sInfo_i.id;
+                detail = {type:type,prop:{id:id}};
+                var sprite_i = spriteManager.generateSpriteByDetail(detail);
+                self.addSprite(sprite_i);
+            }
+        }
+    }
+    Game.prototype.input = function (type,info,packNum) {
         var self = this;
         switch (type){
             case "addSprite":
@@ -89,14 +127,24 @@ define(function(require){
                     for(var m in sInfo){
                         sprite[m] = sInfo[m];
                     }
+                    sprite.refreshGeo();
+                }else{
+                    //之所以会有{！sprite}事件的发生，是因为角色死亡事件立刻触发
+                    //但是角色更新操作需要当前所有对象更新完成后才会触发事件
+                    //所以有可能当一个角色先执行了动作，该动作会被推送入refreshList
+                    //然后在同一帧，该角色被杀死了，就会出现这个问题
+                    //更新机制还需要改进。
+                    //console.log("error!!  " + packNum);
+                    //errorCheck.checkPack(packNum);
                 }
             }
             self.fireEvent("spriteChange",info);
         };
         function _removeSprite(id){
             self.removeSpriteById(id);
-        }
-    }
+            self.fireEvent("spriteChange",info);
+        };
+    };
     Game.prototype.addSprite = function(sprite_i){
         sprite_i.GM = this;
         sprite_i.addToGeo(this.geoInfo);
@@ -104,10 +152,11 @@ define(function(require){
         this.spriteCount++;
     };
     Game.prototype.removeSprite = function(sprite){
-        for(var i = 0;i<this.spriteList.length;i++){
+        for(var i in this.spriteList){
+            console.log("lost One Sprite");
             var sprite_i = this.spriteList[i];
             if(sprite_i == sprite){
-                delete sprite_i;
+                delete this.spriteList[i];
                 this.spriteCount--;
                 return true;
             }
@@ -125,12 +174,12 @@ define(function(require){
     };
     Game.prototype.removeSpriteById = function(id){
         if(this.spriteList[id]){
+            this.spriteList[id].removeFromGeo();
             delete this.spriteList[id];
             this.spriteCount--;
             return true;
         }
         return false;
-    }
-
+    };
     return Game;
 });

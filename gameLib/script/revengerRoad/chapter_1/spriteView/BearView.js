@@ -17,13 +17,13 @@ define(function(require){
         spriteView.call(this);
         this.type = "bearView";
         this.bindModel = model;
-    }
+    };
     BearView.prototype = new spriteView();
     BearView.prototype.draw = function(canvas){
         var obj = this.bindModel;
         var loc = obj.loc;
         //计算位置
-        var geo = obj.geoInfo;
+        var geo = obj.geoInfo.bindGeo;
         var geoW = geo.width , geoH = geo.height;
         var relX = loc.x/geoW , relY = loc.y/geoH;
         var cW = canvas.width , cH = canvas.height;

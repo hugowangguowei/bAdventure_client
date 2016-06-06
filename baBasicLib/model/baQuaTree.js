@@ -2,6 +2,7 @@
  * Created by wgw on 2016/5/10.
  */
 define(function(require){
+
     function baQuaTree(){
         this.id = null;
         this.type = "quaTree";
@@ -83,7 +84,7 @@ define(function(require){
                     this.divide();
                 }
                 else{
-                    sprite_i.quaTreeNode = this;
+                    sprite_i.setQuaTreeNode(this);
                 }
             }
         },
@@ -92,7 +93,7 @@ define(function(require){
                 var sprite_i = this.spriteList[i];
                 if(sprite_i.id == sprite.id){
                     this.spriteList.splice(i,1);
-                    sprite.quaTreeNode = 0;
+                    sprite.removeQuaTreeNode();
                     if(this.parent){
                         this.parent.oneSpriteDeleted();
                     }
@@ -112,7 +113,7 @@ define(function(require){
          * 分节点移除元素后父节点的响应
          */
         oneSpriteDeleted:function(){
-        //TODO :好像非常复杂啊这个地方
+            //TODO :好像非常复杂啊这个地方
             var spriteList = this.getSpriteList();
             this.nodeList = [];
             this.spriteList = [];

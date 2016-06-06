@@ -10,7 +10,7 @@ define(function(require){
         Sprite:{
             //"leader":{num:1},
             //"follower":{num:4},
-            "bear":{num:1}
+            "bear":{num:5}
         }
     }
 })
